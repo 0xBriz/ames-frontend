@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg fill="none" preserveAspectRatio="none" viewBox="0 0 1440 800" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#g)">
+<rect width="100%" height="100%" fill="#FEFFEB"/>
+<circle cx="559.18" cy="927.78" r="355.77" fill="url(#f)" opacity=".3"/>
+<circle cx="1616.5" cy="1039.2" r="355.77" fill="url(#e)" opacity=".4"/>
+<circle cx="496.31" cy="-15.228" r="355.77" fill="url(#d)" opacity=".4"/>
+<circle cx="1743.6" cy="356.26" r="355.77" fill="url(#c)" opacity=".3"/>
+<circle cx="-175.23" cy="540.58" r="355.77" fill="url(#b)" opacity=".4"/>
+<circle cx="1032.1" cy="414.84" r="355.77" fill="url(#a)" opacity=".6"/>
+</g>
+<defs>
+<linearGradient id="f" x1="559.18" x2="559.18" y1="572.01" y2="1283.6" gradientUnits="userSpaceOnUse">
+<stop stop-color="#AC99FF" offset="0"/>
+<stop stop-color="#BCFF99" offset="1"/>
+</linearGradient>
+<linearGradient id="e" x1="1616.5" x2="1616.5" y1="683.46" y2="1395" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FEFFEB" offset="0"/>
+<stop stop-color="#fc9" offset="1"/>
+</linearGradient>
+<linearGradient id="d" x1="496.31" x2="496.31" y1="-371" y2="340.54" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FEFFEB" offset="0"/>
+<stop stop-color="#fc9" offset="1"/>
+</linearGradient>
+<linearGradient id="c" x1="1743.6" x2="1743.6" y1=".48877" y2="712.03" gradientUnits="userSpaceOnUse">
+<stop stop-color="#AC99FF" offset="0"/>
+<stop stop-color="#3277FF" offset="1"/>
+</linearGradient>
+<linearGradient id="b" x1="-175.23" x2="-175.23" y1="184.8" y2="896.35" gradientUnits="userSpaceOnUse">
+<stop stop-color="#AC99FF" offset="0"/>
+<stop stop-color="#3277FF" offset="1"/>
+</linearGradient>
+<linearGradient id="a" x1="1032.1" x2="1032.1" y1="59.07" y2="770.61" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FEFFEB" offset="0"/>
+<stop stop-color="#BCFF99" offset="1"/>
+</linearGradient>
+<clipPath id="g">
+<rect width="1440" height="1024" fill="#fff"/>
+</clipPath>
+</defs>
+</svg>
