@@ -9,8 +9,8 @@
 
     - set allocations
         - _communityAllocation 7000000000000000000000
-        - _devAllocation 1750000000000000000000
-        - _team1Allocation 1750000000000000000000
+        - _devAllocation 1250000000000000000000
+        - _team1Allocation 1250000000000000000000
     - distribute rewards
         - _farmingIncentiveFund qsharewardpool
     - claim rewards
@@ -41,8 +41,8 @@
         - _startTime - mesmo que as farms
     - set extra funds
         - dao 1500
-        - devfund 250
-        - teamfund 250
+        - devfund 100
+        - teamfund 100
     - set minting factor 15000??
     - allocate seignorage (6h)
 
