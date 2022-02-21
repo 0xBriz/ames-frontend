@@ -55,7 +55,7 @@ const Stake: React.FC<StakeProps> = ({ bank }) => {
 
   let swapURL;
 
-  if (bank.depositTokenName.startsWith('QUARTZ')) {
+  if (bank.depositTokenName.startsWith('AMES')) {
     if (bank.depositTokenName.includes('UST')) {
       swapURL = 'https://game.defikingdoms.com/#/add/0x224e64ec1BDce3870a6a6c777eDd450454068FEC/' + bombAddr;
     } else {

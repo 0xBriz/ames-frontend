@@ -136,8 +136,8 @@ export class BombFinance {
     const lpToken = this.externalTokens[name];
     const lpTokenSupplyBN = await lpToken.totalSupply();
     const lpTokenSupply = getDisplayBalance(lpTokenSupplyBN, 18);
-    const token0 = name.startsWith('QUARTZ') ? this.BOMB : this.BSHARE;
-    const isBomb = name.startsWith('QUARTZ');
+    const token0 = name.startsWith('AMES') ? this.BOMB : this.BSHARE;
+    const isBomb = name.startsWith('AMES');
     const tokenAmountBN = await token0.balanceOf(lpToken.address);
     const tokenAmount = getDisplayBalance(tokenAmountBN, 18);
 
@@ -161,8 +161,8 @@ export class BombFinance {
     const lpToken = this.externalTokens[name];
     const lpTokenSupplyBN = await lpToken.totalSupply();
     const lpTokenSupply = getDisplayBalance(lpTokenSupplyBN, 18);
-    const token0 = name.startsWith('QUARTZ') ? this.BOMB : this.BSHARE;
-    const isBomb = name.startsWith('QUARTZ');
+    const token0 = name.startsWith('AMES') ? this.BOMB : this.BSHARE;
+    const isBomb = name.startsWith('AMES');
     const tokenAmountBN = await token0.balanceOf(lpToken.address);
     const tokenAmount = getDisplayBalance(tokenAmountBN, 18);
 
@@ -344,14 +344,13 @@ export class BombFinance {
     }
     const rewardPerSecond = await poolContract.tSharePerSecond();
 
-    if (depositTokenName.startsWith('QUARTZ')) {
+    if (depositTokenName.startsWith('AMES')) {
       // make this real allocation
-      if (depositTokenName.includes('QSHARE')) {
-        return rewardPerSecond.mul(0).div(59500);
-      }
-      return rewardPerSecond.mul(41650).div(59500);
+      return rewardPerSecond.mul(19834).div(59500);
+    } else if (depositTokenName.startsWith('1QSHARE')) {
+      return rewardPerSecond.mul(19834).div(59500);
     } else {
-      return rewardPerSecond.mul(17850).div(59500);
+      return rewardPerSecond.mul(19834).div(59500);
     }
   }
 
