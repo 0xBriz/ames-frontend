@@ -31,7 +31,7 @@ const Farm = () => {
               <Box mt={5}>
                 <div hidden={activeBanks.filter((bank) => bank.sectionInUI === 2).length === 0}>
                   <Typography style={{ textTransform: 'none', fontWeight: 'bold' }} color="textPrimary" align="center" variant="h3">
-                    Earn QSHARE in our Farms
+                    Earn ASHARE in our Farms
                   </Typography>
                   <Grid container spacing={3} style={{ marginTop: '20px' }}>
                     {activeBanks
