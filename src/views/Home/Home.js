@@ -114,7 +114,7 @@ const Home = () => {
       <Grid style={{ marginBottom: '50px', paddingTop: '50px' }} container spacing={3}>
         <Grid style={{ marginBottom: '40px' }} item xs={12}>
           <StyledText variant="h3" color="textPrimary">
-            Farm QSHARE and earn rewards in our algorithmic stablecoin ecosystem.
+            Farm ASHARE and earn rewards in our algorithmic stablecoin ecosystem.
           </StyledText>
         </Grid>
         {/* TVL */}
@@ -149,12 +149,12 @@ const Home = () => {
             <CardContent align="center" style={{ position: 'relative' }}>
               <Box mt={2}>
                 <CardIcon backgroundColor="#BCFF99">
-                  <TokenSymbol size={72} symbol="QUARTZ" />
+                  <TokenSymbol size={72} symbol="AMES" />
                 </CardIcon>
               </Box>
               <Button
                 onClick={() => {
-                  bombFinance.watchAssetInMetamask('QUARTZ');
+                  bombFinance.watchAssetInMetamask('AMES');
                 }}
                 style={{ position: 'absolute', top: '10px', right: '10px' }}
               >
@@ -162,7 +162,7 @@ const Home = () => {
                 <b>+</b>&nbsp;&nbsp;
                 <img alt="metamask fox" style={{ width: '20px' }} src={MetamaskFox} />
               </Button>
-              <p style={{ fontWeight: 'bold', marginBottom: '10px' }}>QUARTZ</p>
+              <p style={{ fontWeight: 'bold', marginBottom: '10px' }}>AMES</p>
               <Box mb={1}>
                 <span style={{ fontWeight: 'bold', fontSize: '40px', alignContent: 'flex-start' }}>
                   ${bombPriceInDollars ? roundAndFormatNumber(bombPriceInDollars, 2) : '-.--'}
@@ -170,7 +170,7 @@ const Home = () => {
               </Box>
               <Box mb={3}>
                 <span style={{ fontSize: '16px' }}>
-                  1 QUARTZ (1.0 Peg) ={bombPriceInBNB ? bombPriceInBNB : '-.----'} UST
+                  1 AMES (1.0 Peg) ={bombPriceInBNB ? bombPriceInBNB : '-.----'} UST
                 </span>
               </Box>
               <MarketCap>
@@ -193,7 +193,7 @@ const Home = () => {
               </MarketCap>
               <BuyWrapper>
                 <StyledLink className="shinyButton" href="https://game.defikingdoms.com/#/marketplace?inputCurrency=0x224e64ec1BDce3870a6a6c777eDd450454068FEC&outputCurrency=0xb9E05B4C168B56F73940980aE6EF366354357009" target="_blank">
-                  Buy it at DefiKingdoms - Trader
+                  Buy
                 </StyledLink>
               </BuyWrapper>
             </CardContent>
@@ -206,7 +206,7 @@ const Home = () => {
             <CardContent align="center" style={{ position: 'relative' }}>
               <Button
                 onClick={() => {
-                  bombFinance.watchAssetInMetamask('QSHARE');
+                  bombFinance.watchAssetInMetamask('ASHARE');
                 }}
                 style={{ position: 'absolute', top: '10px', right: '10px' }}
               >
@@ -216,17 +216,17 @@ const Home = () => {
               </Button>
               <Box mt={2}>
                 <CardIcon backgroundColor="#FFCC99">
-                  <TokenSymbol size={72} symbol="QSHARE" />
+                  <TokenSymbol size={72} symbol="ASHARE" />
                 </CardIcon>
               </Box>
-              <p style={{ fontWeight: 'bold', marginBottom: '10px' }}>QSHARE</p>
+              <p style={{ fontWeight: 'bold', marginBottom: '10px' }}>ASHARE</p>
               <Box mb={1}>
                 <span style={{ fontWeight: 'bold', fontSize: '40px', alignContent: 'flex-start' }}>
                   ${bSharePriceInDollars ? roundAndFormatNumber(bSharePriceInDollars, 2) : '-.--'}
                 </span>
               </Box>
               <Box mb={3}>
-                <span style={{ fontSize: '16px' }}>1 QSHARE ={bSharePriceInBNB ? bSharePriceInBNB : '-.----'} ONE</span>
+                <span style={{ fontSize: '16px' }}>1 QSHARE ={bSharePriceInBNB ? bSharePriceInBNB : '-.----'} UST</span>
               </Box>
               <MarketCap>
                 <SplitContent>
@@ -248,7 +248,7 @@ const Home = () => {
               </MarketCap>
               <BuyWrapper>
                 <StyledLink className="shinyButton" href="https://game.defikingdoms.com/#/marketplace?inputCurrency=ONE&outputCurrency=0xFa4b16b0f63F5A6D0651592620D585D308F749A4" target="_blank">
-                  Buy it at DefiKingdoms - Trader
+                  Buy
                 </StyledLink>
               </BuyWrapper>
             </CardContent>
@@ -261,7 +261,7 @@ const Home = () => {
             <CardContent align="center" style={{ position: 'relative' }}>
               <Button
                 onClick={() => {
-                  bombFinance.watchAssetInMetamask('QBOND');
+                  bombFinance.watchAssetInMetamask('ABOND');
                 }}
                 style={{ position: 'absolute', top: '10px', right: '10px' }}
               >
@@ -271,17 +271,17 @@ const Home = () => {
               </Button>
               <Box mt={2}>
                 <CardIcon backgroundColor="#AC99FF">
-                  <TokenSymbol size={72} symbol="QBOND" />
+                  <TokenSymbol size={72} symbol="ABOND" />
                 </CardIcon>
               </Box>
-              <p style={{ fontWeight: 'bold', marginBottom: '10px' }}>QBOND</p>
+              <p style={{ fontWeight: 'bold', marginBottom: '10px' }}>ABOND</p>
               <Box mb={1}>
                 <span style={{ fontWeight: 'bold', fontSize: '40px', alignContent: 'flex-start' }}>
                   ${tBondPriceInDollars ? roundAndFormatNumber(tBondPriceInDollars, 2) : '-.--'}
                 </span>
               </Box>
               <Box mb={3}>
-                <span style={{ fontSize: '16px' }}>1 QBOND ={tBondPriceInBNB ? tBondPriceInBNB : '-.----'} UST</span>
+                <span style={{ fontSize: '16px' }}>1 ABOND ={tBondPriceInBNB ? tBondPriceInBNB : '-.----'} UST</span>
               </Box>
               <MarketCap>
                 <SplitContent>
@@ -305,9 +305,9 @@ const Home = () => {
           </Card>
         </Grid>
       </Grid>
-      <Box>
+      {/* <Box>
         <TreasuryBalance />
-      </Box>
+      </Box> */}
     </Page>
   );
 };

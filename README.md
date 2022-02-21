@@ -1,11 +1,11 @@
-## Quartz - 0xb9E05B4C168B56F73940980aE6EF366354357009
+## Amethyst - 0xce103124aEab66272d8b7f8e70963a133a80F95d
 
     - distribute rewards
         - launcher address
         - airdrop address
     - transfer operator - treasury
 
-## QSHARE - 0xFa4b16b0f63F5A6D0651592620D585D308F749A4
+## ASHARE - 0x1f939D42129e30b465303B43A159c65EBc3db9f5
 
     - set allocations
         - _communityAllocation 7000000000000000000000
@@ -16,55 +16,53 @@
     - claim rewards
     - transfer operator - treasury
 
-## QBOND - 0x5A12bc3Ad86c674a50fae82510DcB03751ab218b
+## ABOND - 0xd7C43f17fFE531D3c469A00414675E5e1D05F43f
 
     - transfer operator - treasury
 
-## QShareRewardPool - 0x1da194F8baf85175519D92322a06b46A2638A530
+## AShareRewardPool - 0x99BBD0CAc6B1cCf0a28654F2534Df69Bc3598490
 
     - add -
         - last reward time - 0
-        - alloc point - 35500 - quartz-ust
-        - alloc point - 24000 - qshare-ust
+        - alloc point - 19834 - ames-ust
+        - alloc point - 19834 - ashare-ust
+        - alloc point - 19834 - 1qshare-ustc
     - update
         - as duas
 
-## tax oracle - 0x24866b121217F391b0079348146Ea139d7Fd77c7
+## tax oracle - 0xdFd5cb44Ebf731B225A2E15ffE0C9071cdcC8FcE
 
     - set wavax (ust)
     - set pair
 
-## treasury - 0xFc0B7c105A6dd49Fd956b607CA8c8f00Ed159353
+## treasury - 0xa213Df21c9064BdFbC48c7186F3edA54f4A106cc
 
     - initialize
         - oracle - oracle
         - _startTime - mesmo que as farms
     - set extra funds
         - dao 1500
-        - devfund 100
-        - teamfund 100
-    - set minting factor 15000??
+        - devfund 250
+        - teamfund 250
+    - set minting factor 10000??
     - allocate seignorage (6h)
 
-## boardroom - 0xE1E48d3476027af9dC92542b3a60F2D45A36e082
+## boardroom - 0xe581E20b9e956eb7F8a83318C626e0B28bBe8946
 
     - initialize
     - set operator - treasury
 
-## oracle - 0x543AB16f3EDe6dDD26a7C182869a282618B0891C
+## oracle - 0x940A8533F75E993b984c9f3e22bf5af56EeBc7Fb
 
     - period 21600
     - pair ust-quartz
 
-## xquartz - 0xCa1dd590C3ceBa9F57E05540B91AB3F0Ed08580a
-
 ########################################################
 
-ust - 0x224e64ec1BDce3870a6a6c777eDd450454068FEC
-quartz-one - 0x8142d1b6a32e40c62b8ada3685475924578a804c
-quartz-ust - 0x90a48cb3a724ef6f8e6240f4788559f6370b6925
-qshare-one - 0x157e2e205b8d307501f1aad1c5c96c562e6f07c5
-qshare-ust - 0x363167828bafb7cddf01475613df72917f75fbde
+ust - 0x23396cF899Ca06c4472205fC903bDB4de249D6fC
+ames-ust - 0xeb50f489581b0fe627f1eb083800ee474f7a4b7d
+ashare-ust - 0x2f12ce9e2f919513e8be4205e6677a28bfca938b
+1qshare-ust - 0x61503f74189074e8e793cc0827eae37798c2b8f7
 
 ##################### FE STUFF ####################
 

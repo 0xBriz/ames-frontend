@@ -46,7 +46,7 @@ const Stake: React.FC<StakeProps> = ({ bank }) => {
   );
   const earnedInDollars = (
     Number(tokenPriceInDollars) * Number(getDisplayBalance(stakedBalance, bank.depositToken.decimal))
-  ).toFixed(2);
+  ).toFixed(4);
   const { onStake } = useStake(bank);
   const { onZap } = useZap(bank);
   const { onWithdraw } = useWithdraw(bank);

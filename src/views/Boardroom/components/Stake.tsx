@@ -59,7 +59,7 @@ const Stake: React.FC = () => {
         onStake(value);
         onDismissDeposit();
       }}
-      tokenName={'QShare'}
+      tokenName={'AShare'}
     />,
   );
 
@@ -70,7 +70,7 @@ const Stake: React.FC = () => {
         onWithdraw(value);
         onDismissWithdraw();
       }}
-      tokenName={'QShare'}
+      tokenName={'AShare'}
     />,
   );
 
@@ -81,11 +81,11 @@ const Stake: React.FC = () => {
           <StyledCardContentInner>
             <StyledCardHeader>
               <CardIcon backgroundColor="#F9C46A">
-                <TokenSymbol size={95} symbol="QSHARE" />
+                <TokenSymbol size={95} symbol="ASHARE" />
               </CardIcon>
               <Value value={getDisplayBalance(stakedBalance)} />
               <Label text={`≈ $${tokenPriceInDollars}`} color="black" />
-              <Label text={'QSHARE Staked'} color="black" />
+              <Label text={'ASHARE Staked'} color="black" />
             </StyledCardHeader>
             <StyledCardActions>
               {approveStatus !== ApprovalState.APPROVED ? (
@@ -95,7 +95,7 @@ const Stake: React.FC = () => {
                   style={{ marginTop: '20px' }}
                   onClick={approve}
                 >
-                  Approve QSHARE
+                  Approve ASHARE
                 </Button>
               ) : (
                 <>

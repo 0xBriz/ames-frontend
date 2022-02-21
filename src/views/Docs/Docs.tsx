@@ -44,7 +44,7 @@ const Docs: React.FC = () => {
                       href="https://explorer.harmony.one/address/0xb9E05B4C168B56F73940980aE6EF366354357009"
                       target="_blank"
                     >
-                      QUARTZ
+                      AMES
                     </StyledLink>
                   </Typography>
                   <Typography>0xb9E05B4C168B56F73940980aE6EF366354357009</Typography>
@@ -55,7 +55,7 @@ const Docs: React.FC = () => {
                       href="https://explorer.harmony.one/address/0xFa4b16b0f63F5A6D0651592620D585D308F749A4"
                       target="_blank"
                     >
-                      QSHARE
+                      ASHARE
                     </StyledLink>
                   </Typography>
                   <Typography>0xFa4b16b0f63F5A6D0651592620D585D308F749A4</Typography>
@@ -66,12 +66,12 @@ const Docs: React.FC = () => {
                       href="https://explorer.harmony.one/address/0x5A12bc3Ad86c674a50fae82510DcB03751ab218b"
                       target="_blank"
                     >
-                      QBOND
+                      ABOND
                     </StyledLink>
                   </Typography>
                   <Typography>0x5A12bc3Ad86c674a50fae82510DcB03751ab218b</Typography>
                 </Box>
-                <Box mb={2}>
+                {/* <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
                       href="https://explorer.harmony.one/address/0xCa1dd590C3ceBa9F57E05540B91AB3F0Ed08580a"
@@ -81,14 +81,14 @@ const Docs: React.FC = () => {
                     </StyledLink>
                   </Typography>
                   <Typography>0xCa1dd590C3ceBa9F57E05540B91AB3F0Ed08580a</Typography>
-                </Box>
+                </Box> */}
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
                       href="https://explorer.harmony.one/address/0x1da194F8baf85175519D92322a06b46A2638A530"
                       target="_blank"
                     >
-                      QSHARE reward pools
+                      ASHARE reward pools
                     </StyledLink>
                   </Typography>
                   <Typography>0x1da194F8baf85175519D92322a06b46A2638A530</Typography>

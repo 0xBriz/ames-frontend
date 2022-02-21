@@ -14,15 +14,15 @@ const TreasuryBalance = () => {
   const shareStats = useShareStats();
   const quartz = bombFinance.BOMB;
   const qshare = bombFinance.BSHARE;
-  const quartzUst = bombFinance.externalTokens['QUARTZ-UST-LP'];
-  const qshareONE = bombFinance.externalTokens['QSHARE-ONE-LP'];
-  const quartzQSHARE = bombFinance.externalTokens['QUARTZ-QSHARE-LP'];
+  const quartzUst = bombFinance.externalTokens['AMES-UST-LP'];
+  const qshareUST = bombFinance.externalTokens['ASHARE-UST-LP'];
+  // const quartzQSHARE = bombFinance.externalTokens['QUARTZ-QSHARE-LP'];
   const quartzUSTLPBalance = useTreasuryBalance(quartzUst);
-  const quartzUSTLPBurnBalance = useTreasuryBalance(quartzUst, '0x7bdef7bdef7bdef7bdef7bdef7bdef7bdef6e7ad');
-  const qshareBurnedBalance = useTreasuryBalance(qshare, '0x7bdef7bdef7bdef7bdef7bdef7bdef7bdef6e7ad');
-  const quartzBurnedBalance = useTreasuryBalance(quartz, '0x7bdef7bdef7bdef7bdef7bdef7bdef7bdef6e7ad');
-  const qshareOneLPBalance = useTreasuryBalance(qshareONE);
-  const quartzQshareLPBalance = useTreasuryBalance(quartzQSHARE);
+  const quartzUSTLPBurnBalance = useTreasuryBalance(quartzUst, '0x000000000000000000000000000000000000dead');
+  const qshareBurnedBalance = useTreasuryBalance(qshare, '0x000000000000000000000000000000000000dead');
+  const quartzBurnedBalance = useTreasuryBalance(quartz, '0x000000000000000000000000000000000000dead');
+  const qshareOneLPBalance = useTreasuryBalance(qshareUST);
+  // const quartzQshareLPBalance = useTreasuryBalance(quartzQSHARE);
 
   const quartzPriceInDollars = useMemo(
     () => (quartzStats ? Number(quartzStats.priceInDollars).toFixed(2) : null),
@@ -38,14 +38,9 @@ const TreasuryBalance = () => {
     Number(stakedTokenPriceInDollars) * Number(getDisplayBalance(quartzUSTLPBalance, 18))
   ).toFixed(2);
 
-  const stakedTokenPriceInDollars2 = useStakedTokenPriceInDollars('QSHARE-ONE-LP', qshareONE);
+  const stakedTokenPriceInDollars2 = useStakedTokenPriceInDollars('QSHARE-ONE-LP', qshareUST);
   const earnedInDollars2 = (
     Number(stakedTokenPriceInDollars2) * Number(getDisplayBalance(qshareOneLPBalance, 18))
-  ).toFixed(2);
-
-  const stakedTokenPriceInDollars3 = useStakedTokenPriceInDollars('QUARTZ-QSHARE-LP', quartzQSHARE);
-  const earnedInDollars3 = (
-    Number(stakedTokenPriceInDollars3) * Number(getDisplayBalance(quartzQshareLPBalance, 18))
   ).toFixed(2);
 
   const burnedQuartzUST = (
@@ -67,12 +62,8 @@ const TreasuryBalance = () => {
           <strong style={{ marginLeft: '16px' }}>${earnedInDollars}</strong>
         </p>
         <p style={{ maxWidth: '400px', display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-          <span>{getDisplayBalance(qshareOneLPBalance, 18, 2)} QSHARE-ONE </span>
+          <span>{getDisplayBalance(qshareOneLPBalance, 18, 2)} QSHARE-UST </span>
           <strong style={{ marginLeft: '16px' }}>${earnedInDollars2}</strong>
-        </p>
-        <p style={{ maxWidth: '400px', display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
-          <span>{getDisplayBalance(quartzQshareLPBalance, 18, 2)} QUARTZ-QSHARE </span>
-          <strong style={{ marginLeft: '16px' }}>${earnedInDollars3}</strong>
         </p>
         <Spacer size="md" />
         <Typography style={{ fontWeight: 'bold', textTransform: 'none', margin: '0 0 8px 0' }} variant="h6">
