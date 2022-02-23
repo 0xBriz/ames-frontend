@@ -148,7 +148,7 @@ const Home = () => {
           <Card>
             <CardContent align="center" style={{ position: 'relative' }}>
               <Box mt={2}>
-                <CardIcon backgroundColor="#BCFF99">
+                <CardIcon backgroundColor="#F9DC64">
                   <TokenSymbol size={72} symbol="AMES" />
                 </CardIcon>
               </Box>
@@ -215,7 +215,7 @@ const Home = () => {
                 <img alt="metamask fox" style={{ width: '20px' }} src={MetamaskFox} />
               </Button>
               <Box mt={2}>
-                <CardIcon backgroundColor="#FFCC99">
+                <CardIcon backgroundColor="#FF9999">
                   <TokenSymbol size={72} symbol="ASHARE" />
                 </CardIcon>
               </Box>

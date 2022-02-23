@@ -2,6 +2,9 @@ import React from 'react';
 
 //Graveyard ecosystem logos
 import bombLogo from '../../assets/img/quartz2.svg';
+import ames from '../../assets/img/ames.svg';
+import ashare from '../../assets/img/ashare.svg';
+import abond from '../../assets/img/abond.svg';
 import xquartzLogo from '../../assets/img/xquartz-token-1600-round.png';
 import tShareLogo from '../../assets/img/qshare3.svg';
 import bombLogoPNG from '../../assets/img/bomb.png';
@@ -22,18 +25,18 @@ const logosBySymbol: { [title: string]: string } = {
   //=====================
   BOMB: bombLogo,
   QUARTZ: bombLogo,
-  AMES: bombLogo,
-  AMETHYST: bombLogo,
+  AMES: ames,
+  AMETHYST: ames,
   XQUARTZ: xquartzLogo,
   XBOMB: bombLogo,
   BOMBPNG: bombLogoPNG,
   BSHAREPNG: tShareLogoPNG,
   BSHARE: tShareLogo,
-  ASHARE: tShareLogo,
+  ASHARE: ashare,
   QSHARE: tShareLogo,
   BBOND: tBondLogo,
   QBOND: tBondLogo,
-  ABOND: tBondLogo,
+  ABOND: abond,
   WONE: bnbLogo,
   BOO: bnbLogo,
   SHIBA: bnbLogo,
