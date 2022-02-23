@@ -377,10 +377,6 @@ export class BombFinance {
    */
   async getDepositTokenPriceInDollars(tokenName: string, token: ERC20) {
     let tokenPrice;
-    const { QUARTZ, QSHARE } = this.config.externalTokens;
-
-    const quartz = new ERC20(QUARTZ[0], this.provider, '1QUARTZ');
-    const qshare = new ERC20(QSHARE[0], this.provider, '1QSHARE');
 
     const priceOfOneFtmInDollars = await this.getWBNBPriceFromPancakeswap();
     if (tokenName === 'WONE') {
@@ -395,9 +391,9 @@ export class BombFinance {
       } else if (tokenName === 'AMES-UST-LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.BOMB, true);
       } else if (tokenName === '1QUARTZ-UST-LP') {
-        tokenPrice = await this.getUSTLPTokenPrice(token, quartz);
+        tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
       } else if (tokenName === '1QSHARE-UST-LP') {
-        tokenPrice = await this.getUSTLPTokenPrice(token, qshare);
+        tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
       } else if (tokenName === '1QUARTZ-1QSHARE-LP') {
         tokenPrice = await this.getTokenPriceFromPancakeswap(token);
         tokenPrice = (Number(tokenPrice) * Number(priceOfOneFtmInDollars)).toString();
@@ -508,6 +504,8 @@ export class BombFinance {
     const tokenSupply = getFullDisplayBalance(await token.balanceOf(lpToken.address), token.decimal);
 
     const priceOfToken = await this.getBTCPriceUSD();
+
+    console.log(totalSupply, tokenSupply, priceOfToken);
     const tokenInLP = Number(tokenSupply) / Number(totalSupply);
     const tokenPrice = (Number(priceOfToken) * tokenInLP * 2) //We multiply by 2 since half the price of the lp token is the price of each piece of the pair. So twice gives the total
       .toString();

@@ -1,6 +1,6 @@
-import {BigNumber, ethers} from 'ethers';
-import {useCallback, useMemo} from 'react';
-import {useHasPendingApproval, useTransactionAdder} from '../state/transactions/hooks';
+import { BigNumber, ethers } from 'ethers';
+import { useCallback, useMemo } from 'react';
+import { useHasPendingApproval, useTransactionAdder } from '../state/transactions/hooks';
 import useAllowance from './useAllowance';
 import ERC20 from '../bomb-finance/ERC20';
 

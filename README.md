@@ -1,11 +1,11 @@
-## Amethyst - 0xce103124aEab66272d8b7f8e70963a133a80F95d
+## Amethyst - 0xb9E05B4C168B56F73940980aE6EF366354357009
 
     - distribute rewards
         - launcher address
         - airdrop address
     - transfer operator - treasury
 
-## ASHARE - 0x1f939D42129e30b465303B43A159c65EBc3db9f5
+## ASHARE - 0xFa4b16b0f63F5A6D0651592620D585D308F749A4
 
     - set allocations
         - _communityAllocation 7000000000000000000000
@@ -16,11 +16,11 @@
     - claim rewards
     - transfer operator - treasury
 
-## ABOND - 0xd7C43f17fFE531D3c469A00414675E5e1D05F43f
+## ABOND - 0xa4F976f7099a0d7F096615DBcbcf5F9d977Ca235
 
     - transfer operator - treasury
 
-## AShareRewardPool - 0x99BBD0CAc6B1cCf0a28654F2534Df69Bc3598490
+## AShareRewardPool - 0x1da194F8baf85175519D92322a06b46A2638A530
 
     - add -
         - last reward time - 0
@@ -30,29 +30,29 @@
     - update
         - as duas
 
-## tax oracle - 0xdFd5cb44Ebf731B225A2E15ffE0C9071cdcC8FcE
+## tax oracle - 0x2110Aa29292B44B142DD20de45dE6C418Aa28092
 
     - set wavax (ust)
     - set pair
 
-## treasury - 0xa213Df21c9064BdFbC48c7186F3edA54f4A106cc
+## treasury - 0x3234F20Ff819dB353f702C44337E5b3c0982a4aB
 
     - initialize
         - oracle - oracle
         - _startTime - mesmo que as farms
     - set extra funds
         - dao 1500
-        - devfund 250
-        - teamfund 250
+        - devfund 100
+        - teamfund 100
     - set minting factor 10000??
     - allocate seignorage (6h)
 
-## boardroom - 0xe581E20b9e956eb7F8a83318C626e0B28bBe8946
+## boardroom - 0xC183b26Ad8C660AFa7B388067Fd18c1Fb28f1bB4
 
     - initialize
     - set operator - treasury
 
-## oracle - 0x940A8533F75E993b984c9f3e22bf5af56EeBc7Fb
+## oracle - 0x298be24C55BF89B114FE66972C787ec78530fCd7
 
     - period 21600
     - pair ust-quartz
@@ -60,8 +60,8 @@
 ########################################################
 
 ust - 0x23396cF899Ca06c4472205fC903bDB4de249D6fC
-ames-ust - 0xeb50f489581b0fe627f1eb083800ee474f7a4b7d
-ashare-ust - 0x2f12ce9e2f919513e8be4205e6677a28bfca938b
+ames-ust - 0x6f78a0d31adc7c9fb848850f9d2a40da5858ad03
+ashare-ust - 0x39846550Ef3Cb8d06E3CFF52845dF42F71Ac3851
 1qshare-ust - 0x61503f74189074e8e793cc0827eae37798c2b8f7
 
 ##################### FE STUFF ####################

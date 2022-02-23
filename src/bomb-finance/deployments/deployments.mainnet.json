@@ -1,6 +1,6 @@
 {
   "ABond": {
-    "address": "0xd7C43f17fFE531D3c469A00414675E5e1D05F43f",
+    "address": "0xa4F976f7099a0d7F096615DBcbcf5F9d977Ca235",
     "abi": [
       {
         "inputs": [],
@@ -445,7 +445,7 @@
     ]
   },
   "AShare": {
-    "address": "0x1f939D42129e30b465303B43A159c65EBc3db9f5",
+    "address": "0xFa4b16b0f63F5A6D0651592620D585D308F749A4",
     "abi": [
       {
         "inputs": [
@@ -1226,7 +1226,7 @@
     ]
   },
   "AShareRewardPool": {
-    "address": "0x99BBD0CAc6B1cCf0a28654F2534Df69Bc3598490",
+    "address": "0x1da194F8baf85175519D92322a06b46A2638A530",
     "abi": [
       {
         "inputs": [
@@ -1712,7 +1712,7 @@
     ]
   },
   "AmesUstLPQShareRewardPool": {
-    "address": "0x99BBD0CAc6B1cCf0a28654F2534Df69Bc3598490",
+    "address": "0x1da194F8baf85175519D92322a06b46A2638A530",
     "abi": [
       {
         "inputs": [
@@ -2198,7 +2198,7 @@
     ]
   },
   "AShareUstLPQShareRewardPool": {
-    "address": "0x99BBD0CAc6B1cCf0a28654F2534Df69Bc3598490",
+    "address": "0x1da194F8baf85175519D92322a06b46A2638A530",
     "abi": [
       {
         "inputs": [
@@ -2684,7 +2684,7 @@
     ]
   },
   "QShareUSTLPQShareRewardPool": {
-    "address": "0x99BBD0CAc6B1cCf0a28654F2534Df69Bc3598490",
+    "address": "0x1da194F8baf85175519D92322a06b46A2638A530",
     "abi": [
       {
         "inputs": [
@@ -3170,7 +3170,7 @@
     ]
   },
   "Boardroom": {
-    "address": "0xe581E20b9e956eb7F8a83318C626e0B28bBe8946",
+    "address": "0xC183b26Ad8C660AFa7B388067Fd18c1Fb28f1bB4",
     "abi": [
       {
         "anonymous": false,
@@ -3722,7 +3722,7 @@
     ]
   },
   "Amethyst": {
-    "address": "0xce103124aEab66272d8b7f8e70963a133a80F95d",
+    "address": "0xb9E05B4C168B56F73940980aE6EF366354357009",
     "abi": [
       {
         "inputs": [],
@@ -4247,7 +4247,7 @@
     ]
   },
   "Oracle": {
-    "address": "0x940A8533F75E993b984c9f3e22bf5af56EeBc7Fb",
+    "address": "0x298be24C55BF89B114FE66972C787ec78530fCd7",
     "abi": [
       {
         "inputs": [
@@ -4652,7 +4652,7 @@
     ]
   },
   "TaxOracle": {
-    "address": "0xdFd5cb44Ebf731B225A2E15ffE0C9071cdcC8FcE",
+    "address": "0x2110Aa29292B44B142DD20de45dE6C418Aa28092",
     "abi": [
       {
         "inputs": [
@@ -4871,7 +4871,7 @@
     ]
   },
   "Treasury": {
-    "address": "0xa213Df21c9064BdFbC48c7186F3edA54f4A106cc",
+    "address": "0x3234F20Ff819dB353f702C44337E5b3c0982a4aB",
     "abi": [
       {
         "anonymous": false,

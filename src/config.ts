@@ -18,11 +18,11 @@ const configurations: { [env: string]: Configuration } = {
       QSHARE: ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
       'USDT-WONE-LP': ['0x58f876857a02d6762e0101bb5c46a8c1ed44dc16', 18], // This is actually 1USDC-WONE on mainnet not fusdt
       'USDT-BTCB-LP': ['0x05faf555522fa3f93959f86b41a3808666093210', 18], // This is actually UST-1USDC
-      'AMES-UST-LP': ['0xeb50f489581b0fe627f1eb083800ee474f7a4b7d', 18], // This is actually AMES-UST
+      'AMES-UST-LP': ['0x6f78a0d31adc7c9fb848850f9d2a40da5858ad03', 18], // This is actually AMES-UST
       'AMES-WONE-LP': ['0x8142d1b6a32e40c62b8ada3685475924578a804c', 18], // This is AMES-WONE
       'AMES-QSHARE-LP': ['0x3736b5b6f2033433ea974e121ce19cc6d0e10dc9', 18], // This is AMETHYST-WONE
-      'ASHARE-ONE-LP': ['0x2f12ce9e2f919513e8be4205e6677a28bfca938b', 18], // This is QSHARE-ONE
-      'ASHARE-UST-LP': ['0x2f12ce9e2f919513e8be4205e6677a28bfca938b', 18], // This is QSHARE-UST
+      'ASHARE-ONE-LP': ['0x39846550Ef3Cb8d06E3CFF52845dF42F71Ac3851', 18], // This is QSHARE-ONE
+      'ASHARE-UST-LP': ['0x39846550Ef3Cb8d06E3CFF52845dF42F71Ac3851', 18], // This is QSHARE-UST
       '1QUARTZ-1QSHARE-LP': ['0x2D491e438A8aa722eCF96c9F2faa05FBe1F476E4', 18], // This is QSHARE-UST
       '1QUARTZ-UST-LP': ['0x5553386c5a11788b00c353507b2ac8a93ad8f8b1', 18], // This is QSHARE-UST
       '1QSHARE-UST-LP': ['0x61503f74189074e8e793cc0827eae37798c2b8f7', 18], // This is QSHARE-UST
@@ -48,11 +48,11 @@ const configurations: { [env: string]: Configuration } = {
       QSHARE: ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
       'USDT-WONE-LP': ['0x58f876857a02d6762e0101bb5c46a8c1ed44dc16', 18], // This is actually 1USDC-WONE on mainnet not fusdt
       'USDT-BTCB-LP': ['0x05faf555522fa3f93959f86b41a3808666093210', 18], // This is actually UST-1USDC
-      'AMES-UST-LP': ['0xeb50f489581b0fe627f1eb083800ee474f7a4b7d', 18], // This is actually AMES-UST
+      'AMES-UST-LP': ['0x6f78a0d31adc7c9fb848850f9d2a40da5858ad03', 18], // This is actually AMES-UST
       'AMES-WONE-LP': ['0x8142d1b6a32e40c62b8ada3685475924578a804c', 18], // This is AMES-WONE
       'AMES-QSHARE-LP': ['0x3736b5b6f2033433ea974e121ce19cc6d0e10dc9', 18], // This is AMES-WONE
-      'ASHARE-ONE-LP': ['0x2f12ce9e2f919513e8be4205e6677a28bfca938b', 18], // This is QSHARE-ONE
-      'ASHARE-UST-LP': ['0x2f12ce9e2f919513e8be4205e6677a28bfca938b', 18], // This is QSHARE-UST
+      'ASHARE-ONE-LP': ['0x39846550Ef3Cb8d06E3CFF52845dF42F71Ac3851', 18], // This is QSHARE-ONE
+      'ASHARE-UST-LP': ['0x39846550Ef3Cb8d06E3CFF52845dF42F71Ac3851', 18], // This is QSHARE-UST
       '1QUARTZ-1QSHARE-LP': ['0x2D491e438A8aa722eCF96c9F2faa05FBe1F476E4', 18], // This is QSHARE-UST
       '1QUARTZ-UST-LP': ['0x5553386c5a11788b00c353507b2ac8a93ad8f8b1', 18], // This is QSHARE-UST
       '1QSHARE-UST-LP': ['0x61503f74189074e8e793cc0827eae37798c2b8f7', 18], // This is QSHARE-UST
