@@ -41,7 +41,7 @@ const Docs: React.FC = () => {
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://explorer.harmony.one/address/0xb9E05B4C168B56F73940980aE6EF366354357009"
+                      href="https://bscscan.com/address/0xb9E05B4C168B56F73940980aE6EF366354357009"
                       target="_blank"
                     >
                       AMES
@@ -52,7 +52,7 @@ const Docs: React.FC = () => {
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://explorer.harmony.one/address/0xFa4b16b0f63F5A6D0651592620D585D308F749A4"
+                      href="https://bscscan.com/address/0xFa4b16b0f63F5A6D0651592620D585D308F749A4"
                       target="_blank"
                     >
                       ASHARE
@@ -63,7 +63,7 @@ const Docs: React.FC = () => {
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://explorer.harmony.one/address/0x5A12bc3Ad86c674a50fae82510DcB03751ab218b"
+                      href="https://bscscan.com/address/0x5A12bc3Ad86c674a50fae82510DcB03751ab218b"
                       target="_blank"
                     >
                       ABOND
@@ -74,7 +74,7 @@ const Docs: React.FC = () => {
                 {/* <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://explorer.harmony.one/address/0xCa1dd590C3ceBa9F57E05540B91AB3F0Ed08580a"
+                      href="https://bscscan.com/address/0xCa1dd590C3ceBa9F57E05540B91AB3F0Ed08580a"
                       target="_blank"
                     >
                       XQUARTZ
@@ -85,7 +85,7 @@ const Docs: React.FC = () => {
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://explorer.harmony.one/address/0x1da194F8baf85175519D92322a06b46A2638A530"
+                      href="https://bscscan.com/address/0x1da194F8baf85175519D92322a06b46A2638A530"
                       target="_blank"
                     >
                       ASHARE reward pools
@@ -96,7 +96,7 @@ const Docs: React.FC = () => {
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://explorer.harmony.one/address/0x24866b121217F391b0079348146Ea139d7Fd77c7"
+                      href="https://bscscan.com/address/0x24866b121217F391b0079348146Ea139d7Fd77c7"
                       target="_blank"
                     >
                       TaxOracle
@@ -107,7 +107,7 @@ const Docs: React.FC = () => {
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://explorer.harmony.one/address/0xFc0B7c105A6dd49Fd956b607CA8c8f00Ed159353"
+                      href="https://bscscan.com/address/0xFc0B7c105A6dd49Fd956b607CA8c8f00Ed159353"
                       target="_blank"
                     >
                       Treasury
@@ -118,7 +118,7 @@ const Docs: React.FC = () => {
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://explorer.harmony.one/address/0xE1E48d3476027af9dC92542b3a60F2D45A36e082"
+                      href="https://bscscan.com/address/0xE1E48d3476027af9dC92542b3a60F2D45A36e082"
                       target="_blank"
                     >
                       Boardroom
@@ -129,7 +129,7 @@ const Docs: React.FC = () => {
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://explorer.harmony.one/address/0x543AB16f3EDe6dDD26a7C182869a282618B0891C"
+                      href="https://bscscan.com/address/0x543AB16f3EDe6dDD26a7C182869a282618B0891C"
                       target="_blank"
                     >
                       Oracle
@@ -142,7 +142,7 @@ const Docs: React.FC = () => {
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://explorer.harmony.one/address/0x6b2FD2BD34676E4c312cA2F8a472e7C2d9e380e7"
+                      href="https://bscscan.com/address/0x6b2FD2BD34676E4c312cA2F8a472e7C2d9e380e7"
                       target="_blank"
                     >
                       Deployer
@@ -153,7 +153,7 @@ const Docs: React.FC = () => {
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://explorer.harmony.one/address/0xEE07b8Ee4D827F7EDAC3FFA7bf1a84B8c816623A"
+                      href="https://bscscan.com/address/0xEE07b8Ee4D827F7EDAC3FFA7bf1a84B8c816623A"
                       target="_blank"
                     >
                       Dao Fund
@@ -164,7 +164,7 @@ const Docs: React.FC = () => {
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://explorer.harmony.one/address/0xB182b5b0Cf6bDB738e9157D6a21B02d92dbf5C38"
+                      href="https://bscscan.com/address/0xB182b5b0Cf6bDB738e9157D6a21B02d92dbf5C38"
                       target="_blank"
                     >
                       Dev wallet
@@ -175,7 +175,7 @@ const Docs: React.FC = () => {
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://explorer.harmony.one/address/0xc4A0A5D5B50BAB1Ee3D37769e94cAe5B9023f1d3"
+                      href="https://bscscan.com/address/0xc4A0A5D5B50BAB1Ee3D37769e94cAe5B9023f1d3"
                       target="_blank"
                     >
                       Team wallet
