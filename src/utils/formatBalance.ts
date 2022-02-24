@@ -1,4 +1,4 @@
-import {BigNumber} from 'ethers';
+import { BigNumber } from 'ethers';
 
 export const getDisplayBalance = (
   balance: BigNumber,
@@ -18,7 +18,7 @@ export const getDisplayBalance = (
 };
 
 export const getFullDisplayBalance = (balance: BigNumber, decimals = 18, isTruncated = false) => {
-  return getDisplayBalance(balance, decimals, 4, isTruncated);
+  return getDisplayBalance(balance, decimals, 10, isTruncated);
 };
 
 export function getBalance(balance: BigNumber, decimals = 18): number {

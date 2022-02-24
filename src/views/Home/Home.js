@@ -192,8 +192,8 @@ const Home = () => {
                 </SplitContent>
               </MarketCap>
               <BuyWrapper>
-                <StyledLink className="shinyButton" href="https://game.defikingdoms.com/#/marketplace?inputCurrency=0x224e64ec1BDce3870a6a6c777eDd450454068FEC&outputCurrency=0xb9E05B4C168B56F73940980aE6EF366354357009" target="_blank">
-                  Buy
+                <StyledLink className="shinyButton" href="https://pancakeswap.finance/swap?inputCurrency=0x23396cF899Ca06c4472205fC903bDB4de249D6fC&outputCurrency=0xb9E05B4C168B56F73940980aE6EF366354357009" target="_blank">
+                  Buy AMES
                 </StyledLink>
               </BuyWrapper>
             </CardContent>
@@ -247,8 +247,8 @@ const Home = () => {
                 </SplitContent>
               </MarketCap>
               <BuyWrapper>
-                <StyledLink className="shinyButton" href="https://game.defikingdoms.com/#/marketplace?inputCurrency=ONE&outputCurrency=0xFa4b16b0f63F5A6D0651592620D585D308F749A4" target="_blank">
-                  Buy
+                <StyledLink className="shinyButton" href="https://pancakeswap.finance/swap?inputCurrency=0x23396cF899Ca06c4472205fC903bDB4de249D6fC&outputCurrency=0xFa4b16b0f63F5A6D0651592620D585D308F749A4" target="_blank">
+                  Buy ASHARE
                 </StyledLink>
               </BuyWrapper>
             </CardContent>

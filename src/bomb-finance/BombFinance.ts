@@ -387,9 +387,9 @@ export class BombFinance {
       } else if (tokenName === 'QSHARE-ONE-LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.BSHARE, false);
       } else if (tokenName === 'ASHARE-UST-LP') {
-        tokenPrice = await this.getLPTokenPrice(token, this.BSHARE, false);
+        tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
       } else if (tokenName === 'AMES-UST-LP') {
-        tokenPrice = await this.getLPTokenPrice(token, this.BOMB, true);
+        tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
       } else if (tokenName === '1QUARTZ-UST-LP') {
         tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
       } else if (tokenName === '1QSHARE-UST-LP') {
@@ -505,7 +505,6 @@ export class BombFinance {
 
     const priceOfToken = await this.getBTCPriceUSD();
 
-    console.log(totalSupply, tokenSupply, priceOfToken);
     const tokenInLP = Number(tokenSupply) / Number(totalSupply);
     const tokenPrice = (Number(priceOfToken) * tokenInLP * 2) //We multiply by 2 since half the price of the lp token is the price of each piece of the pair. So twice gives the total
       .toString();

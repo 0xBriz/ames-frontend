@@ -56,13 +56,12 @@ const Stake: React.FC<StakeProps> = ({ bank }) => {
   let swapURL;
 
   if (bank.depositTokenName.startsWith('AMES')) {
-    if (bank.depositTokenName.includes('UST')) {
-      swapURL = 'https://game.defikingdoms.com/#/add/0x224e64ec1BDce3870a6a6c777eDd450454068FEC/' + bombAddr;
-    } else {
-      swapURL = `https://game.defikingdoms.com/#/add/${bshareAddr}/${bombAddr}`;
-    }
+    swapURL = 'https://pancakeswap.finance/add/0x23396cF899Ca06c4472205fC903bDB4de249D6fC/' + bombAddr;
+  } else if (bank.depositTokenName.includes('ASHARE')) {
+    swapURL = 'https://pancakeswap.finance/add/0x23396cF899Ca06c4472205fC903bDB4de249D6fC/' + bshareAddr;
   } else {
-    swapURL = 'https://game.defikingdoms.com/#/add/ONE/' + bshareAddr;
+    swapURL =
+      'https://pancakeswap.finance/add/0x23396cF899Ca06c4472205fC903bDB4de249D6fC/0x36d53ed6380313f3823eed2f44dddb6d1d52f656';
   }
 
   const [onPresentDeposit, onDismissDeposit] = useModal(
