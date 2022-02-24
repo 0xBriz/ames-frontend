@@ -1,10 +1,10 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Context from './context';
 import useBombFinance from '../../hooks/useBombFinance';
-import {Bank} from '../../bomb-finance';
-import config, {bankDefinitions} from '../../config';
+import { Bank } from '../../bomb-finance';
+import config, { bankDefinitions } from '../../config';
 
-const Banks: React.FC = ({children}) => {
+const Banks: React.FC = ({ children }) => {
   const [banks, setBanks] = useState<Bank[]>([]);
   const bombFinance = useBombFinance();
   const isUnlocked = bombFinance?.isUnlocked;
@@ -26,6 +26,7 @@ const Banks: React.FC = ({children}) => {
           continue;
         }
       }
+
       banks.push({
         ...bankInfo,
         address: config.deployments[bankInfo.contract].address,
@@ -43,7 +44,7 @@ const Banks: React.FC = ({children}) => {
     }
   }, [isUnlocked, bombFinance, fetchPools]);
 
-  return <Context.Provider value={{banks}}>{children}</Context.Provider>;
+  return <Context.Provider value={{ banks }}>{children}</Context.Provider>;
 };
 
 export default Banks;

@@ -30,26 +30,26 @@ const AccountModal: React.FC<ModalProps> = ({ onDismiss }) => {
 
       <Balances style={{ display: 'flex', flexDirection: matches ? 'row' : 'column' }}>
         <StyledBalanceWrapper style={{ paddingBottom: '15px' }}>
-          <TokenSymbol symbol="QUARTZ" />
+          <TokenSymbol symbol="AMES" />
           <StyledBalance>
             <StyledValue>{displayBombBalance}</StyledValue>
-            <Label color="black" text="QUARTZ Available" />
+            <Label color="black" text="AMES Available" />
           </StyledBalance>
         </StyledBalanceWrapper>
 
         <StyledBalanceWrapper style={{ paddingBottom: '15px' }}>
-          <TokenSymbol symbol="BSHARE" />
+          <TokenSymbol symbol="ASHARE" />
           <StyledBalance>
             <StyledValue>{displayBshareBalance}</StyledValue>
-            <Label color="black" text="QSHARE Available" />
+            <Label color="black" text="ASHARE Available" />
           </StyledBalance>
         </StyledBalanceWrapper>
 
         <StyledBalanceWrapper style={{ paddingBottom: '15px' }}>
-          <TokenSymbol symbol="QBOND" />
+          <TokenSymbol symbol="ABOND" />
           <StyledBalance>
             <StyledValue>{displayBbondBalance}</StyledValue>
-            <Label color="black" text="QBOND Available" />
+            <Label color="black" text="ABOND Available" />
           </StyledBalance>
         </StyledBalanceWrapper>
       </Balances>

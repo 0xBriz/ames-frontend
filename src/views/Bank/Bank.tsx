@@ -108,7 +108,7 @@ const Bank: React.FC<BankProps> = ({ bankId }) => {
 
     return (
       <StyledTypography>
-        <StyledTokenSymbol size={32} symbol="QSHARE" />
+        <StyledTokenSymbol size={32} symbol="ASHARE" />
         <Typography color="textPrimary" style={{ marginLeft: '8px' }}>
           Reward Pool
         </Typography>

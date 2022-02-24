@@ -45,7 +45,7 @@ const Bond: React.FC = () => {
     async (amount: string) => {
       const tx = await bombFinance.buyBonds(amount);
       addTransaction(tx, {
-        summary: `Buy ${Number(amount).toFixed(2)} QBOND with ${amount} QUARTZ`,
+        summary: `Buy ${Number(amount).toFixed(2)} ABOND with ${amount} AMES`,
       });
     },
     [bombFinance, addTransaction],
@@ -54,7 +54,7 @@ const Bond: React.FC = () => {
   const handleRedeemBonds = useCallback(
     async (amount: string) => {
       const tx = await bombFinance.redeemBonds(amount);
-      addTransaction(tx, { summary: `Redeem ${amount} QBOND` });
+      addTransaction(tx, { summary: `Redeem ${amount} ABOND` });
     },
     [bombFinance, addTransaction],
   );
@@ -100,10 +100,10 @@ const Bond: React.FC = () => {
                   <Grid spacing={4} container>
                     <Grid justifyContent="center" style={{ display: 'flex' }} direction="column" item xs={12} md={6}>
                       <Typography style={{ textAlign: 'left', textTransform: 'none' }}>
-                        Purchasing QBONDs contributes to bringing QUARTZ back to peg by burning the amount being sold.
-                        You can purchase QBONDS when <strong>Current TWAP Price </strong>
+                        Purchasing ABONDs contributes to bringing AMES back to peg by burning the amount being sold. You
+                        can purchase ABONDS when <strong>Current TWAP Price </strong>
                         is below <strong>$1.00</strong>.<br />
-                        <br /> After QUARTZ regains it's peg and <strong>Current TWAP Price </strong>
+                        <br /> After AMES regains it's peg and <strong>Current TWAP Price </strong>
                         is above <strong>$1.01</strong>, redeeming becomes available.
                       </Typography>
                     </Grid>
@@ -139,7 +139,7 @@ const Bond: React.FC = () => {
                           <SplitContent>
                             <Box>
                               <Typography style={{ textTransform: 'none', fontSize: '16px' }} variant="h6">
-                                QBOND Price:
+                                ABOND Price:
                               </Typography>
                               <Typography style={{ fontSize: '10px', textAlign: 'center' }}></Typography>
                             </Box>
@@ -152,7 +152,7 @@ const Bond: React.FC = () => {
                           <SplitContent>
                             <Box>
                               <Typography style={{ textTransform: 'none', fontSize: '16px' }} variant="h6">
-                                QBONDs available to purchase:
+                                ABONDs available to purchase:
                               </Typography>
                               <Typography style={{ fontSize: '10px', textAlign: 'center' }}></Typography>
                             </Box>
@@ -165,7 +165,7 @@ const Bond: React.FC = () => {
                           <SplitContent>
                             <Box>
                               <Typography style={{ textTransform: 'none', fontSize: '16px' }} variant="h6">
-                                QUARTZ available to redeem:
+                                AMES available to redeem:
                               </Typography>
                               <Typography style={{ fontSize: '10px', textAlign: 'center' }}></Typography>
                             </Box>
@@ -202,13 +202,13 @@ const Bond: React.FC = () => {
                     <ExchangeCard
                       action="Purchase"
                       fromToken={bombFinance.BOMB}
-                      fromTokenName="QUARTZ"
+                      fromTokenName="AMES"
                       toToken={bombFinance.BBOND}
-                      toTokenName="QBOND"
+                      toTokenName="ABOND"
                       priceDesc={
                         !isBondPurchasable
-                          ? 'QUARTZ is over peg'
-                          : getDisplayBalance(bondsPurchasable, 18, 4) + ' QBOND available for purchase'
+                          ? 'AMES is over peg'
+                          : getDisplayBalance(bondsPurchasable, 18, 4) + ' ABOND available for purchase'
                       }
                       onExchange={handleBuyBonds}
                       disabled={!bondStat || isBondRedeemable || bondsPurchasable.eq(0)}
@@ -218,13 +218,13 @@ const Bond: React.FC = () => {
                     <ExchangeCard
                       action="Redeem"
                       fromToken={bombFinance.BBOND}
-                      fromTokenName="QBOND"
+                      fromTokenName="ABOND"
                       toToken={bombFinance.BOMB}
-                      toTokenName="QUARTZ"
-                      priceDesc={`${getDisplayBalance(quartzRedeemable, 18, 4)} QUARTZ available to redeem`}
+                      toTokenName="AMES"
+                      priceDesc={`${getDisplayBalance(quartzRedeemable, 18, 4)} AMES available to redeem`}
                       onExchange={handleRedeemBonds}
                       disabled={!bondStat || bondBalance.eq(0) || !isBondRedeemable || quartzRedeemable.eq(0)}
-                      disabledDescription={!isBondRedeemable ? `Enabled when 1 QUARTZ > ${BOND_REDEEM_PRICE}UST` : null}
+                      disabledDescription={!isBondRedeemable ? `Enabled when 1 AMES > ${BOND_REDEEM_PRICE}UST` : null}
                     />
                   </StyledCardWrapper>
                 </StyledBond>

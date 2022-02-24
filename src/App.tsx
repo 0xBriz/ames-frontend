@@ -71,9 +71,9 @@ const App: React.FC = () => {
             <Route path="/docs">
               <RedirectToDocs />
             </Route>
-            <Route path="/quarry">
+            {/* <Route path="/quarry">
               <Stake />
-            </Route>
+            </Route> */}
             <Route path="*">
               <NoMatch />
             </Route>

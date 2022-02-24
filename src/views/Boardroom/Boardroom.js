@@ -62,7 +62,7 @@ const Boardroom = () => {
                   Boardroom
                 </Typography>
                 <Typography style={{ color: 'black', textAlign: 'left', fontSize: '18px' }}>
-                  This is where our members sit around and stake their QSHARE for QUARTZ expansion rewards. As long as the time-weighted average price (TWAP) of QUARTZ is $1.01 or higher, new tokens will be minted when an epoch passes.
+                  This is where our members sit around and stake their ASHAREs for AMES expansion rewards. As long as the time-weighted average price (TWAP) of AMES is $1.01 or higher, new tokens will be minted when an epoch passes.
                 </Typography>
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -142,7 +142,7 @@ const Boardroom = () => {
                     <SplitContent>
                       <Box>
                         <Typography style={{ textTransform: 'none' }} variant="h6">
-                          QSHARES staked:
+                          ASHARES staked:
                         </Typography>
                         <Typography style={{ fontSize: '10px', textAlign: 'center' }}></Typography>
                       </Box>

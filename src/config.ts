@@ -3,22 +3,29 @@ import { BankInfo } from './bomb-finance';
 
 const configurations: { [env: string]: Configuration } = {
   development: {
-    chainId: 1666600000,
-    networkName: 'Harmony',
-    ftmscanUrl: 'https://explorer.harmony.one/',
-    defaultProvider: 'https://api.harmony.one',
+    chainId: 56,
+    networkName: 'BSC Mainnet',
+    ftmscanUrl: 'https://bscscan.com',
+    defaultProvider: 'https://bsc-dataseed.binance.org/',
     deployments: require('./bomb-finance/deployments/deployments.mainnet.json'),
     externalTokens: {
-      WONE: ['0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a', 18], // this is WONE
-      FUSDT: ['0x985458E523dB3d53125813eD68c274899e9DfAb4', 6], // This is actually 1USDC on mainnet not fusdt
-      BTCB: ['0x224e64ec1BDce3870a6a6c777eDd450454068FEC', 18], // This is actually UST on mainnet not fusdt
-      'USDT-WONE-LP': ['0x66c17f5381d7821385974783be34c9b31f75eb78', 18], // This is actually 1USDC-WONE on mainnet not fusdt
-      'USDT-BTCB-LP': ['0xa1221a5bbea699f507cc00bdedea05b5d2e32eba', 18], // This is actually UST-1USDC
-      'QUARTZ-UST-LP': ['0x90a48cb3a724ef6f8e6240f4788559f6370b6925', 18], // This is actually QUARTZ-UST
-      'QUARTZ-WONE-LP': ['0x8142d1b6a32e40c62b8ada3685475924578a804c', 18], // This is QUARTZ-WONE
-      'QUARTZ-QSHARE-LP': ['0x3736b5b6f2033433ea974e121ce19cc6d0e10dc9', 18], // This is QUARTZ-WONE
-      'QSHARE-ONE-LP': ['0x157e2e205b8d307501f1aad1c5c96c562e6f07c5', 18], // This is QSHARE-ONE
-      'QSHARE-UST-LP': ['0x363167828bafb7cddf01475613df72917f75fbde', 18], // This is QSHARE-UST
+      WONE: ['0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18], // this is WBNB
+      WBNB: ['0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18],
+      FUSDT: ['0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', 18], // This is actually BUSD on mainnet not fusdt
+      BTCB: ['0x23396cF899Ca06c4472205fC903bDB4de249D6fC', 18], // This is actually UST on mainnet not fusdt
+      UST: ['0x23396cF899Ca06c4472205fC903bDB4de249D6fC', 18], // This is actually UST on mainnet not fusdt
+      QUARTZ: ['0x7ebc713a888cea488c20bb9ac1999ee758e21ff0', 18], // This is actually UST on mainnet not fusdt
+      QSHARE: ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
+      'USDT-WONE-LP': ['0x58f876857a02d6762e0101bb5c46a8c1ed44dc16', 18], // This is actually 1USDC-WONE on mainnet not fusdt
+      'USDT-BTCB-LP': ['0x05faf555522fa3f93959f86b41a3808666093210', 18], // This is actually UST-1USDC
+      'AMES-UST-LP': ['0x6f78a0d31adc7c9fb848850f9d2a40da5858ad03', 18], // This is actually AMES-UST
+      'AMES-WONE-LP': ['0x8142d1b6a32e40c62b8ada3685475924578a804c', 18], // This is AMES-WONE
+      'AMES-QSHARE-LP': ['0x3736b5b6f2033433ea974e121ce19cc6d0e10dc9', 18], // This is AMETHYST-WONE
+      'ASHARE-ONE-LP': ['0x39846550Ef3Cb8d06E3CFF52845dF42F71Ac3851', 18], // This is QSHARE-ONE
+      'ASHARE-UST-LP': ['0x39846550Ef3Cb8d06E3CFF52845dF42F71Ac3851', 18], // This is QSHARE-UST
+      '1QUARTZ-1QSHARE-LP': ['0x2D491e438A8aa722eCF96c9F2faa05FBe1F476E4', 18], // This is QSHARE-UST
+      '1QUARTZ-UST-LP': ['0x5553386c5a11788b00c353507b2ac8a93ad8f8b1', 18], // This is QSHARE-UST
+      '1QSHARE-UST-LP': ['0x61503f74189074e8e793cc0827eae37798c2b8f7', 18], // This is QSHARE-UST
     },
     baseLaunchDate: new Date('2021-11-20 1:00:00Z'),
     bondLaunchesAt: new Date('2020-12-03T15:00:00Z'),
@@ -26,22 +33,29 @@ const configurations: { [env: string]: Configuration } = {
     refreshInterval: 10000,
   },
   production: {
-    chainId: 1666600000,
-    networkName: 'Harmony',
-    ftmscanUrl: 'https://explorer.harmony.one/',
-    defaultProvider: 'https://api.harmony.one',
+    chainId: 56,
+    networkName: 'BSC Mainnet',
+    ftmscanUrl: 'https://bscscan.com',
+    defaultProvider: 'https://bsc-dataseed.binance.org/',
     deployments: require('./bomb-finance/deployments/deployments.mainnet.json'),
     externalTokens: {
-      WONE: ['0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a', 18], // this is WONE
-      FUSDT: ['0x985458E523dB3d53125813eD68c274899e9DfAb4', 6], // This is actually 1USDC on mainnet not fusdt
-      BTCB: ['0x224e64ec1BDce3870a6a6c777eDd450454068FEC', 18], // This is actually UST on mainnet not fusdt
-      'USDT-WONE-LP': ['0x66c17f5381d7821385974783be34c9b31f75eb78', 18], // This is actually 1USDC-WONE on mainnet not fusdt
-      'USDT-BTCB-LP': ['0xa1221a5bbea699f507cc00bdedea05b5d2e32eba', 18], // This is actually UST-1USDC
-      'QUARTZ-UST-LP': ['0x90a48cb3a724ef6f8e6240f4788559f6370b6925', 18], // This is actually QUARTZ-UST
-      'QUARTZ-WONE-LP': ['0x8142d1b6a32e40c62b8ada3685475924578a804c', 18], // This is QUARTZ-WONE
-      'QUARTZ-QSHARE-LP': ['0x3736b5b6f2033433ea974e121ce19cc6d0e10dc9', 18], // This is QUARTZ-WONE
-      'QSHARE-ONE-LP': ['0x157e2e205b8d307501f1aad1c5c96c562e6f07c5', 18], // This is QSHARE-ONE
-      'QSHARE-UST-LP': ['0x363167828bafb7cddf01475613df72917f75fbde', 18], // This is QSHARE-UST
+      WONE: ['0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18], // this is WBNB
+      WBNB: ['0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18],
+      FUSDT: ['0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', 18], // This is actually BUSD on mainnet not fusdt
+      BTCB: ['0x23396cF899Ca06c4472205fC903bDB4de249D6fC', 18], // This is actually UST on mainnet not fusdt
+      UST: ['0x23396cF899Ca06c4472205fC903bDB4de249D6fC', 18], // This is actually UST on mainnet not fusdt
+      QUARTZ: ['0x7ebc713a888cea488c20bb9ac1999ee758e21ff0', 18], // This is actually UST on mainnet not fusdt
+      QSHARE: ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
+      'USDT-WONE-LP': ['0x58f876857a02d6762e0101bb5c46a8c1ed44dc16', 18], // This is actually 1USDC-WONE on mainnet not fusdt
+      'USDT-BTCB-LP': ['0x05faf555522fa3f93959f86b41a3808666093210', 18], // This is actually UST-1USDC
+      'AMES-UST-LP': ['0x6f78a0d31adc7c9fb848850f9d2a40da5858ad03', 18], // This is actually AMES-UST
+      'AMES-WONE-LP': ['0x8142d1b6a32e40c62b8ada3685475924578a804c', 18], // This is AMES-WONE
+      'AMES-QSHARE-LP': ['0x3736b5b6f2033433ea974e121ce19cc6d0e10dc9', 18], // This is AMES-WONE
+      'ASHARE-ONE-LP': ['0x39846550Ef3Cb8d06E3CFF52845dF42F71Ac3851', 18], // This is QSHARE-ONE
+      'ASHARE-UST-LP': ['0x39846550Ef3Cb8d06E3CFF52845dF42F71Ac3851', 18], // This is QSHARE-UST
+      '1QUARTZ-1QSHARE-LP': ['0x2D491e438A8aa722eCF96c9F2faa05FBe1F476E4', 18], // This is QSHARE-UST
+      '1QUARTZ-UST-LP': ['0x5553386c5a11788b00c353507b2ac8a93ad8f8b1', 18], // This is QSHARE-UST
+      '1QSHARE-UST-LP': ['0x61503f74189074e8e793cc0827eae37798c2b8f7', 18], // This is QSHARE-UST
     },
     baseLaunchDate: new Date('2021-11-20 1:00:00Z'),
     bondLaunchesAt: new Date('2020-12-03T15:00:00Z'),
@@ -241,37 +255,70 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
   //   sort: 4,
   //   closedForStaking: true,
   // },
-  QuartzQShareLPQShareRewardPool: {
-    name: 'Earn QSHARE by QUARTZ-QSHARE LP',
-    poolId: 3,
-    sectionInUI: 2,
-    contract: 'QuartzQShareLPQShareRewardPool',
-    depositTokenName: 'QUARTZ-QSHARE-LP',
-    earnTokenName: 'QSHARE',
-    finished: false,
-    sort: 2,
-    closedForStaking: false,
-  },
-  QShareOneLPQShareRewardPool: {
-    name: 'Earn QSHARE by QSHARE-ONE LP',
-    poolId: 2,
-    sectionInUI: 2,
-    contract: 'QShareOneLPQShareRewardPool',
-    depositTokenName: 'QSHARE-ONE-LP',
-    earnTokenName: 'QSHARE',
-    finished: false,
-    sort: 2,
-    closedForStaking: false,
-  },
-  QuartzUstLPQShareRewardPool: {
-    name: 'Earn QSHARE by QUARTZ-UST LP',
+  // QuartzQShareLPQShareRewardPool: {
+  //   name: 'Earn QSHARE by AMES-QSHARE LP',
+  //   poolId: 3,
+  //   sectionInUI: 2,
+  //   contract: 'QuartzQShareLPQShareRewardPool',
+  //   depositTokenName: 'AMES-QSHARE-LP',
+  //   earnTokenName: 'QSHARE',
+  //   finished: false,
+  //   sort: 2,
+  //   closedForStaking: false,
+  // },
+  // QShareOneLPQShareRewardPool: {
+  //   name: 'Earn QSHARE by QSHARE-ONE LP',
+  //   poolId: 2,
+  //   sectionInUI: 2,
+  //   contract: 'QShareOneLPQShareRewardPool',
+  //   depositTokenName: 'QSHARE-ONE-LP',
+  //   earnTokenName: 'QSHARE',
+  //   finished: false,
+  //   sort: 2,
+  //   closedForStaking: false,
+  // },
+  AmesUstLPQShareRewardPool: {
+    name: 'Earn ASHARE by AMES-UST LP',
     poolId: 0,
     sectionInUI: 2,
-    contract: 'QuartzUstLPQShareRewardPool',
-    depositTokenName: 'QUARTZ-UST-LP',
-    earnTokenName: 'QSHARE',
+    contract: 'AmesUstLPQShareRewardPool',
+    depositTokenName: 'AMES-UST-LP',
+    earnTokenName: 'ASHARE',
+    finished: false,
+    sort: 1,
+    closedForStaking: false,
+  },
+  AShareUstLPQShareRewardPool: {
+    name: 'Earn ASHARE by AMETHYST-UST LP',
+    poolId: 1,
+    sectionInUI: 2,
+    contract: 'AShareUstLPQShareRewardPool',
+    depositTokenName: 'ASHARE-UST-LP',
+    earnTokenName: 'ASHARE',
     finished: false,
     sort: 2,
+    closedForStaking: false,
+  },
+  // QuartzUSTLPQShareRewardPool: {
+  //   name: 'Earn ASHARE by 1QUARTZ-UST LP',
+  //   poolId: 3,
+  //   sectionInUI: 2,
+  //   contract: 'QuartzUSTLPQShareRewardPool',
+  //   depositTokenName: '1QUARTZ-UST-LP',
+  //   earnTokenName: 'ASHARE',
+  //   finished: false,
+  //   sort: 3,
+  //   closedForStaking: false,
+  // },
+  QShareUSTLPQShareRewardPool: {
+    name: 'Earn ASHARE by 1QSHARE-UST LP',
+    poolId: 2,
+    sectionInUI: 2,
+    contract: 'QShareUSTLPQShareRewardPool',
+    depositTokenName: '1QSHARE-UST-LP',
+    earnTokenName: 'ASHARE',
+    finished: false,
+    sort: 4,
     closedForStaking: false,
   },
   // BombBtcbLPBShareRewardPool: {

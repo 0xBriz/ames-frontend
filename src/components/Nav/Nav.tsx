@@ -126,9 +126,9 @@ const Nav = () => {
               <Link color="textPrimary" to="/bond" className={'navLink ' + classes.link}>
                 Bond
               </Link>
-              <Link color="textPrimary" to="/quarry" className={'navLink ' + classes.link}>
+              {/* <Link color="textPrimary" to="/quarry" className={'navLink ' + classes.link}>
                 Quarry
-              </Link>
+              </Link> */}
               <Link color="textPrimary" to="/addresses" className={'navLink ' + classes.link}>
                 Addresses
               </Link>
@@ -179,7 +179,7 @@ const Nav = () => {
               src={bombLogo}
               style={{ height: '40px', marginTop: '-10px', marginLeft: '10px', marginRight: '15px' }}
             />
-            <AccountButton text="Connect" />
+            {/* <AccountButton text="Connect" /> */}
             <Drawer
               className={classes.drawer}
               onClose={handleDrawerClose}
@@ -208,7 +208,7 @@ const Nav = () => {
                 <ListItemLink primary="Farm" to="/farm" />
                 <ListItemLink primary="Boardroom" to="/boardroom" />
                 <ListItemLink primary="Bond" to="/bond" />
-                <ListItemLink primary="Quarry" to="/quarry" />
+                {/* <ListItemLink primary="Quarry" to="/quarry" /> */}
                 <ListItemLink primary="Addresses" to="/addresses" />
                 <li>
                   <ListItem button>

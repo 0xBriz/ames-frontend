@@ -45,7 +45,7 @@ const Footer = () => {
             <Typography variant="body2" color="textPrimary" align="left">
               {'Copyright © '}
               <Link color="inherit" href="/">
-                quartz-defi.one
+                bsc-quartz-defi.app
               </Link>{' '}
               {new Date().getFullYear()}
             </Typography>
@@ -72,9 +72,9 @@ const Footer = () => {
               <IconDiscord style={{ fill: 'black', height: '27px' }} />
             </a>
 
-            <a className={classes.link} href="https://github.com/0xGuard-com/audit-reports/blob/master/quartz/Quartz_final-audit-report.pdf" rel="noopener noreferrer" target="_blank">
+            {/* <a className={classes.link} href="https://github.com/0xGuard-com/audit-reports/blob/master/quartz/Quartz_final-audit-report.pdf" rel="noopener noreferrer" target="_blank">
               <IconAudit style={{ height: '30px', width: 'auto' }} />
-            </a>
+            </a> */}
           </Grid>
         </Grid>
       </Container>
