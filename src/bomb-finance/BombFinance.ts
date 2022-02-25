@@ -461,12 +461,12 @@ export class BombFinance {
       totalValue += poolValue;
     }
 
-    // const BSHAREPrice = (await this.getShareStat()).priceInDollars;
-    // const boardroomtShareBalanceOf = await this.BSHARE.balanceOf(this.currentBoardroom().address);
-    // const boardroomTVL = Number(getDisplayBalance(boardroomtShareBalanceOf, this.BSHARE.decimal)) * Number(BSHAREPrice);
+    const BSHAREPrice = (await this.getShareStat()).priceInDollars;
+    const boardroomtShareBalanceOf = await this.BSHARE.balanceOf(this.currentBoardroom().address);
+    const boardroomTVL = Number(getDisplayBalance(boardroomtShareBalanceOf, this.BSHARE.decimal)) * Number(BSHAREPrice);
 
-    // return totalValue + boardroomTVL;
-    return totalValue;
+    return totalValue + boardroomTVL;
+    // return totalValue;
   }
 
   async getBoardroomTotalValueLocked(): Promise<Number> {
