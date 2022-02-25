@@ -63,13 +63,13 @@ const Docs: React.FC = () => {
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://bscscan.com/address/0x5A12bc3Ad86c674a50fae82510DcB03751ab218b"
+                      href="https://bscscan.com/address/0xa4F976f7099a0d7F096615DBcbcf5F9d977Ca235"
                       target="_blank"
                     >
                       ABOND
                     </StyledLink>
                   </Typography>
-                  <Typography>0x5A12bc3Ad86c674a50fae82510DcB03751ab218b</Typography>
+                  <Typography>0xa4F976f7099a0d7F096615DBcbcf5F9d977Ca235</Typography>
                 </Box>
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
@@ -96,46 +96,46 @@ const Docs: React.FC = () => {
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://bscscan.com/address/0x24866b121217F391b0079348146Ea139d7Fd77c7"
+                      href="https://bscscan.com/address/0x2110Aa29292B44B142DD20de45dE6C418Aa28092"
                       target="_blank"
                     >
                       TaxOracle
                     </StyledLink>
                   </Typography>
-                  <Typography>0x24866b121217F391b0079348146Ea139d7Fd77c7</Typography>
+                  <Typography>0x2110Aa29292B44B142DD20de45dE6C418Aa28092</Typography>
                 </Box>
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://bscscan.com/address/0xFc0B7c105A6dd49Fd956b607CA8c8f00Ed159353"
+                      href="https://bscscan.com/address/0x3234F20Ff819dB353f702C44337E5b3c0982a4aB"
                       target="_blank"
                     >
                       Treasury
                     </StyledLink>
                   </Typography>
-                  <Typography>0xFc0B7c105A6dd49Fd956b607CA8c8f00Ed159353</Typography>
+                  <Typography>0x3234F20Ff819dB353f702C44337E5b3c0982a4aB</Typography>
                 </Box>
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://bscscan.com/address/0xE1E48d3476027af9dC92542b3a60F2D45A36e082"
+                      href="https://bscscan.com/address/0xC183b26Ad8C660AFa7B388067Fd18c1Fb28f1bB4"
                       target="_blank"
                     >
                       Boardroom
                     </StyledLink>
                   </Typography>
-                  <Typography>0xE1E48d3476027af9dC92542b3a60F2D45A36e082</Typography>
+                  <Typography>0xC183b26Ad8C660AFa7B388067Fd18c1Fb28f1bB4</Typography>
                 </Box>
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://bscscan.com/address/0x543AB16f3EDe6dDD26a7C182869a282618B0891C"
+                      href="https://bscscan.com/address/0x298be24C55BF89B114FE66972C787ec78530fCd7"
                       target="_blank"
                     >
                       Oracle
                     </StyledLink>
                   </Typography>
-                  <Typography>0x543AB16f3EDe6dDD26a7C182869a282618B0891C</Typography>
+                  <Typography>0x298be24C55BF89B114FE66972C787ec78530fCd7</Typography>
                 </Box>
               </Grid>
               <Grid item xs={12} sm={6}>
