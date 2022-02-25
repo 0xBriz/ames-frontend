@@ -141,6 +141,15 @@ const Nav = () => {
               >
                 Docs
               </a>
+              <a
+                color="textPrimary"
+                href="https://quartz-defi.one"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={'navLink ' + classes.link}
+              >
+                Quartz
+              </a>
             </Box>
 
             <Box
@@ -219,6 +228,18 @@ const Nav = () => {
                       rel="noopener noreferrer"
                     >
                       Docs
+                    </a>
+                  </ListItem>
+                </li>
+                <li>
+                  <ListItem button>
+                    <a
+                      style={{ color: 'black', textDecoration: 'none' }}
+                      href="https://quartz-defi.one"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Quartz
                     </a>
                   </ListItem>
                 </li>

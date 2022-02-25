@@ -71,17 +71,17 @@ const Docs: React.FC = () => {
                   </Typography>
                   <Typography>0x5A12bc3Ad86c674a50fae82510DcB03751ab218b</Typography>
                 </Box>
-                {/* <Box mb={2}>
+                <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://bscscan.com/address/0xCa1dd590C3ceBa9F57E05540B91AB3F0Ed08580a"
+                      href="https://bscscan.com/address/0x36d53ed6380313f3823eed2f44dddb6d1d52f656"
                       target="_blank"
                     >
-                      XQUARTZ
+                      1QSHARE
                     </StyledLink>
                   </Typography>
-                  <Typography>0xCa1dd590C3ceBa9F57E05540B91AB3F0Ed08580a</Typography>
-                </Box> */}
+                  <Typography>0x36d53ed6380313f3823eed2f44dddb6d1d52f656</Typography>
+                </Box>
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink

@@ -226,7 +226,7 @@ const Home = () => {
                 </span>
               </Box>
               <Box mb={3}>
-                <span style={{ fontSize: '16px' }}>1 QSHARE ={bSharePriceInBNB ? bSharePriceInBNB : '-.----'} UST</span>
+                <span style={{ fontSize: '16px' }}>1 ASHARE ={bSharePriceInBNB ? bSharePriceInBNB : '-.----'} UST</span>
               </Box>
               <MarketCap>
                 <SplitContent>
