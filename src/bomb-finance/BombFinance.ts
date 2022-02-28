@@ -39,6 +39,7 @@ export class BombFinance {
   BOMBBTCB_LP: Contract;
   BOMB: ERC20;
   BSHARE: ERC20;
+  QSHARE: ERC20;
   BBOND: ERC20;
   BNB: ERC20;
   BTC: ERC20;
@@ -60,6 +61,7 @@ export class BombFinance {
     this.BOMB = new ERC20(deployments.Amethyst.address, provider, 'AMETHYST');
     this.BSHARE = new ERC20(deployments.AShare.address, provider, 'ASHARE');
     this.BBOND = new ERC20(deployments.ABond.address, provider, 'ABOND');
+    this.QSHARE = new ERC20('0x36d53ed6380313f3823eed2f44dddb6d1d52f656', provider, '1QSHARE');
     this.BNB = this.externalTokens['WONE'];
     this.BTC = this.externalTokens['BTCB'];
 
@@ -234,6 +236,16 @@ export class BombFinance {
     };
   }
 
+  async getQShareStat(): Promise<any> {
+    const priceInBTC = await this.getTokenPriceFromPancakeswapBTC(this.QSHARE);
+    const priceOfOneBTC = await this.getBTCBPriceFromPancakeswap();
+    const priceOfBombInDollars = (Number(priceInBTC) * Number(priceOfOneBTC)).toFixed(2);
+
+    return {
+      priceInDollars: priceOfBombInDollars,
+    };
+  }
+
   async getBombStatInEstimatedTWAP(): Promise<TokenStat> {
     const { Oracle } = this.contracts;
     const expectedPrice = await Oracle.twap(this.BOMB.address, ethers.utils.parseEther('1'));
@@ -346,11 +358,13 @@ export class BombFinance {
 
     if (depositTokenName.startsWith('AMES')) {
       // make this real allocation
-      return rewardPerSecond.mul(19834).div(59500);
-    } else if (depositTokenName.startsWith('1QSHARE')) {
-      return rewardPerSecond.mul(19834).div(59500);
+      return rewardPerSecond.mul(40000).div(59500);
+    } else if (depositTokenName.startsWith('1QSHARE-UST')) {
+      return rewardPerSecond.mul(0).div(59500);
+    } else if (depositTokenName === 'QSHARE') {
+      return rewardPerSecond.mul(4500).div(59500);
     } else {
-      return rewardPerSecond.mul(19834).div(59500);
+      return rewardPerSecond.mul(15000).div(59500);
     }
   }
 
@@ -394,6 +408,8 @@ export class BombFinance {
         tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
       } else if (tokenName === '1QSHARE-UST-LP') {
         tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
+      } else if (tokenName === 'QSHARE') {
+        tokenPrice = await (await this.getQShareStat())?.priceInDollars;
       } else if (tokenName === '1QUARTZ-1QSHARE-LP') {
         tokenPrice = await this.getTokenPriceFromPancakeswap(token);
         tokenPrice = (Number(tokenPrice) * Number(priceOfOneFtmInDollars)).toString();

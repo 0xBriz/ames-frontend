@@ -16,6 +16,7 @@ const configurations: { [env: string]: Configuration } = {
       UST: ['0x23396cF899Ca06c4472205fC903bDB4de249D6fC', 18], // This is actually UST on mainnet not fusdt
       QUARTZ: ['0x7ebc713a888cea488c20bb9ac1999ee758e21ff0', 18], // This is actually UST on mainnet not fusdt
       QSHARE: ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
+      '1QSHARE': ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
       'USDT-WONE-LP': ['0x58f876857a02d6762e0101bb5c46a8c1ed44dc16', 18], // This is actually 1USDC-WONE on mainnet not fusdt
       'USDT-BTCB-LP': ['0x05faf555522fa3f93959f86b41a3808666093210', 18], // This is actually UST-1USDC
       'AMES-UST-LP': ['0x6f78a0d31adc7c9fb848850f9d2a40da5858ad03', 18], // This is actually AMES-UST
@@ -46,6 +47,7 @@ const configurations: { [env: string]: Configuration } = {
       UST: ['0x23396cF899Ca06c4472205fC903bDB4de249D6fC', 18], // This is actually UST on mainnet not fusdt
       QUARTZ: ['0x7ebc713a888cea488c20bb9ac1999ee758e21ff0', 18], // This is actually UST on mainnet not fusdt
       QSHARE: ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
+      '1QSHARE': ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
       'USDT-WONE-LP': ['0x58f876857a02d6762e0101bb5c46a8c1ed44dc16', 18], // This is actually 1USDC-WONE on mainnet not fusdt
       'USDT-BTCB-LP': ['0x05faf555522fa3f93959f86b41a3808666093210', 18], // This is actually UST-1USDC
       'AMES-UST-LP': ['0x6f78a0d31adc7c9fb848850f9d2a40da5858ad03', 18], // This is actually AMES-UST
@@ -316,6 +318,17 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     sectionInUI: 2,
     contract: 'QShareUSTLPQShareRewardPool',
     depositTokenName: '1QSHARE-UST-LP',
+    earnTokenName: 'ASHARE',
+    finished: false,
+    sort: 4,
+    closedForStaking: false,
+  },
+  QShareLPQShareRewardPool: {
+    name: 'Earn ASHARE by QSHARE',
+    poolId: 4,
+    sectionInUI: 2,
+    contract: 'QShareLPQShareRewardPool',
+    depositTokenName: 'QSHARE',
     earnTokenName: 'ASHARE',
     finished: false,
     sort: 4,

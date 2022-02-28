@@ -119,7 +119,7 @@ const Bank: React.FC<BankProps> = ({ bankId }) => {
   const getRunningStatus = () => {
     const currentTimeStamp = new Date().getTime();
 
-    if (bank.depositTokenName === 'QUARTZ-QSHARE-LP') {
+    if (bank.depositTokenName === '1QSHARE-UST-LP') {
       return 'Finished';
     }
 

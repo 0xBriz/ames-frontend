@@ -76,7 +76,10 @@ const TokenSymbol: React.FC<LogoProps> = ({ symbol, size = 64 }) => {
   if (!logosBySymbol[symbol]) {
     throw new Error(`Invalid Token Logo symbol: ${symbol}`);
   }
-  return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={size} height={size} />;
+
+  const customSize = ['QSHARE'].includes(symbol) ? 80 : size;
+
+  return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={customSize} height={size} />;
 };
 
 export default TokenSymbol;
