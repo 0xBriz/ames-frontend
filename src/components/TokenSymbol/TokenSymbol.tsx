@@ -50,6 +50,7 @@ const logosBySymbol: { [title: string]: string } = {
   BTCB: btcLogo,
   BTC: btcLogo,
   SVL: bnbLogo,
+  '1QSHARE': tShareLogo,
   'BOMB-BNB-LP': bombFtmLpLogo,
   'BOMB-BTCB-LP': bombFtmLpLogo,
   'QUARTZ-WONE-LP': bombFtmLpLogo,
@@ -77,7 +78,7 @@ const TokenSymbol: React.FC<LogoProps> = ({ symbol, size = 64 }) => {
     throw new Error(`Invalid Token Logo symbol: ${symbol}`);
   }
 
-  const customSize = ['QSHARE'].includes(symbol) ? 80 : size;
+  const customSize = ['1QSHARE'].includes(symbol) ? 80 : size;
 
   return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={customSize} height={size} />;
 };

@@ -361,7 +361,7 @@ export class BombFinance {
       return rewardPerSecond.mul(40000).div(59500);
     } else if (depositTokenName.startsWith('1QSHARE-UST')) {
       return rewardPerSecond.mul(0).div(59500);
-    } else if (depositTokenName === 'QSHARE') {
+    } else if (depositTokenName === '1QSHARE') {
       return rewardPerSecond.mul(4500).div(59500);
     } else {
       return rewardPerSecond.mul(15000).div(59500);
@@ -408,7 +408,7 @@ export class BombFinance {
         tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
       } else if (tokenName === '1QSHARE-UST-LP') {
         tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
-      } else if (tokenName === 'QSHARE') {
+      } else if (tokenName === '1QSHARE') {
         tokenPrice = await (await this.getQShareStat())?.priceInDollars;
       } else if (tokenName === '1QUARTZ-1QSHARE-LP') {
         tokenPrice = await this.getTokenPriceFromPancakeswap(token);
