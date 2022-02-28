@@ -110,7 +110,14 @@ const Stake: React.FC<StakeProps> = ({ bank }) => {
           style={{ textTransform: 'uppercase', color: 'black', fontSize: '14px' }}
         >{`≈ $${earnedInDollars}`}</Typography>
         <Typography style={{ textTransform: 'uppercase', color: 'black', fontSize: '14px' }}>
-          <StyledLink href={swapURL} target="_blank">
+          <StyledLink
+            href={
+              bank.depositTokenName === '1QSHARE'
+                ? 'https://bscscan.com/token/0x36d53ed6380313f3823eed2f44dddb6d1d52f656'
+                : swapURL
+            }
+            target="_blank"
+          >
             {`${bank.depositTokenName} Staked`}
             <OpenInNewIcon
               style={{ fontSize: '12px', display: 'inline-block', position: 'relative', top: '-7px' }}

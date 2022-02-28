@@ -328,7 +328,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     poolId: 4,
     sectionInUI: 2,
     contract: 'QShareLPQShareRewardPool',
-    depositTokenName: 'QSHARE',
+    depositTokenName: '1QSHARE',
     earnTokenName: 'ASHARE',
     finished: false,
     sort: 4,
