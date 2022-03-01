@@ -25,6 +25,7 @@ import useClaimRewardCheck from '../../hooks/boardroom/useClaimRewardCheck';
 import useWithdrawCheck from '../../hooks/boardroom/useWithdrawCheck';
 import ProgressCountdown from './components/ProgressCountdown';
 import { Helmet } from 'react-helmet';
+import { TwitterShareButton } from 'react-twitter-embed';
 
 const TITLE = 'quartz.defi | Boardroom';
 
@@ -152,6 +153,15 @@ const Boardroom = () => {
                         </Typography>
                       </Box>
                     </SplitContent>
+                    {
+                      !stakedBalance.eq(0) && boardroomAPR > 0 ?
+                        <div style={{ marginTop: '16px' }}>
+                          <TwitterShareButton
+                            url={'https://bsc-quartz-defi.app/boardroom'}
+                            options={{ text: `#ASHARESTAKINGCHALLENGE earning 💎${boardroomAPR.toFixed(2)}% APR💎 at`, via: 'quartz_defi' }}
+                          /></div> : null
+
+                    }
                   </CardContent>
                 </Card>
               </Grid>
