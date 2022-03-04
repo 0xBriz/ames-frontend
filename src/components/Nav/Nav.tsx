@@ -143,6 +143,15 @@ const Nav = () => {
               </a>
               <a
                 color="textPrimary"
+                href="https://quartz-defi.tools/vaults"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={'navLink ' + classes.link}
+              >
+                Vaults
+              </a>
+              <a
+                color="textPrimary"
                 href="https://quartz-defi.one"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -228,6 +237,18 @@ const Nav = () => {
                       rel="noopener noreferrer"
                     >
                       Docs
+                    </a>
+                  </ListItem>
+                </li>
+                <li>
+                  <ListItem button>
+                    <a
+                      style={{ color: 'black', textDecoration: 'none' }}
+                      href="https://quartz-defi.tools/vaults"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Vaults
                     </a>
                   </ListItem>
                 </li>
