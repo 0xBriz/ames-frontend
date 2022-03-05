@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
+import AssessmentOutlinedIcon from '@material-ui/icons/AssessmentOutlined';
 import styled from 'styled-components';
 import Page from '../../components/Page';
-import TreasuryBalance from '../../components/TreasuryBalance';
 import CountUp from 'react-countup';
 import CardIcon from '../../components/CardIcon';
 import TokenSymbol from '../../components/TokenSymbol';
@@ -65,6 +65,19 @@ const BuyWrapper = styled.div`
   align-items: center;
   padding: 0 20px;
 `;
+
+const Charts = styled.div`
+  padding: 8px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: black;
+
+  > a {
+    display: block;
+    color: black;
+  }
+`
 
 const Home = () => {
   const bombFinance = useBombFinance();
@@ -152,6 +165,11 @@ const Home = () => {
                   <TokenSymbol size={72} symbol="AMES" />
                 </CardIcon>
               </Box>
+              <Charts style={{ position: 'absolute', top: '10px', left: '10px' }}>
+                <a href="https://dexscreener.com/bsc/0x6f78a0d31adc7c9fb848850f9d2a40da5858ad03" target="_blank">
+                  <AssessmentOutlinedIcon color='inherit' />
+                </a>
+              </Charts>
               <Button
                 onClick={() => {
                   bombFinance.watchAssetInMetamask('AMES');
@@ -204,6 +222,11 @@ const Home = () => {
         <Grid item xs={12} sm={4}>
           <Card>
             <CardContent align="center" style={{ position: 'relative' }}>
+              <Charts style={{ position: 'absolute', top: '10px', left: '10px' }}>
+                <a href="https://dexscreener.com/bsc/0x39846550ef3cb8d06e3cff52845df42f71ac3851" target="_blank">
+                  <AssessmentOutlinedIcon color='inherit' />
+                </a>
+              </Charts>
               <Button
                 onClick={() => {
                   bombFinance.watchAssetInMetamask('ASHARE');
