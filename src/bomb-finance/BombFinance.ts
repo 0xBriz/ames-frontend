@@ -356,15 +356,16 @@ export class BombFinance {
     }
     const rewardPerSecond = await poolContract.tSharePerSecond();
 
-    if (depositTokenName.startsWith('AMES')) {
-      // make this real allocation
+    if (depositTokenName === 'AMES-UST-LP') {
       return rewardPerSecond.mul(40000).div(59500);
-    } else if (depositTokenName.startsWith('1QSHARE-UST')) {
-      return rewardPerSecond.mul(0).div(59500);
+    } else if (depositTokenName === 'AMES-ASHARE-LP') {
+      return rewardPerSecond.mul(13500).div(59500);
     } else if (depositTokenName === '1QSHARE') {
-      return rewardPerSecond.mul(4500).div(59500);
+      return rewardPerSecond.mul(1000).div(59500);
+    } else if (depositTokenName === 'ASHARE-UST-LP') {
+      return rewardPerSecond.mul(5000).div(59500);
     } else {
-      return rewardPerSecond.mul(15000).div(59500);
+      return rewardPerSecond.mul(0).div(59500);
     }
   }
 
@@ -410,9 +411,8 @@ export class BombFinance {
         tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
       } else if (tokenName === '1QSHARE') {
         tokenPrice = await (await this.getQShareStat())?.priceInDollars;
-      } else if (tokenName === '1QUARTZ-1QSHARE-LP') {
-        tokenPrice = await this.getTokenPriceFromPancakeswap(token);
-        tokenPrice = (Number(tokenPrice) * Number(priceOfOneFtmInDollars)).toString();
+      } else if (tokenName === 'AMES-ASHARE-LP') {
+        tokenPrice = await this.getLPTokenPrice(token, this.BOMB, true);
       } else if (tokenName === 'BSHARE') {
         tokenPrice = await (await this.getShareStat())?.priceInDollars;
       } else {

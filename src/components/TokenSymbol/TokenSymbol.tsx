@@ -15,7 +15,7 @@ import bombFtmLpLogo from '../../assets/img/bomb-bitcoin-LP.png';
 import bshareFtmLpLogo from '../../assets/img/bshare-bnb-LP.png';
 import qShareOne from '../../assets/img/qshare-one.svg';
 import quartzUst from '../../assets/img/quartz-ust.svg';
-import quartzQshare from '../../assets/img/quartzQshare.svg';
+import quartzQshare from '../../assets/img/ames-ashare.svg';
 import amesUST from '../../assets/img/ames-ust.svg';
 import shareUST from '../../assets/img/share-ust.svg';
 import hshareUST from '../../assets/img/1share-ust.svg';
@@ -56,7 +56,7 @@ const logosBySymbol: { [title: string]: string } = {
   'QUARTZ-WONE-LP': bombFtmLpLogo,
   'QUARTZ-UST-LP': quartzUst,
   'AMES-UST-LP': amesUST,
-  'QUARTZ-QSHARE-LP': quartzQshare,
+  'AMES-ASHARE-LP': quartzQshare,
   '1QUARTZ-1QSHARE-LP': quartzQshare,
   '1QUARTZ-UST-LP': quartzQshare,
   '1QSHARE-UST-LP': hshareUST,

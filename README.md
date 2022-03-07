@@ -62,6 +62,7 @@
 ust - 0x23396cF899Ca06c4472205fC903bDB4de249D6fC
 ames-ust - 0x6f78a0d31adc7c9fb848850f9d2a40da5858ad03
 ashare-ust - 0x39846550Ef3Cb8d06E3CFF52845dF42F71Ac3851
+ames-ashare - 0xaE3Cda93486ec2B90172538534f7e2A7508D666F
 1qshare-ust - 0x61503f74189074e8e793cc0827eae37798c2b8f7
 
 ##################### FE STUFF ####################
