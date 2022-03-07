@@ -25,6 +25,7 @@ const configurations: { [env: string]: Configuration } = {
       'ASHARE-ONE-LP': ['0x39846550Ef3Cb8d06E3CFF52845dF42F71Ac3851', 18], // This is QSHARE-ONE
       'ASHARE-UST-LP': ['0x39846550Ef3Cb8d06E3CFF52845dF42F71Ac3851', 18], // This is QSHARE-UST
       '1QUARTZ-1QSHARE-LP': ['0x2D491e438A8aa722eCF96c9F2faa05FBe1F476E4', 18], // This is QSHARE-UST
+      'AMES-ASHARE-LP': ['0xaE3Cda93486ec2B90172538534f7e2A7508D666F', 18], // This is QSHARE-UST
       '1QUARTZ-UST-LP': ['0x5553386c5a11788b00c353507b2ac8a93ad8f8b1', 18], // This is QSHARE-UST
       '1QSHARE-UST-LP': ['0x61503f74189074e8e793cc0827eae37798c2b8f7', 18], // This is QSHARE-UST
     },
@@ -58,6 +59,7 @@ const configurations: { [env: string]: Configuration } = {
       '1QUARTZ-1QSHARE-LP': ['0x2D491e438A8aa722eCF96c9F2faa05FBe1F476E4', 18], // This is QSHARE-UST
       '1QUARTZ-UST-LP': ['0x5553386c5a11788b00c353507b2ac8a93ad8f8b1', 18], // This is QSHARE-UST
       '1QSHARE-UST-LP': ['0x61503f74189074e8e793cc0827eae37798c2b8f7', 18], // This is QSHARE-UST
+      'AMES-ASHARE-LP': ['0xaE3Cda93486ec2B90172538534f7e2A7508D666F', 18], // This is QSHARE-UST
     },
     baseLaunchDate: new Date('2021-11-20 1:00:00Z'),
     bondLaunchesAt: new Date('2020-12-03T15:00:00Z'),
@@ -290,6 +292,17 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     sort: 1,
     closedForStaking: false,
   },
+  AmesAshareLPQShareRewardPool: {
+    name: 'Earn ASHARE by AMES-ASHARE LP',
+    poolId: 5,
+    sectionInUI: 2,
+    contract: 'AmesAshareLPQShareRewardPool',
+    depositTokenName: 'AMES-ASHARE-LP',
+    earnTokenName: 'ASHARE',
+    finished: false,
+    sort: 2,
+    closedForStaking: false,
+  },
   AShareUstLPQShareRewardPool: {
     name: 'Earn ASHARE by AMETHYST-UST LP',
     poolId: 1,
@@ -298,7 +311,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     depositTokenName: 'ASHARE-UST-LP',
     earnTokenName: 'ASHARE',
     finished: false,
-    sort: 2,
+    sort: 3,
     closedForStaking: false,
   },
   // QuartzUSTLPQShareRewardPool: {
@@ -320,8 +333,8 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     depositTokenName: '1QSHARE-UST-LP',
     earnTokenName: 'ASHARE',
     finished: false,
-    sort: 4,
-    closedForStaking: false,
+    sort: 5,
+    closedForStaking: true,
   },
   QShareLPQShareRewardPool: {
     name: 'Earn ASHARE by QSHARE',
@@ -331,7 +344,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     depositTokenName: '1QSHARE',
     earnTokenName: 'ASHARE',
     finished: false,
-    sort: 4,
+    sort: 3,
     closedForStaking: false,
   },
   // BombBtcbLPBShareRewardPool: {
