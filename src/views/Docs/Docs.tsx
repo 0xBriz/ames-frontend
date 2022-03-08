@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { Grid, Box, Typography } from '@material-ui/core';
 import { Helmet } from 'react-helmet';
 
-const TITLE = 'quartz.defi | Docs';
+const TITLE = 'ames.defi | Docs';
 
 const StyledLink = styled.a`
   text-decoration: underline;

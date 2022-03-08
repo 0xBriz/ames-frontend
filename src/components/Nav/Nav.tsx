@@ -25,7 +25,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import AccountButton from './AccountButton';
 
-import bombLogo from '../../assets/img/logo3.svg';
+import bombLogo from '../../assets/img/logo4.svg';
 import { roundAndFormatNumber } from '../../0x';
 
 const useStyles = makeStyles((theme) => ({
@@ -150,15 +150,6 @@ const Nav = () => {
               >
                 Vaults
               </a>
-              <a
-                color="textPrimary"
-                href="https://quartz-defi.one"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={'navLink ' + classes.link}
-              >
-                Quartz
-              </a>
             </Box>
 
             <Box
@@ -249,18 +240,6 @@ const Nav = () => {
                       rel="noopener noreferrer"
                     >
                       Vaults
-                    </a>
-                  </ListItem>
-                </li>
-                <li>
-                  <ListItem button>
-                    <a
-                      style={{ color: 'black', textDecoration: 'none' }}
-                      href="https://quartz-defi.one"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Quartz
                     </a>
                   </ListItem>
                 </li>

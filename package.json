@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "repository": "https://github.com/quartz-defi/quartz-frontend.git",
   "private": false,
-  "author": "quartz.defi <quartz.defi@protonmail.com>",
+  "author": "ames.defi <ames.defi@protonmail.com>",
   "license": "MIT",
   "dependencies": {
     "@defikingdoms/sdk": "git+https://github.com/quartz-defi/sdk#b1777d59153af1eeee6e76b430209ec56dedd2fd",

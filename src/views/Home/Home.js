@@ -16,7 +16,7 @@ import { Helmet } from 'react-helmet';
 import { device } from '../../newTheme';
 import useBombFinance from '../../hooks/useBombFinance';
 
-const TITLE = 'quartz.defi | UST pegged algocoin';
+const TITLE = 'ames.defi | UST pegged algocoin';
 
 const MarketCap = styled.div`
   display: flex;

@@ -94,7 +94,7 @@ const Providers: React.FC = ({ children }) => {
             walletconnect: { rpcUrl: config.defaultProvider },
             walletlink: {
               url: config.defaultProvider,
-              appName: 'quartz.defi',
+              appName: 'ames.defi',
             },
           }}
         >

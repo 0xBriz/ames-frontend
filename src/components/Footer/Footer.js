@@ -45,7 +45,7 @@ const Footer = () => {
             <Typography variant="body2" color="textPrimary" align="left">
               {'Copyright © '}
               <Link color="inherit" href="/">
-                bsc-quartz-defi.app
+                ames-defi.app
               </Link>{' '}
               {new Date().getFullYear()}
             </Typography>
@@ -60,7 +60,7 @@ const Footer = () => {
               <IconTwitter style={{ fill: 'black', height: '30px' }} />
             </a>
             <a
-              href="https://github.com/quartz-defi/"
+              href="https://github.com/ames-defi/"
               rel="noopener noreferrer"
               target="_blank"
               className={classes.link}

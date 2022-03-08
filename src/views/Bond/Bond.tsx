@@ -27,7 +27,7 @@ const SplitContent = styled.div`
   margin-bottom: 8px;
 `;
 
-const TITLE = 'quartz.defi | Bonds';
+const TITLE = 'ames.defi | Bonds';
 
 const Bond: React.FC = () => {
   const { path } = useRouteMatch();

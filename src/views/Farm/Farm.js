@@ -11,7 +11,7 @@ import Page from '../../components/Page';
 import useBanks from '../../hooks/useBanks';
 import { Helmet } from 'react-helmet';
 
-const TITLE = 'quartz.defi | Farms';
+const TITLE = 'ames.defi | Farms';
 
 const Farm = () => {
   const [banks] = useBanks();

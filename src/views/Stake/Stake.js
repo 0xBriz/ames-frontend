@@ -12,7 +12,7 @@ import useXbombAPR from '../../hooks/useXbombAPR';
 import useStakedTotalBombBalance from '../../hooks/useTotalStakedBombBalance';
 import { Helmet } from 'react-helmet'
 
-const TITLE = 'quartz.defi | xQUARTZ - QUARTZ Staking'
+const TITLE = 'ames.defi | xQUARTZ - QUARTZ Staking'
 
 const Staking = () => {
   const { path } = useRouteMatch();

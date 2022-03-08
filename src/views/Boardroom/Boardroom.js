@@ -27,7 +27,7 @@ import ProgressCountdown from './components/ProgressCountdown';
 import { Helmet } from 'react-helmet';
 import { TwitterShareButton } from 'react-twitter-embed';
 
-const TITLE = 'quartz.defi | Boardroom';
+const TITLE = 'ames.defi | Boardroom';
 
 const SplitContent = styled.div`
   display: flex;
