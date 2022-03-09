@@ -157,8 +157,8 @@ const Boardroom = () => {
                       !stakedBalance.eq(0) && boardroomAPR > 0 ?
                         <div style={{ marginTop: '16px' }}>
                           <TwitterShareButton
-                            url={'https://bsc-quartz-defi.app/boardroom'}
-                            options={{ text: `#ASHARESTAKINGCHALLENGE earning 💎${boardroomAPR.toFixed(2)}% APR💎 at`, via: 'quartz_defi' }}
+                            url={'https://ames-defi.app/boardroom'}
+                            options={{ text: `#ASHARESTAKINGCHALLENGE earning 💎${boardroomAPR.toFixed(2)}% APR💎 at`, via: 'ames_defi' }}
                           /></div> : null
 
                     }

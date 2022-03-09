@@ -52,7 +52,7 @@ const Footer = () => {
           </Grid>
           <Grid item xs={6} style={{ textAlign: 'right', height: '50px' }}>
             <a
-              href="https://twitter.com/quartz_defi"
+              href="https://twitter.com/ames_defi"
               rel="noopener noreferrer"
               target="_blank"
               className={classes.link}
