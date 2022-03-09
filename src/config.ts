@@ -15,6 +15,7 @@ const configurations: { [env: string]: Configuration } = {
       BTCB: ['0x23396cF899Ca06c4472205fC903bDB4de249D6fC', 18], // This is actually UST on mainnet not fusdt
       UST: ['0x23396cF899Ca06c4472205fC903bDB4de249D6fC', 18], // This is actually UST on mainnet not fusdt
       QUARTZ: ['0x7ebc713a888cea488c20bb9ac1999ee758e21ff0', 18], // This is actually UST on mainnet not fusdt
+      AMES: ['0xb9E05B4C168B56F73940980aE6EF366354357009', 18], // This is actually UST on mainnet not fusdt
       QSHARE: ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
       '1QSHARE': ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
       'USDT-WONE-LP': ['0x58f876857a02d6762e0101bb5c46a8c1ed44dc16', 18], // This is actually 1USDC-WONE on mainnet not fusdt
@@ -47,6 +48,7 @@ const configurations: { [env: string]: Configuration } = {
       BTCB: ['0x23396cF899Ca06c4472205fC903bDB4de249D6fC', 18], // This is actually UST on mainnet not fusdt
       UST: ['0x23396cF899Ca06c4472205fC903bDB4de249D6fC', 18], // This is actually UST on mainnet not fusdt
       QUARTZ: ['0x7ebc713a888cea488c20bb9ac1999ee758e21ff0', 18], // This is actually UST on mainnet not fusdt
+      AMES: ['0xb9E05B4C168B56F73940980aE6EF366354357009', 18], // This is actually UST on mainnet not fusdt
       QSHARE: ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
       '1QSHARE': ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
       'USDT-WONE-LP': ['0x58f876857a02d6762e0101bb5c46a8c1ed44dc16', 18], // This is actually 1USDC-WONE on mainnet not fusdt
@@ -298,6 +300,17 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     sectionInUI: 2,
     contract: 'AmesAshareLPQShareRewardPool',
     depositTokenName: 'AMES-ASHARE-LP',
+    earnTokenName: 'ASHARE',
+    finished: false,
+    sort: 2,
+    closedForStaking: false,
+  },
+  AmesQShareRewardPool: {
+    name: 'Earn ASHARE by AMES',
+    poolId: 6,
+    sectionInUI: 2,
+    contract: 'AmesQShareRewardPool',
+    depositTokenName: 'AMES',
     earnTokenName: 'ASHARE',
     finished: false,
     sort: 2,
