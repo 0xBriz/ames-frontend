@@ -36,7 +36,7 @@ const Harvest: React.FC = () => {
         <CardContent>
           <StyledCardContentInner>
             <StyledCardHeader>
-              <CardIcon backgroundColor="#58d6a6">
+              <CardIcon backgroundColor="#F9DC64">
                 <TokenSymbol size={95} symbol="AMES" />
               </CardIcon>
               <Value value={getDisplayBalance(earnings)} />
