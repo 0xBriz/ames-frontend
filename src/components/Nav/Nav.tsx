@@ -132,15 +132,15 @@ const Nav = () => {
               <Link color="textPrimary" to="/addresses" className={'navLink ' + classes.link}>
                 Addresses
               </Link>
-              {/* <a
+              <a
                 color="textPrimary"
-                href="https://quartz-defi.notion.site/Quartz-defi-Docs-a784924cc03c40719ba5b17519472204"
+                href="https://ames-defi.notion.site/ames-defi/Ames-defi-Docs-315580f66bd74715a04888947f6e5f72"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={'navLink ' + classes.link}
               >
                 Docs
-              </a> */}
+              </a>
               <a
                 color="textPrimary"
                 href="https://ames-defi.tools/vaults"
@@ -219,18 +219,18 @@ const Nav = () => {
                 <ListItemLink primary="Bond" to="/bond" />
                 {/* <ListItemLink primary="Quarry" to="/quarry" /> */}
                 <ListItemLink primary="Addresses" to="/addresses" />
-                {/* <li>
+                <li>
                   <ListItem button>
                     <a
                       style={{ color: 'black', textDecoration: 'none' }}
-                      href="https://quartz-defi.notion.site/Quartz-defi-Docs-a784924cc03c40719ba5b17519472204"
+                      href="https://ames-defi.notion.site/ames-defi/Ames-defi-Docs-315580f66bd74715a04888947f6e5f72"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       Docs
                     </a>
                   </ListItem>
-                </li> */}
+                </li>
                 <li>
                   <ListItem button>
                     <a

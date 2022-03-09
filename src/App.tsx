@@ -32,7 +32,7 @@ const NoMatch = () => (
 
 const RedirectToDocs = () => {
   useEffect(() => {
-    window.location.assign('https://quartz-defi.notion.site/Quartz-defi-Docs-a784924cc03c40719ba5b17519472204');
+    window.location.assign('https://ames-defi.notion.site/ames-defi/Ames-defi-Docs-315580f66bd74715a04888947f6e5f72');
   }, []);
 
   return <></>;
