@@ -357,7 +357,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     depositTokenName: '1QSHARE',
     earnTokenName: 'ASHARE',
     finished: false,
-    sort: 3,
+    sort: 6,
     closedForStaking: false,
   },
   // BombBtcbLPBShareRewardPool: {
