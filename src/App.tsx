@@ -22,6 +22,7 @@ const Farm = lazy(() => import('./views/Farm'));
 const Boardroom = lazy(() => import('./views/Boardroom'));
 const Bond = lazy(() => import('./views/Bond'));
 const Docs = lazy(() => import('./views/Docs'));
+const Strategy = lazy(() => import('./views/Strategy'));
 const Stake = lazy(() => import('./views/Stake'));
 
 const NoMatch = () => (
@@ -67,6 +68,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/addresses">
               <Docs />
+            </Route>
+            <Route path="/strategy">
+              <Strategy />
             </Route>
             <Route path="/docs">
               <RedirectToDocs />
