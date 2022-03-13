@@ -291,7 +291,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     depositTokenName: 'AMES-UST-LP',
     earnTokenName: 'ASHARE',
     finished: false,
-    sort: 1,
+    sort: 2,
     closedForStaking: false,
   },
   AmesAshareLPQShareRewardPool: {
@@ -302,7 +302,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     depositTokenName: 'AMES-ASHARE-LP',
     earnTokenName: 'ASHARE',
     finished: false,
-    sort: 2,
+    sort: 1,
     closedForStaking: false,
   },
   AmesQShareRewardPool: {
@@ -313,7 +313,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     depositTokenName: 'AMES',
     earnTokenName: 'ASHARE',
     finished: false,
-    sort: 2,
+    sort: 3,
     closedForStaking: false,
   },
   AShareUstLPQShareRewardPool: {
@@ -324,7 +324,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     depositTokenName: 'ASHARE-UST-LP',
     earnTokenName: 'ASHARE',
     finished: false,
-    sort: 3,
+    sort: 4,
     closedForStaking: false,
   },
   // QuartzUSTLPQShareRewardPool: {
