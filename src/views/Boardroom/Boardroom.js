@@ -124,7 +124,7 @@ const Boardroom = () => {
                         <Typography style={{ fontSize: '10px', textAlign: 'center' }}></Typography>
                       </Box>
                       <Box>
-                        <Typography style={{ fontWeight: 'bold', color: 'black' }}>${scalingFactor} UST</Typography>
+                        <Typography style={{ fontWeight: 'bold', color: 'black' }}>{scalingFactor}</Typography>
                       </Box>
                     </SplitContent>
                     <SplitContent>

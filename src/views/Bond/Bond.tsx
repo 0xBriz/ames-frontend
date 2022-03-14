@@ -101,10 +101,10 @@ const Bond: React.FC = () => {
                     <Grid justifyContent="center" style={{ display: 'flex' }} direction="column" item xs={12} md={6}>
                       <Typography style={{ textAlign: 'left', textTransform: 'none' }}>
                         Purchasing ABONDs contributes to bringing AMES back to peg by burning the amount being sold. You
-                        can purchase ABONDS when <strong>Current TWAP Price </strong>
-                        is below <strong>$1.00</strong>.<br />
+                        can purchase ABONDS when <strong>Current TWAP Peg </strong>
+                        is below <strong>1.00</strong>.<br />
                         <br /> After AMES regains it's peg and <strong>Current TWAP Price </strong>
-                        is above <strong>$1.01</strong>, redeeming becomes available.
+                        is above <strong>1.01</strong>, redeeming becomes available.
                       </Typography>
                     </Grid>
                     <Grid item xs={12} md={6}>
@@ -113,26 +113,26 @@ const Bond: React.FC = () => {
                           <SplitContent>
                             <Box>
                               <Typography style={{ textTransform: 'none', fontSize: '16px' }} variant="h6">
-                                Current TWAP Price
+                                Current Epoch Peg
                               </Typography>
                               <Typography style={{ fontSize: '10px', textAlign: 'center' }}></Typography>
                             </Box>
                             <Box>
                               <Typography style={{ fontWeight: 'bold', color: 'black' }}>
-                                ${getDisplayBalance(cashPriceTWAP, 18, 2) || '-'}
+                                {getDisplayBalance(cashPriceTWAP, 18, 2) || '-'}
                               </Typography>
                             </Box>
                           </SplitContent>
                           <SplitContent>
                             <Box>
                               <Typography style={{ textTransform: 'none', fontSize: '16px' }} variant="h6">
-                                Last hour TWAP Price
+                                Last hour TWAP Peg
                               </Typography>
                               <Typography style={{ fontSize: '10px', textAlign: 'center' }}></Typography>
                             </Box>
                             <Box>
                               <Typography style={{ fontWeight: 'bold', color: 'black' }}>
-                                ${getDisplayBalance(cashPrice, 18, 2) || '-'}
+                                {getDisplayBalance(cashPrice, 18, 2) || '-'}
                               </Typography>
                             </Box>
                           </SplitContent>
