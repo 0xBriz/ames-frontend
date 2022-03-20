@@ -357,7 +357,7 @@ export class BombFinance {
     const rewardPerSecond = await poolContract.tSharePerSecond();
 
     if (depositTokenName === 'AMES-UST-LP') {
-      return rewardPerSecond.mul(21420).div(59500);
+      return rewardPerSecond.mul(24990).div(59500);
     } else if (depositTokenName === 'AMES-ASHARE-LP') {
       return rewardPerSecond.mul(34510).div(59500);
     } else if (depositTokenName === '1QSHARE') {
@@ -365,7 +365,7 @@ export class BombFinance {
     } else if (depositTokenName === 'ASHARE-UST-LP') {
       return rewardPerSecond.mul(0).div(59500);
     } else if (depositTokenName === 'AMES') {
-      return rewardPerSecond.mul(3570).div(59500);
+      return rewardPerSecond.mul(0).div(59500);
     } else {
       return rewardPerSecond.mul(0).div(59500);
     }
