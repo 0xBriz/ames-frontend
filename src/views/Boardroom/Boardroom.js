@@ -26,6 +26,7 @@ import useWithdrawCheck from '../../hooks/boardroom/useWithdrawCheck';
 import ProgressCountdown from './components/ProgressCountdown';
 import { Helmet } from 'react-helmet';
 import { TwitterShareButton } from 'react-twitter-embed';
+import useCashPriceTWAP from '../../hooks/useCashPriceTWAP';
 
 const TITLE = 'ames.defi | Boardroom';
 
@@ -41,6 +42,7 @@ const Boardroom = () => {
   const stakedBalance = useStakedBalanceOnBoardroom();
   const currentEpoch = useCurrentEpoch();
   const cashStat = useCashPriceInEstimatedTWAP();
+  const cashPriceTWAP = useCashPriceTWAP();
   const totalStaked = useTotalStakedOnBoardroom();
   const boardroomAPR = useFetchBoardroomAPR();
   const canClaimReward = useClaimRewardCheck();
@@ -95,6 +97,18 @@ const Boardroom = () => {
                       </Box>
                       <Box>
                         <Typography style={{ fontWeight: 'bold', color: 'black' }}>{Number(currentEpoch)}</Typography>
+                      </Box>
+                    </SplitContent>
+                    <SplitContent>
+                      <Box>
+                        <Typography style={{ textTransform: 'none' }} variant="h6">
+                          Current Epoch Peg
+                        </Typography>
+                      </Box>
+                      <Box>
+                        <Typography style={{ fontWeight: 'bold', color: 'black' }}>
+                          {getDisplayBalance(cashPriceTWAP, 18, 2) || '-'}
+                        </Typography>
                       </Box>
                     </SplitContent>
                     <SplitContent>
