@@ -153,13 +153,18 @@ const Stake: React.FC<StakeProps> = ({ bank }) => {
             <IconButton onClick={onPresentWithdraw}>
               <RemoveIcon color="black" />
             </IconButton>
-            <StyledActionSpacer />
-            <IconButton
-              disabled={bank.closedForStaking}
-              onClick={() => (bank.closedForStaking ? null : onPresentDeposit())}
-            >
-              <AddIcon color="black" />
-            </IconButton>
+
+            {bank.closedForStaking || bank.onlyVault ? null : (
+              <>
+                <StyledActionSpacer />
+                <IconButton
+                  disabled={bank.closedForStaking}
+                  onClick={() => (bank.closedForStaking ? null : onPresentDeposit())}
+                >
+                  <AddIcon color="black" />
+                </IconButton>
+              </>
+            )}
           </>
         )}
       </StyledCardActions>

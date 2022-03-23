@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import styled from 'styled-components';
 import { useWallet } from 'use-wallet';
 import { makeStyles } from '@material-ui/core/styles';
@@ -17,6 +18,7 @@ import { Bank as BankEntity, ContractName } from '../../bomb-finance';
 import useBombFinance from '../../hooks/useBombFinance';
 import TokenSymbol from '../../components/TokenSymbol';
 import CardIcon from '../../components/CardIcon';
+import { Alert } from '@material-ui/lab';
 
 const useStyles = makeStyles((theme) => ({
   gridItem: {
@@ -72,6 +74,11 @@ const StyledTokenSymbol = styled(TokenSymbol)`
   height: 32px;
 `;
 
+const VaultLink = styled.a`
+  text-decoration: underline;
+  color: inherit;
+`;
+
 const Bank: React.FC<BankProps> = ({ bankId }) => {
   useEffect(() => window.scrollTo(0, 0));
   const classes = useStyles();
@@ -119,7 +126,7 @@ const Bank: React.FC<BankProps> = ({ bankId }) => {
   const getRunningStatus = () => {
     const currentTimeStamp = new Date().getTime();
 
-    if (['1QSHARE-UST-LP', '1QSHARE', 'ASHARE-UST-LP', 'AMES'].includes(bank.depositTokenName)) {
+    if (['1QSHARE-UST-LP', '1QSHARE', 'AMES'].includes(bank.depositTokenName)) {
       return 'Finished';
     }
 
@@ -142,6 +149,21 @@ const Bank: React.FC<BankProps> = ({ bankId }) => {
           {bank?.depositTokenName}
         </Typography>
         {renderPoolKind()}
+        {bank.onlyVault ? (
+          <Alert
+            style={{ backgroundColor: 'rgb(255,148,148,.3)', textAlign: 'left', marginBottom: '16px', color: 'black' }}
+            variant="filled"
+            severity="info"
+          >
+            <VaultLink href="https://www.ames-defi.tools/vaults">
+              Vault only
+              <OpenInNewIcon
+                style={{ fontSize: '12px', display: 'inline-block', position: 'relative', top: '-7px' }}
+                color="inherit"
+              />
+            </VaultLink>
+          </Alert>
+        ) : null}
       </Header>
       <CardSection>
         <CardSectionSplit>
