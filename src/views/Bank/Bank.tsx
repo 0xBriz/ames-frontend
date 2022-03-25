@@ -126,7 +126,7 @@ const Bank: React.FC<BankProps> = ({ bankId }) => {
   const getRunningStatus = () => {
     const currentTimeStamp = new Date().getTime();
 
-    if (['1QSHARE-UST-LP', '1QSHARE', 'AMES-ASHARE'].includes(bank.depositTokenName)) {
+    if (['1QSHARE-UST-LP', '1QSHARE', 'AMES-ASHARE-LP'].includes(bank.depositTokenName)) {
       return 'Not running';
     }
 
