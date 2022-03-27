@@ -224,7 +224,7 @@ const Home = () => {
           <Card>
             <CardContent align="center" style={{ position: 'relative' }}>
               <Charts style={{ position: 'absolute', top: '10px', left: '10px' }}>
-                <a href="https://dexscreener.com/bsc/0xae3cda93486ec2b90172538534f7e2a7508d666f" target="_blank">
+                <a href="https://dexscreener.com/bsc/0x39846550ef3cb8d06e3cff52845df42f71ac3851" target="_blank">
                   <AssessmentOutlinedIcon color='inherit' />
                 </a>
               </Charts>
@@ -270,11 +270,8 @@ const Home = () => {
                   <Typography style={{ fontWeight: 'bold' }}>{roundAndFormatNumber(bShareTotalSupply, 2)}</Typography>
                 </SplitContent>
               </MarketCap>
-              <Alert style={{ backgroundColor: 'rgb(255,148,148,.3)', textAlign: 'left', marginBottom: '16px', color: 'black' }} variant="filled" severity="info">
-                Swap into AMES first for lower price impact
-              </Alert>
               <BuyWrapper>
-                <StyledLink className="shinyButton" href="https://pancakeswap.finance/swap?inputCurrency=0xb9E05B4C168B56F73940980aE6EF366354357009&outputCurrency=0xFa4b16b0f63F5A6D0651592620D585D308F749A4" target="_blank">
+                <StyledLink className="shinyButton" href="https://pancakeswap.finance/swap?inputCurrency=0x23396cF899Ca06c4472205fC903bDB4de249D6fC&outputCurrency=0xFa4b16b0f63F5A6D0651592620D585D308F749A4" target="_blank">
                   Buy ASHARE
                 </StyledLink>
               </BuyWrapper>
