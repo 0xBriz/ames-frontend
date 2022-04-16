@@ -25,6 +25,8 @@ export type PoolStats = {
   dailyAPR: string;
   yearlyAPR: string;
   TVL: string;
+  userDailyBurst?: string;
+  userYearlyBurst?: string;
 };
 
 export type TokenStat = {
