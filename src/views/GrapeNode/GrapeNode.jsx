@@ -1,5 +1,7 @@
 import React, { useState, useContext, useMemo } from 'react';
-import {useParams} from 'react-router-dom';
+import Page from '../../components/Page';
+import { Helmet } from 'react-helmet';
+import { Route, Switch, useParams, useRouteMatch } from 'react-router-dom';
 import { useWallet } from 'use-wallet';
 import PageHeader from '../../components/PageHeader';
 import { Box, Card, CardContent, Typography, Grid, MenuItem, withStyles } from '@material-ui/core';
@@ -8,14 +10,13 @@ import styled from 'styled-components';
 import Spacer from '../../components/Spacer';
 import Harvest from './components/Harvest';
 import Stake from './components/Stake';
-import useNodeText from '../../hooks/useNodeText';
+import UnlockWallet from '../../components/UnlockWallet';
 import useBank from '../../hooks/useBank';
 import useNodes from '../../hooks/useNodes';
 import useMaxPayout from '../../hooks/useMaxPayout';
 import useUserDetails from '../../hooks/useUserDetails';
 import totalNodes from '../../hooks/useTotalNodes';
 import useStatsForPool from '../../hooks/useStatsForPool';
-import {Context} from '../../contexts/BombFinanceProvider';
 import useStakedTokenPriceInDollars from '../../hooks/useStakedTokenPriceInDollars';
 
 import {Alert} from '@material-ui/lab';
@@ -29,9 +30,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const TITLE = 'ames.defi | Quarry';
+
 const GrapeNode = () => {
   const { bankId } = useParams();
-  
+  const { path } = useRouteMatch();
   const bank = useBank(bankId);
   const { account } = useWallet();
 
@@ -48,12 +51,40 @@ const GrapeNode = () => {
     [stakedTokenPriceInDollars],
   );
 
-  return bank
+  return (
+    
+      <>
+        <Helmet>
+          <title>{TITLE}</title>
+        </Helmet>
+        {!!account ? (
+          <>
+            {
+              bank
   ? (
       <>
-        <Typography style={{ textTransform: 'none', fontWeight: 'bold', marginBottom: '42px' }} color="textPrimary" align="center" variant="h3">
-                    Generate Ames with Nodes
-                  </Typography>
+        <Route exact path={path}>
+              <Box mb={4}>
+                <Typography
+                  style={{ textTransform: 'none', fontWeight: 'bold' }}
+                  color="textPrimary"
+                  align="center"
+                  variant="h3"
+                  gutterBottom
+                >
+                  Buy &amp; Redeem Bonds
+                </Typography>
+                <Typography
+                  style={{ textTransform: 'none' }}
+                  color="textPrimary"
+                  align="center"
+                  variant="h5"
+                  gutterBottom
+                >
+                  Earn premiums upon redemption
+                </Typography>
+              </Box>
+            </Route>
         {/* <Button onClick={setTierValues}>Set Tier Values</Button> */}
         <Box>
           <Grid container justify="center" spacing={2} style={{marginBottom: '50px', marginTop: '20px'}}>
@@ -140,6 +171,13 @@ const GrapeNode = () => {
       </>
     )
   : <BankNotFound/>
+            }
+          </>
+        ) : (
+          <UnlockWallet />
+        )}
+      </>
+  );
 };
 
 const LPTokenHelpText = ({bank}) => {
