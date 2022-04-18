@@ -175,6 +175,17 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
   //   sort: 1,
   //   closedForStaking: false,
   // },
+  AmesNode: {
+    name: 'Generate Ames with Nodes',
+    poolId: 0,
+    sectionInUI: 3,
+    contract: 'AmesNode',
+    depositTokenName: 'AMES',
+    earnTokenName: 'AMES',
+    finished: false,
+    sort: 2,
+    closedForStaking: false,
+  },
 };
 
 export default configurations[process.env.NODE_ENV || 'development'];

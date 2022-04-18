@@ -27,6 +27,7 @@ const logosBySymbol: { [title: string]: string } = {
   //Real tokens
   //=====================
   BOMB: bombLogo,
+  GNODE: ames,
   QUARTZ: bombLogo,
   AMES: ames,
   AMETHYST: ames,
