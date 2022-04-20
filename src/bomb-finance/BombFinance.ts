@@ -600,8 +600,6 @@ export class BombFinance {
   ): Promise<BigNumber> {
     const pool = this.contracts[poolName];
 
-    console.log(poolName);
-
     try {
       if (earnTokenName === 'AMES' && poolName.includes('Node')) {
         return await pool.getTotalRewards(account);
@@ -636,7 +634,7 @@ export class BombFinance {
    */
   async stake(poolName: ContractName, poolId: Number, amount: BigNumber): Promise<TransactionResponse> {
     const pool = this.contracts[poolName];
-    console.log(poolId, amount.toNumber());
+
     return poolName !== 'AmesNode' ? await pool.deposit(poolId, amount) : await pool.create(poolId, amount);
   }
 
