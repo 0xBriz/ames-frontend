@@ -25,6 +25,7 @@ const Docs = lazy(() => import('./views/Docs'));
 const Strategy = lazy(() => import('./views/Strategy'));
 const Stake = lazy(() => import('./views/Stake'));
 const Nodes = lazy(() => import('./views/Nodes'));
+const ShareSwapper = lazy(() => import('./views/ShareSwapper'));
 
 const NoMatch = () => (
   <h3 style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
@@ -78,6 +79,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/nodes">
               <Nodes />
+            </Route>
+            <Route path="/share-swap">
+              <ShareSwapper />
             </Route>
             {/* <Route path="/quarry">
               <Stake />
