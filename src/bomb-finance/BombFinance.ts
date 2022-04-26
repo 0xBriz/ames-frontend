@@ -1315,4 +1315,21 @@ export class BombFinance {
       return BigNumber.from(0);
     }
   }
+
+  /* comp */
+  async getCompTotal(user: string): Promise<BigNumber> {
+    return await this.contracts.Compensation.getGrantAmount(user);
+  }
+
+  async getCompClaim(user: string): Promise<BigNumber> {
+    return await this.contracts.Compensation.getVestedTokens(user);
+  }
+
+  async getClaimed(user: string): Promise<BigNumber> {
+    return await this.contracts.Compensation.getTotalClaimed(user);
+  }
+
+  async claimComp(): Promise<TransactionResponse> {
+    return await this.contracts.Compensation.claimVestedTokens();
+  }
 }
