@@ -37,7 +37,6 @@ const ExchangeCard: React.FC<ExchangeCardProps> = ({
   fromTokenName,
   toToken,
   toTokenName,
-  priceDesc,
   onExchange,
   disabled = false,
   disabledDescription,

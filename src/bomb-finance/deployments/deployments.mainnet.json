@@ -7971,7 +7971,7 @@
     ]
   },
   "ShareSwap": {
-    "address": "0x243ef8216151FA2f5Eab53e72912C0746f0CA819",
+    "address": "0x5d0F798ACa7ed07b45857c63dD1D4De9DCa03420",
     "abi": [
       {
         "inputs": [
@@ -8116,6 +8116,19 @@
         "type": "function"
       },
       {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_token",
+            "type": "address"
+          }
+        ],
+        "name": "updateAaltoToken",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
         "inputs": [],
         "name": "aaltoPerShare",
         "outputs": [
@@ -8196,8 +8209,66 @@
     ]
   },
   "Compensation": {
-    "address": "0xbDF4C30EA480D74a226D442A29E6352Bcc33adf6",
+    "address": "0x319a9614AE6df5fbDA7bCe5ED208Cb01F133bC67",
     "abi": [
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_recipient",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint16",
+            "name": "_vestingDurationInDays",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint16",
+            "name": "_vestingCliffInDays",
+            "type": "uint16"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_startTime",
+            "type": "uint256"
+          }
+        ],
+        "name": "addTokenGrant",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "claimVestedTokens",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_tokenAddress",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_amount",
+            "type": "uint256"
+          }
+        ],
+        "name": "emergencyWithdraw",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
       {
         "inputs": [
           {
@@ -8286,41 +8357,21 @@
         "type": "event"
       },
       {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
         "inputs": [
           {
             "internalType": "address",
             "name": "_recipient",
             "type": "address"
-          },
-          {
-            "internalType": "uint256",
-            "name": "_amount",
-            "type": "uint256"
-          },
-          {
-            "internalType": "uint16",
-            "name": "_vestingDurationInDays",
-            "type": "uint16"
-          },
-          {
-            "internalType": "uint16",
-            "name": "_vestingCliffInDays",
-            "type": "uint16"
-          },
-          {
-            "internalType": "uint256",
-            "name": "_startTime",
-            "type": "uint256"
           }
         ],
-        "name": "addTokenGrant",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "claimVestedTokens",
+        "name": "revokeTokenGrant",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -8329,16 +8380,24 @@
         "inputs": [
           {
             "internalType": "address",
-            "name": "_tokenAddress",
+            "name": "_token",
             "type": "address"
-          },
-          {
-            "internalType": "uint256",
-            "name": "_amount",
-            "type": "uint256"
           }
         ],
-        "name": "emergencyWithdraw",
+        "name": "setToken",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "newOwner",
+            "type": "address"
+          }
+        ],
+        "name": "transferOwnership",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -8371,6 +8430,19 @@
           }
         ],
         "name": "getGrantStartTime",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "getTokenAmount",
         "outputs": [
           {
             "internalType": "uint256",
@@ -8434,26 +8506,6 @@
       },
       {
         "inputs": [],
-        "name": "renounceOwnership",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "_recipient",
-            "type": "address"
-          }
-        ],
-        "name": "revokeTokenGrant",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
         "name": "token",
         "outputs": [
           {
@@ -8476,19 +8528,6 @@
           }
         ],
         "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "newOwner",
-            "type": "address"
-          }
-        ],
-        "name": "transferOwnership",
-        "outputs": [],
-        "stateMutability": "nonpayable",
         "type": "function"
       }
     ]

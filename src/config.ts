@@ -29,7 +29,7 @@ const configurations: { [env: string]: Configuration } = {
       'AMES-ASHARE-LP': ['0xaE3Cda93486ec2B90172538534f7e2A7508D666F', 18], // This is QSHARE-UST
       '1QUARTZ-UST-LP': ['0x5553386c5a11788b00c353507b2ac8a93ad8f8b1', 18], // This is QSHARE-UST
       '1QSHARE-UST-LP': ['0x61503f74189074e8e793cc0827eae37798c2b8f7', 18], // This is QSHARE-UST
-      AALTO: ['0x61503f74189074e8e793cc0827eae37798c2b8f7', 18],
+      AALTO: ['0xce18fbbad490d4ff9a9475235cfc519513cfb19a', 18],
     },
     baseLaunchDate: new Date('2021-11-20 1:00:00Z'),
     bondLaunchesAt: new Date('2020-12-03T15:00:00Z'),
@@ -63,7 +63,7 @@ const configurations: { [env: string]: Configuration } = {
       '1QUARTZ-UST-LP': ['0x5553386c5a11788b00c353507b2ac8a93ad8f8b1', 18], // This is QSHARE-UST
       '1QSHARE-UST-LP': ['0x61503f74189074e8e793cc0827eae37798c2b8f7', 18], // This is QSHARE-UST
       'AMES-ASHARE-LP': ['0xaE3Cda93486ec2B90172538534f7e2A7508D666F', 18], // This is QSHARE-UST
-      AALTO: ['0x61503f74189074e8e793cc0827eae37798c2b8f7', 18],
+      AALTO: ['0xce18fbbad490d4ff9a9475235cfc519513cfb19a', 18],
     },
     baseLaunchDate: new Date('2021-11-20 1:00:00Z'),
     bondLaunchesAt: new Date('2020-12-03T15:00:00Z'),
