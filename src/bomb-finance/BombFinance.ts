@@ -16,7 +16,7 @@ import { BigNumber, Contract, ethers, EventFilter } from 'ethers';
 import { decimalToBalance } from './ether-utils';
 import { TransactionResponse } from '@ethersproject/providers';
 import ERC20 from './ERC20';
-import { getFullDisplayBalance, getDisplayBalance } from '../utils/formatBalance';
+import { getFullDisplayBalance, getDisplayBalance, getBalance } from '../utils/formatBalance';
 import { getDefaultProvider } from '../utils/provider';
 import IUniswapV2PairABI from './IUniswapV2Pair.abi.json';
 import config, { bankDefinitions } from '../config';
@@ -398,7 +398,7 @@ export class BombFinance {
     const rewardPerSecond = await poolContract.tSharePerSecond();
 
     if (depositTokenName === 'AMES-UST-LP') {
-      return rewardPerSecond.mul(30000).div(59500);
+      return rewardPerSecond.mul(32250).div(59500);
     } else if (depositTokenName === 'AMES-ASHARE-LP') {
       return rewardPerSecond.mul(0).div(59500);
     } else if (depositTokenName === '1QSHARE') {
@@ -406,7 +406,7 @@ export class BombFinance {
     } else if (depositTokenName === 'ASHARE-UST-LP') {
       return rewardPerSecond.mul(19250).div(59500);
     } else if (depositTokenName === 'AMES') {
-      return rewardPerSecond.mul(10250).div(59500);
+      return rewardPerSecond.mul(8000).div(59500);
     } else {
       return rewardPerSecond.mul(0).div(59500);
     }
@@ -1243,6 +1243,34 @@ export class BombFinance {
   }
 
   async getNodes(contract: string, user: string): Promise<BigNumber[]> {
+    // const users = await this.contracts[contract].total_users();
+    // const usersNumb = [...Array(Number(users.toString()))].map(async (i, b) => {
+    //   return await this.contracts[contract].userIndices(b);
+    // });
+    // const foo = Promise.all(usersNumb).then((result) => {
+    //   console.log(result);
+
+    //   const x = result.map(async (item) => {
+    //     return {
+    //       id: item,
+    //       nodes: await this.contracts[contract].getNodes(item),
+    //     };
+    //   });
+
+    //   const y = Promise.all(x).then((nodes) => {
+    //     console.log(
+    //       nodes
+    //         .map((node) => {
+    //           return {
+    //             wallet: node.id,
+    //             amount: Number(node.nodes[0].toString()),
+    //           };
+    //         })
+    //         .sort((a, b) => b.amount - a.amount),
+    //     );
+    //   });
+    // });
+
     return await this.contracts[contract].getNodes(user);
   }
 
