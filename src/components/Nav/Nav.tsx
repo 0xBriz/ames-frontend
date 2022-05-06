@@ -123,17 +123,14 @@ const Nav = () => {
               <Link color="textPrimary" to="/boardroom" className={'navLink ' + classes.link}>
                 Boardroom
               </Link>
-              <Link color="textPrimary" to="/bond" className={'navLink ' + classes.link}>
-                Bond
-              </Link>
               <Link color="textPrimary" to="/nodes/AmesNode" className={'navLink ' + classes.link}>
                 Quarry
               </Link>
+              <Link color="textPrimary" to="/bond" className={'navLink ' + classes.link}>
+                Bond
+              </Link>
               <Link color="textPrimary" to="/strategy" className={'navLink ' + classes.link}>
                 Strategy
-              </Link>
-              <Link color="textPrimary" to="/addresses" className={'navLink ' + classes.link}>
-                Addresses
               </Link>
               <a
                 color="textPrimary"
@@ -153,6 +150,12 @@ const Nav = () => {
               >
                 Vaults
               </a>
+              <Link color="textPrimary" to="/share-swap" className={'navLink ' + classes.link}>
+                Get Aalto
+              </Link>
+              {/* <Link color="textPrimary" to="/compensation" className={'navLink ' + classes.link}>
+                Compensation
+              </Link> */}
             </Box>
 
             <Box
@@ -219,8 +222,10 @@ const Nav = () => {
                 <ListItemLink primary="Home" to="/" />
                 <ListItemLink primary="Farm" to="/farm" />
                 <ListItemLink primary="Boardroom" to="/boardroom" />
-                <ListItemLink primary="Bond" to="/bond" />
                 <ListItemLink primary="Quarry" to="/nodes/AmesNode" />
+                <ListItemLink primary="Get Aalto" to="/share-swap" />
+                {/* <ListItemLink primary="Compensation" to="/compensation" /> */}
+                <ListItemLink primary="Bond" to="/bond" />
                 <ListItemLink primary="Strategy" to="/strategy" />
                 <ListItemLink primary="Addresses" to="/addresses" />
                 <li>

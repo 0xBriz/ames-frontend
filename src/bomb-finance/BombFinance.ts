@@ -44,6 +44,7 @@ export class BombFinance {
   BNB: ERC20;
   BTC: ERC20;
   XBOMB: ERC20;
+  AALTO: ERC20;
 
   constructor(cfg: Configuration) {
     const { deployments, externalTokens } = cfg;
@@ -62,6 +63,7 @@ export class BombFinance {
     this.BSHARE = new ERC20(deployments.AShare.address, provider, 'ASHARE');
     this.BBOND = new ERC20(deployments.ABond.address, provider, 'ABOND');
     this.QSHARE = new ERC20('0x36d53ed6380313f3823eed2f44dddb6d1d52f656', provider, '1QSHARE');
+    this.AALTO = this.externalTokens['AALTO'];
     this.BNB = this.externalTokens['WONE'];
     this.BTC = this.externalTokens['BTCB'];
 
@@ -491,6 +493,13 @@ export class BombFinance {
     const { Treasury } = this.contracts;
     const treasuryBombPrice = await Treasury.getUnitePrice();
     return await Treasury.buyBonds(decimalToBalance(amount), treasuryBombPrice);
+  }
+
+  /** Swapper **/
+  async swapShare(amount: string | number): Promise<TransactionResponse> {
+    const { ShareSwap } = this.contracts;
+
+    return await ShareSwap.swap(decimalToBalance(amount));
   }
 
   /**
@@ -1305,5 +1314,39 @@ export class BombFinance {
       console.error(`Failed to call tierAmounts on contract ${pool.address}: ${err}`);
       return BigNumber.from(0);
     }
+  }
+
+  /* comp */
+  async getCompTotal(user: string): Promise<BigNumber> {
+    return await this.contracts.Compensation.getGrantAmount(user);
+  }
+
+  async getCompClaim(user: string): Promise<BigNumber> {
+    return await this.contracts.Compensation.getVestedTokens(user);
+  }
+
+  async getClaimed(user: string): Promise<BigNumber> {
+    return await this.contracts.Compensation.getTotalClaimed(user);
+  }
+
+  async claimComp(): Promise<TransactionResponse> {
+    return await this.contracts.Compensation.claimVestedTokens();
+  }
+
+  /* swapper */
+  async getAvailableAalto(): Promise<BigNumber> {
+    return await this.contracts.ShareSwap.currentAaltoForEpoch();
+  }
+
+  async getMaxAaltoPerEpoch(): Promise<BigNumber> {
+    return await this.contracts.ShareSwap.maxAaltoPerEpoch();
+  }
+
+  async getAaltoPerShare(): Promise<BigNumber> {
+    return await this.contracts.ShareSwap.aaltoPerShare();
+  }
+
+  async getSwapEnabled(): Promise<boolean> {
+    return await this.contracts.ShareSwap.swapEnabled();
   }
 }

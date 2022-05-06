@@ -22,6 +22,7 @@ import hshareUST from '../../assets/img/1share-ust.svg';
 
 import bnbLogo from '../../assets/img/bnb.png';
 import btcLogo from '../../assets/img/BCTB-icon.png';
+import AaltoLogo from '../../assets/img/logomark-square.svg';
 
 const logosBySymbol: { [title: string]: string } = {
   //Real tokens
@@ -51,6 +52,7 @@ const logosBySymbol: { [title: string]: string } = {
   BTCB: btcLogo,
   BTC: btcLogo,
   SVL: bnbLogo,
+  AALTO: AaltoLogo,
   '1QSHARE': tShareLogo,
   'BOMB-BNB-LP': bombFtmLpLogo,
   'BOMB-BTCB-LP': bombFtmLpLogo,
