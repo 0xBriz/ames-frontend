@@ -10,6 +10,12 @@ import { useTransactionAdder } from '../../state/transactions/hooks';
 
 import { Grid, Box, Typography } from '@material-ui/core';
 import { Helmet } from 'react-helmet';
+import useAvailableAalto, {
+  useAaltoPerShare,
+  useMaxAaltoPerEpoch,
+  useSwapEnabled,
+} from '../../hooks/useAvailableAalto';
+import { getDisplayBalance } from '../../utils/formatBalance';
 
 const TITLE = 'ames.defi | Aalto swap';
 
@@ -18,6 +24,10 @@ const Bond: React.FC = () => {
   const { account } = useWallet();
   const bombFinance = useBombFinance();
   const addTransaction = useTransactionAdder();
+  const aaltoAvailable = useAvailableAalto();
+  const isSwapEnabled = useSwapEnabled();
+  const maxAaltoPerEpoch = useMaxAaltoPerEpoch();
+  const aaltoPerShare = useAaltoPerShare();
 
   const handleSwapShare = useCallback(
     async (amount: string) => {
@@ -62,7 +72,11 @@ const Bond: React.FC = () => {
                         top of yield.
                         <br />
                         <br />
-                        Use your <strong>$ASHARE</strong> tokens and swap them to <strong>$AALTO</strong> at a 1:2 rate.
+                        Use your <strong>$ASHARE</strong> tokens and swap them to <strong>$AALTO</strong> at a 1:
+                        {getDisplayBalance(aaltoPerShare, 18, 0, true)} rate.
+                        <br />
+                        <br />A maximum of <strong>{getDisplayBalance(maxAaltoPerEpoch, 18, 0, true)} $AALTO</strong> is
+                        available per week.
                         <br />
                         <br />
                         <a
@@ -76,6 +90,9 @@ const Bond: React.FC = () => {
                     </Grid>
                     <Grid item xs={12} md={6}>
                       <ExchangeCard
+                        disabled={!isSwapEnabled || aaltoAvailable === 0}
+                        disabledDescription="Share swap closed"
+                        aaltoLeft={aaltoAvailable}
                         action="Swap"
                         fromToken={bombFinance.BSHARE}
                         fromTokenName="ASHARE"

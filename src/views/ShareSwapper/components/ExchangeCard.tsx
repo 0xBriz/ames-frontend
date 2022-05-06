@@ -29,6 +29,7 @@ interface ExchangeCardProps {
   onExchange: (amount: string) => void;
   disabled?: boolean;
   disabledDescription?: string;
+  aaltoLeft: number;
 }
 
 const ExchangeCard: React.FC<ExchangeCardProps> = ({
@@ -40,6 +41,7 @@ const ExchangeCard: React.FC<ExchangeCardProps> = ({
   onExchange,
   disabled = false,
   disabledDescription,
+  aaltoLeft,
 }) => {
   const catchError = useCatchError();
   const {
@@ -67,6 +69,7 @@ const ExchangeCard: React.FC<ExchangeCardProps> = ({
       <CardContent>
         <StyledCardContentInner>
           <StyledCardTitle>{`${action} ASHARE for ${toTokenName}`}</StyledCardTitle>
+          <StyledCardTitle style={{ fontWeight: 'normal' }}>{`${aaltoLeft} AALTO available for swap`}</StyledCardTitle>
           <StyledExchanger>
             <StyledToken>
               <StyledCardIcon backgroundColor={fromToken.symbol === 'ABOND' ? '#F9DC64' : '#F9DC64'}>
@@ -99,7 +102,7 @@ const ExchangeCard: React.FC<ExchangeCardProps> = ({
                 onClick={onPresent}
                 disabled={disabled}
               >
-                {disabledDescription || action}
+                {disabled ? disabledDescription : action}
               </Button>
             )}
           </StyledCardActions>

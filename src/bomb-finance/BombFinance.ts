@@ -1332,4 +1332,21 @@ export class BombFinance {
   async claimComp(): Promise<TransactionResponse> {
     return await this.contracts.Compensation.claimVestedTokens();
   }
+
+  /* swapper */
+  async getAvailableAalto(): Promise<BigNumber> {
+    return await this.contracts.ShareSwap.currentAaltoForEpoch();
+  }
+
+  async getMaxAaltoPerEpoch(): Promise<BigNumber> {
+    return await this.contracts.ShareSwap.maxAaltoPerEpoch();
+  }
+
+  async getAaltoPerShare(): Promise<BigNumber> {
+    return await this.contracts.ShareSwap.aaltoPerShare();
+  }
+
+  async getSwapEnabled(): Promise<boolean> {
+    return await this.contracts.ShareSwap.swapEnabled();
+  }
 }
