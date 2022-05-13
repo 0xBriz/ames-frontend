@@ -44,7 +44,7 @@ const GrapeNode = () => {
   const total = totalNodes(bank?.contract, bank?.sectionInUI);
   const max = useMaxPayout(bank?.contract, bank?.sectionInUI, account);
   const userDetails = useUserDetails(bank?.contract, bank?.sectionInUI, account);
-  const stakedTokenPriceInDollars = useStakedTokenPriceInDollars(bank.depositTokenName, bank.depositToken);
+  const stakedTokenPriceInDollars = useStakedTokenPriceInDollars(bank?.depositTokenName, bank?.depositToken);
 
   const tokenPriceInDollars = useMemo(
     () => (stakedTokenPriceInDollars ? stakedTokenPriceInDollars : null),

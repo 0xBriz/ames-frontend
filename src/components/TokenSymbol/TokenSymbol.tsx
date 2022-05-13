@@ -23,6 +23,8 @@ import hshareUST from '../../assets/img/1share-ust.svg';
 import bnbLogo from '../../assets/img/bnb.png';
 import btcLogo from '../../assets/img/BCTB-icon.png';
 import AaltoLogo from '../../assets/img/logomark-square.svg';
+import ABUSD from '../../assets/img/ames-busd@2x.png';
+import ASBUSD from '../../assets/img/ashare-busd@2x.png';
 
 const logosBySymbol: { [title: string]: string } = {
   //Real tokens
@@ -69,6 +71,8 @@ const logosBySymbol: { [title: string]: string } = {
   'ASHARE-UST-LP': shareUST,
   'BSHARE-BNB-APELP': bshareFtmLpLogo,
   'BOMB-BTCB-APELP': bombFtmLpLogo,
+  'AMES-BUSD-LP': ABUSD,
+  'ASHARE-BUSD-LP': ASBUSD,
 };
 
 type LogoProps = {
@@ -83,7 +87,7 @@ const TokenSymbol: React.FC<LogoProps> = ({ symbol, size = 64 }) => {
 
   const customSize = ['1QSHARE', 'AMES'].includes(symbol) ? 80 : size;
 
-  return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={customSize} height={size} />;
+  return <img src={logosBySymbol[symbol]} alt={`${symbol} Logo`} width={customSize} />;
 };
 
 export default TokenSymbol;

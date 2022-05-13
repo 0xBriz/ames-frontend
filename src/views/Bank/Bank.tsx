@@ -126,7 +126,7 @@ const Bank: React.FC<BankProps> = ({ bankId }) => {
   const getRunningStatus = () => {
     const currentTimeStamp = new Date().getTime();
 
-    if (['1QSHARE-UST-LP', '1QSHARE', 'AMES-ASHARE-LP'].includes(bank.depositTokenName)) {
+    if (!['1QSHARE-UST-LP', '1QSHARE'].includes(bank.depositTokenName)) {
       return 'Not running';
     }
 
@@ -144,7 +144,9 @@ const Bank: React.FC<BankProps> = ({ bankId }) => {
   return account && bank && poolTimes ? (
     <Wrapper>
       <Header>
-        <TokenSymbol symbol={bank.depositToken.symbol} size={120} />
+        <span style={{ height: '120px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <TokenSymbol symbol={bank.depositToken.symbol} size={120} />
+        </span>
         <Typography style={{ fontWeight: 'bold', marginBottom: '16px' }} variant="h4">
           {bank?.depositTokenName}
         </Typography>
