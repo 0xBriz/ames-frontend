@@ -17,7 +17,7 @@ import { Helmet } from 'react-helmet';
 import { device } from '../../newTheme';
 import useBombFinance from '../../hooks/useBombFinance';
 
-const TITLE = 'ames.defi | UST pegged algocoin';
+const TITLE = 'ames.defi | BUSD pegged algocoin';
 
 const MarketCap = styled.div`
   display: flex;
@@ -167,7 +167,7 @@ const Home = () => {
                 </CardIcon>
               </Box>
               <Charts style={{ position: 'absolute', top: '10px', left: '10px' }}>
-                <a href="https://dexscreener.com/bsc/0x6f78a0d31adc7c9fb848850f9d2a40da5858ad03" target="_blank">
+                <a href="https://dexscreener.com/bsc/0x81722a6457e1825050b999548a35e30d9f11db5c" target="_blank">
                   <AssessmentOutlinedIcon color='inherit' />
                 </a>
               </Charts>
@@ -189,7 +189,7 @@ const Home = () => {
               </Box>
               <Box mb={3}>
                 <span style={{ fontSize: '16px' }}>
-                  1 AMES (1.0 Peg) ={bombPriceInBNB ? bombPriceInBNB : '-.----'} UST
+                  1 AMES (1.0 Peg) ={bombPriceInBNB ? bombPriceInBNB : '-.----'} BUSD
                 </span>
               </Box>
               <MarketCap>
@@ -211,7 +211,7 @@ const Home = () => {
                 </SplitContent>
               </MarketCap>
               <BuyWrapper>
-                <StyledLink className="shinyButton" href="https://pancakeswap.finance/swap?inputCurrency=0x23396cF899Ca06c4472205fC903bDB4de249D6fC&outputCurrency=0xb9E05B4C168B56F73940980aE6EF366354357009" target="_blank">
+                <StyledLink className="shinyButton" href="https://pancakeswap.finance/swap?inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56&outputCurrency=0xb9E05B4C168B56F73940980aE6EF366354357009" target="_blank">
                   Buy AMES
                 </StyledLink>
               </BuyWrapper>
@@ -224,7 +224,7 @@ const Home = () => {
           <Card>
             <CardContent align="center" style={{ position: 'relative' }}>
               <Charts style={{ position: 'absolute', top: '10px', left: '10px' }}>
-                <a href="https://dexscreener.com/bsc/0x39846550ef3cb8d06e3cff52845df42f71ac3851" target="_blank">
+                <a href="https://dexscreener.com/bsc/0x91da56569559b0629f076dE73C05696e34Ee05c1" target="_blank">
                   <AssessmentOutlinedIcon color='inherit' />
                 </a>
               </Charts>
@@ -250,7 +250,7 @@ const Home = () => {
                 </span>
               </Box>
               <Box mb={3}>
-                <span style={{ fontSize: '16px' }}>1 ASHARE ={bSharePriceInBNB ? bSharePriceInBNB : '-.----'} UST</span>
+                <span style={{ fontSize: '16px' }}>1 ASHARE ={bSharePriceInBNB ? bSharePriceInBNB : '-.----'} BUSD</span>
               </Box>
               <MarketCap>
                 <SplitContent>
@@ -271,7 +271,7 @@ const Home = () => {
                 </SplitContent>
               </MarketCap>
               <BuyWrapper>
-                <StyledLink className="shinyButton" href="https://pancakeswap.finance/swap?inputCurrency=0x23396cF899Ca06c4472205fC903bDB4de249D6fC&outputCurrency=0xFa4b16b0f63F5A6D0651592620D585D308F749A4" target="_blank">
+                <StyledLink className="shinyButton" href="https://pancakeswap.finance/swap?inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56&outputCurrency=0xFa4b16b0f63F5A6D0651592620D585D308F749A4" target="_blank">
                   Buy ASHARE
                 </StyledLink>
               </BuyWrapper>
@@ -305,7 +305,7 @@ const Home = () => {
                 </span>
               </Box>
               <Box mb={3}>
-                <span style={{ fontSize: '16px' }}>1 ABOND ={tBondPriceInBNB ? tBondPriceInBNB : '-.----'} UST</span>
+                <span style={{ fontSize: '16px' }}>1 ABOND ={tBondPriceInBNB ? tBondPriceInBNB : '-.----'} BUSD</span>
               </Box>
               <MarketCap>
                 <SplitContent>

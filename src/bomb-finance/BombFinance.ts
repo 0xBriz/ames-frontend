@@ -43,6 +43,7 @@ export class BombFinance {
   BBOND: ERC20;
   BNB: ERC20;
   BTC: ERC20;
+  UST: ERC20;
   XBOMB: ERC20;
   AALTO: ERC20;
 
@@ -66,6 +67,7 @@ export class BombFinance {
     this.AALTO = this.externalTokens['AALTO'];
     this.BNB = this.externalTokens['WONE'];
     this.BTC = this.externalTokens['BTCB'];
+    this.UST = this.externalTokens['UST'];
 
     // Uniswap V2 Pair
     this.BOMBBTCB_LP = new Contract(externalTokens['AMES-UST-LP'][0], IUniswapV2PairABI, provider);
@@ -400,15 +402,19 @@ export class BombFinance {
     const rewardPerSecond = await poolContract.tSharePerSecond();
 
     if (depositTokenName === 'AMES-UST-LP') {
-      return rewardPerSecond.mul(39500).div(59500);
+      return rewardPerSecond.mul(0).div(59500);
     } else if (depositTokenName === 'AMES-ASHARE-LP') {
       return rewardPerSecond.mul(0).div(59500);
     } else if (depositTokenName === '1QSHARE') {
       return rewardPerSecond.mul(0).div(59500);
     } else if (depositTokenName === 'ASHARE-UST-LP') {
-      return rewardPerSecond.mul(19000).div(59500);
+      return rewardPerSecond.mul(0).div(59500);
+    } else if (depositTokenName === 'ASHARE-BUSD-LP') {
+      return rewardPerSecond.mul(0).div(59500);
+    } else if (depositTokenName === 'AMES-BUSD-LP') {
+      return rewardPerSecond.mul(0).div(59500);
     } else if (depositTokenName === 'AMES') {
-      return rewardPerSecond.mul(1000).div(59500);
+      return rewardPerSecond.mul(0).div(59500);
     } else {
       return rewardPerSecond.mul(0).div(59500);
     }
@@ -447,8 +453,12 @@ export class BombFinance {
       } else if (tokenName === 'QSHARE-ONE-LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.BSHARE, false);
       } else if (tokenName === 'ASHARE-UST-LP') {
-        tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
+        tokenPrice = await this.getUSTLPTokenPrice(token, this.UST);
       } else if (tokenName === 'AMES-UST-LP') {
+        tokenPrice = await this.getUSTLPTokenPrice(token, this.UST);
+      } else if (tokenName === 'AMES-BUSD-LP') {
+        tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
+      } else if (tokenName === 'ASHARE-BUSD-LP') {
         tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
       } else if (tokenName === '1QUARTZ-UST-LP') {
         tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
@@ -712,7 +722,7 @@ export class BombFinance {
     const ready = await this.provider.ready;
     if (!ready) return;
 
-    const btcb = new Token(56, this.BTC.address, this.BTC.decimal, 'UST', 'UST');
+    const btcb = new Token(56, this.BTC.address, this.BTC.decimal, 'BUSD', 'BUSD');
     const token = new Token(56, tokenContract.address, tokenContract.decimal, tokenContract.symbol);
     try {
       const wftmToToken = await Fetcher.fetchPairData(btcb, token, this.provider);
