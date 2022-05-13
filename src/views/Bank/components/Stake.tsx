@@ -57,7 +57,7 @@ const Stake: React.FC<StakeProps> = ({ bank }) => {
 
   if (bank.depositTokenName.startsWith('AMES-BUSD')) {
     swapURL = 'https://pancakeswap.finance/add/0xe9e7cea3dedca5984780bafc599bd69add087d56/' + bombAddr;
-  } else if (bank.depositTokenName.startsWith('ASHARE-UST')) {
+  } else if (bank.depositTokenName.startsWith('ASHARE-BUSD')) {
     swapURL = 'https://pancakeswap.finance/add/0xe9e7cea3dedca5984780bafc599bd69add087d56/' + bshareAddr;
   } else if (bank.depositTokenName.startsWith('AMES-ASHARE')) {
     swapURL = 'https://pancakeswap.finance/add/' + bombAddr + '/' + bshareAddr;
