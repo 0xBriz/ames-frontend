@@ -129,9 +129,9 @@ const Nav = () => {
               <Link color="textPrimary" to="/bond" className={'navLink ' + classes.link}>
                 Bond
               </Link>
-              {/* <Link color="textPrimary" to="/strategy" className={'navLink ' + classes.link}>
+              <Link color="textPrimary" to="/strategy" className={'navLink ' + classes.link}>
                 Strategy
-              </Link> */}
+              </Link>
               <a
                 color="textPrimary"
                 href="https://ames-defi.notion.site/ames-defi/Ames-defi-Docs-315580f66bd74715a04888947f6e5f72"
@@ -226,7 +226,7 @@ const Nav = () => {
                 <ListItemLink primary="Get Aalto" to="/share-swap" />
                 {/* <ListItemLink primary="Compensation" to="/compensation" /> */}
                 <ListItemLink primary="Bond" to="/bond" />
-                {/* <ListItemLink primary="Strategy" to="/strategy" /> */}
+                <ListItemLink primary="Strategy" to="/strategy" />
                 <ListItemLink primary="Addresses" to="/addresses" />
                 <li>
                   <ListItem button>

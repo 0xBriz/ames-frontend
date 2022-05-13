@@ -2,7 +2,7 @@ import React from 'react';
 import Page from '../../components/Page';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import styled from 'styled-components';
-import Strategy1 from '../../assets/img/strat.png';
+import Strategy1 from '../../assets/img/Ames-strategy-01.png';
 
 import { Grid, Box, Typography } from '@material-ui/core';
 import { Helmet } from 'react-helmet';
@@ -51,10 +51,10 @@ const Strategy: React.FC = () => {
               >
                 For the best overall health and sustainability of Ames.Defi, take 10% profit from your $ASHARE rewards,
                 and stake the rest in the Boardroom. This helps maintain the high APRs across the entire protocol. When
-                you print $AMES from the boardroom, take 10% profit and reinvest the rest into the AMES-UST pool - this
+                you print $AMES from the boardroom, take 10% profit and reinvest the rest into the AMES-BUSD pool - this
                 buffs up the liquidity pair and makes $AMES resistant to large price impact.
                 <br /> <br /> The compounding loop will help maintain the price of $AMES and allow you to benefit from
-                capital appreciation of your AMES-UST LPs.
+                capital appreciation of your AMES-BUSD LPs.
               </Typography>
             </Box>
             <Box>
