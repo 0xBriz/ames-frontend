@@ -410,11 +410,11 @@ export class BombFinance {
     } else if (depositTokenName === 'ASHARE-UST-LP') {
       return rewardPerSecond.mul(0).div(59500);
     } else if (depositTokenName === 'ASHARE-BUSD-LP') {
-      return rewardPerSecond.mul(0).div(59500);
+      return rewardPerSecond.mul(18500).div(59500);
     } else if (depositTokenName === 'AMES-BUSD-LP') {
-      return rewardPerSecond.mul(0).div(59500);
+      return rewardPerSecond.mul(40000).div(59500);
     } else if (depositTokenName === 'AMES') {
-      return rewardPerSecond.mul(0).div(59500);
+      return rewardPerSecond.mul(1000).div(59500);
     } else {
       return rewardPerSecond.mul(0).div(59500);
     }
