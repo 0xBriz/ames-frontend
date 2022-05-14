@@ -132,6 +132,9 @@ const Nav = () => {
               <Link color="textPrimary" to="/strategy" className={'navLink ' + classes.link}>
                 Strategy
               </Link>
+              <Link color="textPrimary" to="/addresses" className={'navLink ' + classes.link}>
+                Addresses
+              </Link>
               <a
                 color="textPrimary"
                 href="https://ames-defi.notion.site/ames-defi/Ames-defi-Docs-315580f66bd74715a04888947f6e5f72"
@@ -148,11 +151,11 @@ const Nav = () => {
                 rel="noopener noreferrer"
                 className={'navLink ' + classes.link}
               >
-                Vaults
+                Autocompounder
               </a>
-              <Link color="textPrimary" to="/share-swap" className={'navLink ' + classes.link}>
+              {/* <Link color="textPrimary" to="/share-swap" className={'navLink ' + classes.link}>
                 Get Aalto
-              </Link>
+              </Link> */}
               {/* <Link color="textPrimary" to="/compensation" className={'navLink ' + classes.link}>
                 Compensation
               </Link> */}
@@ -223,7 +226,7 @@ const Nav = () => {
                 <ListItemLink primary="Farm" to="/farm" />
                 <ListItemLink primary="Boardroom" to="/boardroom" />
                 <ListItemLink primary="Quarry" to="/nodes/AmesNode" />
-                <ListItemLink primary="Get Aalto" to="/share-swap" />
+                {/* <ListItemLink primary="Get Aalto" to="/share-swap" /> */}
                 {/* <ListItemLink primary="Compensation" to="/compensation" /> */}
                 <ListItemLink primary="Bond" to="/bond" />
                 <ListItemLink primary="Strategy" to="/strategy" />

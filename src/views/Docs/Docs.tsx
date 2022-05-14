@@ -137,6 +137,17 @@ const Docs: React.FC = () => {
                   </Typography>
                   <Typography>0x298be24C55BF89B114FE66972C787ec78530fCd7</Typography>
                 </Box>
+                <Box mb={2}>
+                  <Typography style={{ fontWeight: 'bold' }}>
+                    <StyledLink
+                      href="https://bscscan.com/address/0x35e05a19f032F2be202b456ccE1dd779Be00a39e"
+                      target="_blank"
+                    >
+                      Nodes
+                    </StyledLink>
+                  </Typography>
+                  <Typography>0x35e05a19f032F2be202b456ccE1dd779Be00a39e</Typography>
+                </Box>
               </Grid>
               <Grid item xs={12} sm={6}>
                 <Box mb={2}>
