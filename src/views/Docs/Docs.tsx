@@ -164,35 +164,13 @@ const Docs: React.FC = () => {
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://bscscan.com/address/0xEE07b8Ee4D827F7EDAC3FFA7bf1a84B8c816623A"
+                      href="https://bscscan.com/address/0x6bcC0E231A4Ac051b68DBC62F8882c04e2bA9F77"
                       target="_blank"
                     >
-                      Dao Fund
+                      A-Team multisig
                     </StyledLink>
                   </Typography>
-                  <Typography>0xEE07b8Ee4D827F7EDAC3FFA7bf1a84B8c816623A</Typography>
-                </Box>
-                <Box mb={2}>
-                  <Typography style={{ fontWeight: 'bold' }}>
-                    <StyledLink
-                      href="https://bscscan.com/address/0xB182b5b0Cf6bDB738e9157D6a21B02d92dbf5C38"
-                      target="_blank"
-                    >
-                      Dev wallet
-                    </StyledLink>
-                  </Typography>
-                  <Typography>0xB182b5b0Cf6bDB738e9157D6a21B02d92dbf5C38</Typography>
-                </Box>
-                <Box mb={2}>
-                  <Typography style={{ fontWeight: 'bold' }}>
-                    <StyledLink
-                      href="https://bscscan.com/address/0xc4A0A5D5B50BAB1Ee3D37769e94cAe5B9023f1d3"
-                      target="_blank"
-                    >
-                      Team wallet
-                    </StyledLink>
-                  </Typography>
-                  <Typography>0xc4A0A5D5B50BAB1Ee3D37769e94cAe5B9023f1d3</Typography>
+                  <Typography>0x6bcC0E231A4Ac051b68DBC62F8882c04e2bA9F77</Typography>
                 </Box>
               </Grid>
             </Grid>
