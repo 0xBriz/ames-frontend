@@ -453,13 +453,13 @@ export class BombFinance {
       } else if (tokenName === 'QSHARE-ONE-LP') {
         tokenPrice = await this.getLPTokenPrice(token, this.BSHARE, false);
       } else if (tokenName === 'ASHARE-UST-LP') {
-        tokenPrice = await this.getUSTLPTokenPrice(token, this.UST);
+        tokenPrice = await this.getLPTokenPrice(token, this.BSHARE, false);
       } else if (tokenName === 'AMES-UST-LP') {
-        tokenPrice = await this.getUSTLPTokenPrice(token, this.UST);
+        tokenPrice = await this.getLPTokenPrice(token, this.BOMB, true);
       } else if (tokenName === 'AMES-BUSD-LP') {
-        tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
+        tokenPrice = await this.getLPTokenPrice(token, this.BOMB, true);
       } else if (tokenName === 'ASHARE-BUSD-LP') {
-        tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
+        tokenPrice = await this.getLPTokenPrice(token, this.BSHARE, false);
       } else if (tokenName === '1QUARTZ-UST-LP') {
         tokenPrice = await this.getUSTLPTokenPrice(token, this.BTC);
       } else if (tokenName === '1QSHARE-UST-LP') {

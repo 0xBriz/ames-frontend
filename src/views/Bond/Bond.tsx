@@ -224,7 +224,7 @@ const Bond: React.FC = () => {
                       priceDesc={`${getDisplayBalance(quartzRedeemable, 18, 4)} AMES available to redeem`}
                       onExchange={handleRedeemBonds}
                       disabled={!bondStat || bondBalance.eq(0) || !isBondRedeemable || quartzRedeemable.eq(0)}
-                      disabledDescription={!isBondRedeemable ? `Enabled when 1 AMES > ${BOND_REDEEM_PRICE}UST` : null}
+                      disabledDescription={!isBondRedeemable ? `Enabled when 1 AMES > ${BOND_REDEEM_PRICE} BUSD` : null}
                     />
                   </StyledCardWrapper>
                 </StyledBond>
