@@ -124,7 +124,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     finished: false,
     sort: 3,
     closedForStaking: false,
-    onlyVault: false,
+    onlyVault: true,
   },
   AShareUstLPQShareRewardPool: {
     name: 'Earn ASHARE by AMETHYST-UST LP',
