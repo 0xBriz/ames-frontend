@@ -88,7 +88,7 @@ const GrapeNode = () => {
                                 $
                                 {bank.depositTokenName === 'AMES'
                                   ? (nodes[0] * (tokenPriceInDollars * 50)).toFixed(0)
-                                  : (nodes[0] * (tokenPriceInDollars * 0.5)).toFixed(0)}
+                                  : (nodes[0] * (tokenPriceInDollars * 1)).toFixed(0)}
                               </span>
                             </>
                           )}
