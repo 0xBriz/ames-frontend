@@ -9,7 +9,9 @@ import useStatsForPool from '../../hooks/useStatsForPool';
 const GrapeCard = ({}) => {
   const [banks] = useBanks();
 
-  const statsOnPool = useStatsForPool(banks[2]);
+  console.log(banks);
+
+  const statsOnPool = useStatsForPool(banks[1]);
   return (
     <Grid item xs={12} md={4} lg={4}>
       <Card variant="outlined">
@@ -29,20 +31,20 @@ const GrapeCard = ({}) => {
                 justifyContent: 'center',
               }}
             >
-              <TokenSymbol size={32} symbol={'GNODE'} />
+              <TokenSymbol size={32} symbol={'ASHARE'} />
             </Box>
             <Typography variant="h5" component="h2">
-              Ames Node
+              AShare Node
             </Typography>
             <Typography color="#322f32">
-              Lock your Ames to earn daily yields<br></br>
+              Lock your AShare to earn daily yields<br></br>
               <b>Daily APR:</b> {statsOnPool?.dailyAPR}%<br></br>
               <b>Yearly APR:</b> {statsOnPool?.yearlyAPR}%
             </Typography>
           </Box>
         </CardContent>
         <CardActions style={{ justifyContent: 'flex-end' }}>
-          <Button className="shinyButtonSecondary" component={Link} to={'/nodes/AmesNode'}>
+          <Button className="shinyButtonSecondary" component={Link} to={'/nodes/ShareNode'}>
             View
           </Button>
         </CardActions>
