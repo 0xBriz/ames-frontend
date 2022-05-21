@@ -17,6 +17,7 @@ const configurations: { [env: string]: Configuration } = {
       UST: ['0x23396cF899Ca06c4472205fC903bDB4de249D6fC', 18], // This is actually UST on mainnet not fusdt
       QUARTZ: ['0x7ebc713a888cea488c20bb9ac1999ee758e21ff0', 18], // This is actually UST on mainnet not fusdt
       AMES: ['0xb9E05B4C168B56F73940980aE6EF366354357009', 18], // This is actually UST on mainnet not fusdt
+      ASHARE: ['0xFa4b16b0f63F5A6D0651592620D585D308F749A4', 18], // This is actually UST on mainnet not fusdt
       QSHARE: ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
       '1QSHARE': ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
       'USDT-WONE-LP': ['0x58f876857a02d6762e0101bb5c46a8c1ed44dc16', 18], // This is actually 1USDC-WONE on mainnet not fusdt
@@ -53,6 +54,7 @@ const configurations: { [env: string]: Configuration } = {
       UST: ['0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', 18], // This is actually UST on mainnet not fusdt
       QUARTZ: ['0x7ebc713a888cea488c20bb9ac1999ee758e21ff0', 18], // This is actually UST on mainnet not fusdt
       AMES: ['0xb9E05B4C168B56F73940980aE6EF366354357009', 18], // This is actually UST on mainnet not fusdt
+      ASHARE: ['0xFa4b16b0f63F5A6D0651592620D585D308F749A4', 18], // This is actually UST on mainnet not fusdt
       QSHARE: ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
       '1QSHARE': ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
       'USDT-WONE-LP': ['0x58f876857a02d6762e0101bb5c46a8c1ed44dc16', 18], // This is actually 1USDC-WONE on mainnet not fusdt
@@ -211,6 +213,17 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     contract: 'AmesNode',
     depositTokenName: 'AMES',
     earnTokenName: 'AMES',
+    finished: false,
+    sort: 2,
+    closedForStaking: false,
+  },
+  ShareNode: {
+    name: 'Generate AShare with Nodes',
+    poolId: 0,
+    sectionInUI: 3,
+    contract: 'ShareNode',
+    depositTokenName: 'ASHARE',
+    earnTokenName: 'ASHARE',
     finished: false,
     sort: 2,
     closedForStaking: false,

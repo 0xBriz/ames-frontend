@@ -69,7 +69,7 @@ const GrapeNode = () => {
                     variant="h3"
                     gutterBottom
                   >
-                    Generate Ames with Nodes
+                    {`Generate ${bank.depositTokenName} with Nodes`}
                   </Typography>
                 </Box>
               </Route>

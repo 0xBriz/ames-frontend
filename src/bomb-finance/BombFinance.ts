@@ -472,6 +472,8 @@ export class BombFinance {
         tokenPrice = await this.getLPTokenPrice(token, this.BOMB, true);
       } else if (tokenName === 'BSHARE') {
         tokenPrice = await (await this.getShareStat())?.priceInDollars;
+      } else if (tokenName === 'ASHARE') {
+        tokenPrice = await (await this.getShareStat())?.priceInDollars;
       } else {
         tokenPrice = await this.getTokenPriceFromPancakeswap(token);
         tokenPrice = (Number(tokenPrice) * Number(priceOfOneFtmInDollars)).toString();
@@ -620,7 +622,7 @@ export class BombFinance {
     const pool = this.contracts[poolName];
 
     try {
-      if (earnTokenName === 'AMES' && poolName.includes('Node')) {
+      if (poolName.includes('Node')) {
         return await pool.getTotalRewards(account);
       }
       if (earnTokenName === 'BOMB') {
@@ -654,7 +656,9 @@ export class BombFinance {
   async stake(poolName: ContractName, poolId: Number, amount: BigNumber): Promise<TransactionResponse> {
     const pool = this.contracts[poolName];
 
-    return poolName !== 'AmesNode' ? await pool.deposit(poolId, amount) : await pool.create(poolId, amount);
+    return !['AmesNode', 'ShareNode'].includes(poolName)
+      ? await pool.deposit(poolId, amount)
+      : await pool.create(poolId, amount);
   }
 
   /**
@@ -674,7 +678,7 @@ export class BombFinance {
   async harvest(poolName: ContractName, poolId: Number): Promise<TransactionResponse> {
     const pool = this.contracts[poolName];
     //By passing 0 as the amount, we are asking the contract to only redeem the reward and not the currently staked token
-    return poolName !== 'AmesNode' ? await pool.withdraw(poolId, 0) : await pool.claim();
+    return !['AmesNode', 'ShareNode'].includes(poolName) ? await pool.withdraw(poolId, 0) : await pool.claim();
   }
 
   /**
