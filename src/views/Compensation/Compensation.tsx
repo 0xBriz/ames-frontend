@@ -12,7 +12,7 @@ import { Helmet } from 'react-helmet';
 import useCompInfo from '../../hooks/useCompInfo';
 import { getDisplayBalance } from '../../utils/formatBalance';
 
-const TITLE = 'ames.defi | Compensation';
+const TITLE = 'ames.defi | Loyalist';
 
 const Compensation: React.FC = () => {
   const { path } = useRouteMatch();
