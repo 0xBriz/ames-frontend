@@ -31,7 +31,7 @@ import TokenSymbol from '../../../components/TokenSymbol';
 //   bank: Bank;
 // }
 
-const Stake = ({ bank }) => {
+const Stake = ({ bank, disabled }) => {
   const [approveStatus, approve] = useApprove(bank.depositToken, bank.address);
 
   // const {color: themeColor} = useContext(ThemeContext);
@@ -81,35 +81,37 @@ const Stake = ({ bank }) => {
             >{`${bank.earnTokenName} NODE COST`}</Typography>
             {/* <Label text={`${bank.depositTokenName} Staked`} /> */}
           </StyledCardHeader>
-          <StyledCardActions>
-            {approveStatus !== ApprovalState.APPROVED ? (
-              <Button
-                disabled={
-                  bank.closedForStaking ||
-                  approveStatus === ApprovalState.PENDING ||
-                  approveStatus === ApprovalState.UNKNOWN
-                }
-                onClick={approve}
-                className={
-                  bank.closedForStaking ||
-                  approveStatus === ApprovalState.PENDING ||
-                  approveStatus === ApprovalState.UNKNOWN
-                    ? 'shinyButtonDisabled'
-                    : 'shinyButton'
-                }
-                style={{ marginTop: '20px' }}
-              >
-                {`Approve ${bank.depositTokenName}`}
-              </Button>
-            ) : (
-              <IconButton
-                disabled={bank.closedForStaking}
-                onClick={() => (bank.closedForStaking ? null : onPresentDeposit())}
-              >
-                <AddIcon color={'black'} />
-              </IconButton>
-            )}
-          </StyledCardActions>
+          {!disabled ? (
+            <StyledCardActions>
+              {approveStatus !== ApprovalState.APPROVED ? (
+                <Button
+                  disabled={
+                    bank.closedForStaking ||
+                    approveStatus === ApprovalState.PENDING ||
+                    approveStatus === ApprovalState.UNKNOWN
+                  }
+                  onClick={approve}
+                  className={
+                    bank.closedForStaking ||
+                    approveStatus === ApprovalState.PENDING ||
+                    approveStatus === ApprovalState.UNKNOWN
+                      ? 'shinyButtonDisabled'
+                      : 'shinyButton'
+                  }
+                  style={{ marginTop: '20px' }}
+                >
+                  {`Approve ${bank.depositTokenName}`}
+                </Button>
+              ) : (
+                <IconButton
+                  disabled={bank.closedForStaking}
+                  onClick={() => (bank.closedForStaking ? null : onPresentDeposit())}
+                >
+                  <AddIcon color={'black'} />
+                </IconButton>
+              )}
+            </StyledCardActions>
+          ) : null}
         </StyledCardContentInner>
       </CardContent>
     </Card>

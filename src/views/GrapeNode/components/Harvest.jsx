@@ -16,7 +16,7 @@ import TokenSymbol from '../../../components/TokenSymbol';
 import useGrapeStats from '../../../hooks/useBombStats';
 import useShareStats from '../../../hooks/usebShareStats';
 
-const Harvest = ({ bank }) => {
+const Harvest = ({ bank, disabled }) => {
   const earnings = useEarnings(bank.contract, bank.earnTokenName, bank.poolId);
   const grapeStats = useGrapeStats();
   const tShareStats = useShareStats();
@@ -55,25 +55,29 @@ const Harvest = ({ bank }) => {
               Claim
             </Button>
           </StyledCardActions>
-          {bank.earnTokenName === 'ASHARE' ? (
-            <Button
-              style={{ marginTop: '20px' }}
-              onClick={onCompound}
-              disabled={earnings < 1 * 1e18}
-              className={earnings < 1 * 1e18 ? 'shinyButtonDisabled' : 'shinyButton'}
-            >
-              Compound {(earnings / (1 * 1e18)) | 0} Nodes
-            </Button>
-          ) : (
-            <Button
-              style={{ marginTop: '20px' }}
-              onClick={onCompound}
-              disabled={earnings < 50 * 1e18}
-              className={earnings < 50 * 1e18 ? 'shinyButtonDisabled' : 'shinyButton'}
-            >
-              Compound {(earnings / (50 * 1e18)) | 0} Nodes
-            </Button>
-          )}
+          {!disabled ? (
+            <>
+              {bank.earnTokenName === 'ASHARE' ? (
+                <Button
+                  style={{ marginTop: '20px' }}
+                  onClick={onCompound}
+                  disabled={earnings < 1 * 1e18}
+                  className={earnings < 1 * 1e18 ? 'shinyButtonDisabled' : 'shinyButton'}
+                >
+                  Compound {(earnings / (1 * 1e18)) | 0} Nodes
+                </Button>
+              ) : (
+                <Button
+                  style={{ marginTop: '20px' }}
+                  onClick={onCompound}
+                  disabled={earnings < 50 * 1e18}
+                  className={earnings < 50 * 1e18 ? 'shinyButtonDisabled' : 'shinyButton'}
+                >
+                  Compound {(earnings / (50 * 1e18)) | 0} Nodes
+                </Button>
+              )}
+            </>
+          ) : null}
         </StyledCardContentInner>
       </CardContent>
     </Card>

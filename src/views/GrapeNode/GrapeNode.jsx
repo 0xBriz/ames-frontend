@@ -173,10 +173,12 @@ const GrapeNode = () => {
                 <StyledBank>
                   <StyledCardsWrapper>
                     <StyledCardWrapper>
-                      <Harvest bank={bank} />
+                      <Harvest disabled={bank.depositTokenName === 'ASHARE' && Number(total[0]) > 6999} bank={bank} />
                     </StyledCardWrapper>
                     <Spacer />
-                    <StyledCardWrapper>{<Stake bank={bank} />}</StyledCardWrapper>
+                    <StyledCardWrapper>
+                      {<Stake disabled={bank.depositTokenName === 'ASHARE' && Number(total[0]) > 6999} bank={bank} />}
+                    </StyledCardWrapper>
                   </StyledCardsWrapper>
                   <Spacer size="lg" />
                 </StyledBank>
