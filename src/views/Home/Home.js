@@ -128,7 +128,7 @@ const Home = () => {
       <Grid style={{ marginBottom: '50px', paddingTop: '50px' }} container spacing={3}>
         <Grid style={{ marginBottom: '40px' }} item xs={12}>
           <StyledText variant="h3" color="textPrimary">
-            Farm ASHARE and earn rewards in our algorithmic stablecoin ecosystem.
+            Farm ASHARE and earn rewards in our seignorage stablecoin ecosystem.
           </StyledText>
         </Grid>
         {/* TVL */}

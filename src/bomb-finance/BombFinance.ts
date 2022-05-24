@@ -987,15 +987,16 @@ export class BombFinance {
     const { ethereum } = window as any;
     if (ethereum && ethereum.networkVersion === config.chainId.toString()) {
       let asset;
+      let assetUrl;
       if (assetName === 'AMES') {
         asset = this.BOMB;
-        // assetUrl = 'https://raw.githubusercontent.com/bombmoney/bomb-assets/master/bomb-512.png';
+        assetUrl = 'https://raw.githubusercontent.com/ames-defi/brand-assets/main/token/ames-token-1600-round.png';
       } else if (assetName === 'ASHARE') {
         asset = this.BSHARE;
-        // assetUrl = 'https://raw.githubusercontent.com/bombmoney/bomb-assets/master/bshare-512.png';
+        assetUrl = 'https://raw.githubusercontent.com/ames-defi/brand-assets/main/token/ashare-token-1600-round.png';
       } else if (assetName === 'ABOND') {
         asset = this.BBOND;
-        // assetUrl = 'https://raw.githubusercontent.com/bombmoney/bomb-assets/master/bbond-512.png';
+        assetUrl = 'https://raw.githubusercontent.com/ames-defi/brand-assets/main/token/abond-token-1600-round.png';
       }
       await ethereum.request({
         method: 'wallet_watchAsset',
@@ -1005,7 +1006,7 @@ export class BombFinance {
             address: asset.address,
             symbol: asset.symbol,
             decimals: 18,
-            // image: assetUrl,
+            image: assetUrl,
           },
         },
       });

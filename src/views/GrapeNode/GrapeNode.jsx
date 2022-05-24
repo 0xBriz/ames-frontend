@@ -75,6 +75,23 @@ const GrapeNode = () => {
               </Route>
               {/* <Button onClick={setTierValues}>Set Tier Values</Button> */}
               <Box>
+                {bank.depositTokenName === 'ASHARE' ? (
+                  <Alert
+                    style={{
+                      backgroundColor: 'rgb(255,148,148,.3)',
+                      textAlign: 'left',
+                      marginBottom: '16px',
+                      color: 'black',
+                      maxWidth: '500px',
+                      margin: '0 auto',
+                    }}
+                    variant="filled"
+                    severity="info"
+                  >
+                    Creation of new nodes will be stopped at around 7000. Since AShare has a max supply, we do this to
+                    ensure all nodes created will reach the potential 500% max ROI
+                  </Alert>
+                ) : null}
                 <Grid container justify="center" spacing={2} style={{ marginBottom: '50px', marginTop: '20px' }}>
                   <Grid item xs={12} md={2} lg={2} className={classes.gridItem}>
                     <Card className={classes.gridItem}>
