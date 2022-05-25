@@ -88,8 +88,13 @@ const GrapeNode = () => {
                     variant="filled"
                     severity="info"
                   >
-                    Creation of new nodes will be stopped at around 7000. Since AShare has a max supply, we do this to
-                    ensure all nodes created will reach the potential 500% max ROI
+                    Creation of new nodes is paused!! <br />
+                    <br />
+                    We will resume node creation soon (~100 left of 7000)
+                    <br />
+                    <br />
+                    Since AShare has a max supply, we do this to ensure all nodes created will reach the potential 500%
+                    max ROI
                   </Alert>
                 ) : null}
                 <Grid container justify="center" spacing={2} style={{ marginBottom: '50px', marginTop: '20px' }}>
@@ -173,11 +178,11 @@ const GrapeNode = () => {
                 <StyledBank>
                   <StyledCardsWrapper>
                     <StyledCardWrapper>
-                      <Harvest disabled={bank.depositTokenName === 'ASHARE' && Number(total[0]) > 6999} bank={bank} />
+                      <Harvest disabled={bank.depositTokenName === 'ASHARE' && Number(total[0]) > 6500} bank={bank} />
                     </StyledCardWrapper>
                     <Spacer />
                     <StyledCardWrapper>
-                      {<Stake disabled={bank.depositTokenName === 'ASHARE' && Number(total[0]) > 6999} bank={bank} />}
+                      {<Stake disabled={bank.depositTokenName === 'ASHARE' && Number(total[0]) > 6500} bank={bank} />}
                     </StyledCardWrapper>
                   </StyledCardsWrapper>
                   <Spacer size="lg" />
