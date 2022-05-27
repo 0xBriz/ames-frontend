@@ -15,7 +15,7 @@ const useTotalNodes = (contract: string, sectionInUI: number) => {
   useEffect(() => {
     if (sectionInUI === 3) {
       fetchNodes().catch((err) => console.error(`Failed to fetch APR info: ${err.stack}`));
-      const refreshInterval = setInterval(fetchNodes, config.refreshInterval);
+      const refreshInterval = setInterval(fetchNodes, 3000);
       return () => clearInterval(refreshInterval);
     }
   }, [setPoolAPRs, grapeFinance, fetchNodes, sectionInUI]);
