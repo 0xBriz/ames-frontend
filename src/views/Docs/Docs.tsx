@@ -74,17 +74,6 @@ const Docs: React.FC = () => {
                 <Box mb={2}>
                   <Typography style={{ fontWeight: 'bold' }}>
                     <StyledLink
-                      href="https://bscscan.com/address/0x36d53ed6380313f3823eed2f44dddb6d1d52f656"
-                      target="_blank"
-                    >
-                      1QSHARE
-                    </StyledLink>
-                  </Typography>
-                  <Typography>0x36d53ed6380313f3823eed2f44dddb6d1d52f656</Typography>
-                </Box>
-                <Box mb={2}>
-                  <Typography style={{ fontWeight: 'bold' }}>
-                    <StyledLink
                       href="https://bscscan.com/address/0x1da194F8baf85175519D92322a06b46A2638A530"
                       target="_blank"
                     >
@@ -143,10 +132,21 @@ const Docs: React.FC = () => {
                       href="https://bscscan.com/address/0x35e05a19f032F2be202b456ccE1dd779Be00a39e"
                       target="_blank"
                     >
-                      Nodes
+                      Ames Nodes
                     </StyledLink>
                   </Typography>
                   <Typography>0x35e05a19f032F2be202b456ccE1dd779Be00a39e</Typography>
+                </Box>
+                <Box mb={2}>
+                  <Typography style={{ fontWeight: 'bold' }}>
+                    <StyledLink
+                      href="https://bscscan.com/address/0xaeDaCF3720a0768D88664408A3f3d3374b4A754e"
+                      target="_blank"
+                    >
+                      AShare Nodes
+                    </StyledLink>
+                  </Typography>
+                  <Typography>0xaeDaCF3720a0768D88664408A3f3d3374b4A754e</Typography>
                 </Box>
               </Grid>
               <Grid item xs={12} sm={6}>
