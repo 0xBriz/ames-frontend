@@ -62,6 +62,9 @@ h6 {
 .MuiToolbar-regular {
   color: #e0e3bd;
 }
+.MuiStepLabel-label.MuiStepLabel-active {
+  font-weight: 700;
+}
 
 code {
   font-family: 'Be Vietnam Pro', monospace;
