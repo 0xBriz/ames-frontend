@@ -1377,21 +1377,20 @@ export class BombFinance {
     } else {
       tToken = await this.BOMB.balanceOf(contract.address);
     }
-    console.log(tBusd.toString(), tToken.toString());
-    // tToken = Token.balanceOf(LP);
 
-    // // get user's percentage of LP owned
     const accoundLPBalance = await contract.balanceOf(this.myAccount);
     const lpTotalBalance = await contract.totalSupply();
     const userPercentage = Number(accoundLPBalance.toString()) / Number(lpTotalBalance.toString());
     const minTokenOut = Number(tToken.toString()) * userPercentage;
     const minBUSDOut = Number(tBusd.toString()) * userPercentage;
 
-    const safeMTO = decimalToBalance(minTokenOut - minTokenOut * 0.05);
-    const safeBUSDO = decimalToBalance(minBUSDOut - minTokenOut * 0.05);
+    const safeMTO = decimalToBalance((minTokenOut - minTokenOut * 0.03) / 1000000000000000000);
+    const safeBUSDO = decimalToBalance((minBUSDOut - minTokenOut * 0.03) / 1000000000000000000);
+
+    console.log(safeMTO.toString(), accoundLPBalance.toString(), isShare);
+
     const slippageTollerance = 75;
 
-    console.log(minTokenOut, safeMTO.toString());
     return await this.contracts.Migrator.migrate(isShare, amount, safeMTO, safeBUSDO, slippageTollerance);
   }
 }
