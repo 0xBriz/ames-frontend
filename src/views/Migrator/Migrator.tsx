@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import Page from '../../components/Page';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -25,6 +25,9 @@ import useApprove, { ApprovalState } from '../../hooks/useApprove';
 import useModal from '../../hooks/useModal';
 import useTokenBalance from '../../hooks/useTokenBalance';
 import { getDisplayBalance } from '../../utils/formatBalance';
+import { BigNumber } from 'ethers';
+import { useTransactionAdder } from '../../state/transactions/hooks';
+import ERC20 from '../../bomb-finance/ERC20';
 
 const TITLE = 'ames.defi | Migrator';
 
@@ -140,15 +143,26 @@ const Migrator = () => {
   const ashareBUSD = bombFinance.externalTokens['ASHARE-BUSD-LP'];
   const lp1Balance = useTokenBalance(amesBUSD);
   const lp2Balance = useTokenBalance(ashareBUSD);
-  const [approveStatus, approve] = useApprove(amesBUSD, '0x1da194F8baf85175519D92322a06b46A2638A530');
-  const [approveStatusShare, approveShare] = useApprove(ashareBUSD, '0x1da194F8baf85175519D92322a06b46A2638A530');
+  const [approveStatus, approve] = useApprove(amesBUSD, '0x4e53cd5197C9BBd5E06C2CDcFeD9612d7DDC8BDc');
+  const [approveStatusShare, approveShare] = useApprove(ashareBUSD, '0x4e53cd5197C9BBd5E06C2CDcFeD9612d7DDC8BDc');
   const labelClasses = useLabelStyles();
+  const addTransaction = useTransactionAdder();
+
+  const handleSwapShare = useCallback(
+    async (amount: BigNumber, isShare: boolean, contract: ERC20) => {
+      const tx = await bombFinance.migrate(amount, isShare, contract);
+      addTransaction(tx, {
+        summary: `Migrated LPs successfully`,
+      });
+    },
+    [bombFinance, addTransaction],
+  );
 
   const handleMigrateLp1 = () => {
-    console.log('migrate lp1');
+    handleSwapShare(lp1Balance, false, amesBUSD);
   };
   const handleMigrateLp2 = () => {
-    console.log('migrate lp2');
+    handleSwapShare(lp2Balance, true, ashareBUSD);
   };
 
   return (

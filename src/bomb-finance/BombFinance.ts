@@ -1364,4 +1364,34 @@ export class BombFinance {
   async getSwapEnabled(): Promise<boolean> {
     return await this.contracts.ShareSwap.swapEnabled();
   }
+
+  /** migrator **/
+  /** Swapper **/
+  async migrate(amount: BigNumber, isShare: boolean, contract: ERC20): Promise<TransactionResponse> {
+    // // get total liquidity values
+    let tToken;
+    const tBusd = await this.BTC.balanceOf(contract.address);
+
+    if (isShare) {
+      tToken = await this.BSHARE.balanceOf(contract.address);
+    } else {
+      tToken = await this.BOMB.balanceOf(contract.address);
+    }
+    console.log(tBusd.toString(), tToken.toString());
+    // tToken = Token.balanceOf(LP);
+
+    // // get user's percentage of LP owned
+    const accoundLPBalance = await contract.balanceOf(this.myAccount);
+    const lpTotalBalance = await contract.totalSupply();
+    const userPercentage = Number(accoundLPBalance.toString()) / Number(lpTotalBalance.toString());
+    const minTokenOut = Number(tToken.toString()) * userPercentage;
+    const minBUSDOut = Number(tBusd.toString()) * userPercentage;
+
+    const safeMTO = decimalToBalance(minTokenOut - minTokenOut * 0.05);
+    const safeBUSDO = decimalToBalance(minBUSDOut - minTokenOut * 0.05);
+    const slippageTollerance = 75;
+
+    console.log(minTokenOut, safeMTO.toString());
+    return await this.contracts.Migrator.migrate(isShare, amount, safeMTO, safeBUSDO, slippageTollerance);
+  }
 }
