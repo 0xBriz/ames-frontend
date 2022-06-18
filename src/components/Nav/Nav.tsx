@@ -126,6 +126,9 @@ const Nav = () => {
               <Link color="textPrimary" to="/nodes" className={'navLink ' + classes.link}>
                 Quarry
               </Link>
+              <Link color="textPrimary" to="/cavern-crawl" className={'navLink ' + classes.link}>
+                Cavern Crawl
+              </Link>
               <Link color="textPrimary" to="/bond" className={'navLink ' + classes.link}>
                 Bond
               </Link>
@@ -135,6 +138,7 @@ const Nav = () => {
               <Link color="textPrimary" to="/addresses" className={'navLink ' + classes.link}>
                 Addresses
               </Link>
+        
               <a
                 color="textPrimary"
                 href="https://ames-defi.notion.site/ames-defi/Ames-defi-Docs-315580f66bd74715a04888947f6e5f72"

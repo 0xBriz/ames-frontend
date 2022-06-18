@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 import AssessmentOutlinedIcon from '@material-ui/icons/AssessmentOutlined';
-import { Alert } from '@material-ui/lab';
 import styled from 'styled-components';
 import Page from '../../components/Page';
 import CountUp from 'react-countup';

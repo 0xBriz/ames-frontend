@@ -16,6 +16,7 @@ import Updaters from './state/Updaters';
 import Loader from './components/Loader';
 import Popups from './components/Popups';
 import { RefreshContextProvider } from './contexts/RefreshContext';
+import CavernCrawl from './views/Cavern/components/CavernCrawl';
 
 const Home = lazy(() => import('./views/Home'));
 const Farm = lazy(() => import('./views/Farm'));
@@ -83,6 +84,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/share-swap">
               <ShareSwapper />
+            </Route>
+            <Route path="/cavern-crawl">
+              <CavernCrawl />
             </Route>
             {/* <Route path="/quarry">
               <Stake />
