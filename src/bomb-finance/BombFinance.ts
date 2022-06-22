@@ -11,6 +11,7 @@ import {
   PoolStats,
   BShareSwapperStat,
   PoolTimes,
+  ExtinctionPoolInfo,
 } from './types';
 import { BigNumber, Contract, ethers, EventFilter } from 'ethers';
 import { decimalToBalance } from './ether-utils';
@@ -19,9 +20,9 @@ import ERC20 from './ERC20';
 import { getFullDisplayBalance, getDisplayBalance, getBalance } from '../utils/formatBalance';
 import { getDefaultProvider } from '../utils/provider';
 import IUniswapV2PairABI from './IUniswapV2Pair.abi.json';
-import config, { bankDefinitions } from '../config';
+import config, { bankDefinitions, extinctionPoolDefinitions } from '../config';
 import moment from 'moment';
-import { parseUnits } from 'ethers/lib/utils';
+import { formatEther, parseUnits } from 'ethers/lib/utils';
 import { BNB_TICKER, SPOOKY_ROUTER_ADDR, BOMB_TICKER } from '../utils/constants';
 /**
  * An API module of Bomb Money contracts.
@@ -1363,5 +1364,46 @@ export class BombFinance {
 
   async getSwapEnabled(): Promise<boolean> {
     return await this.contracts.ShareSwap.swapEnabled();
+  }
+
+  async loadExtinctionPools(): Promise<ExtinctionPoolInfo[]> {
+    const pools: ExtinctionPoolInfo[] = [];
+
+    // const pools = await Promise.all(Object.values(extinctionPoolDefinitions).map(()))
+
+    for (const poolInfo of Object.values(extinctionPoolDefinitions)) {
+      const data = await this.getExtinctionPool(poolInfo.contract);
+      pools.push({
+        ...poolInfo,
+        ...data,
+      });
+    }
+
+    return pools;
+  }
+
+  // Extinction
+  async getExtinctionPool(contractAddress: string) {
+    const contract = this.contracts[contractAddress];
+
+    const [rewardPerBlock, startBlock, endBlock, lockBlock, currentBlock] = await Promise.all([
+      contract.rewardPerBlock(),
+      contract.startBlock(),
+      contract.endBlock(),
+      contract.lockBlock(),
+      this.provider.getBlockNumber(),
+    ]);
+
+    return {
+      rewardPerBlock: Number(formatEther(rewardPerBlock)),
+      startBlock: startBlock.toNumber(),
+      endBlock: endBlock.toNumber(),
+      lockBlock: lockBlock.toNumber(),
+      blockRemaining: lockBlock.toNumber() - currentBlock,
+    };
+  }
+
+  async getExtinctionPoolInfo() {
+    return this.contracts.AmesExtinction.poolInfo();
   }
 }

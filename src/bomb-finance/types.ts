@@ -21,6 +21,23 @@ export interface Bank extends BankInfo {
   earnToken: ERC20;
 }
 
+export interface ExtinctionRewardToken {
+  name: string;
+  injectedAmount?: number;
+}
+
+export interface ExtinctionPoolInfo {
+  name: string;
+  depositTokenName: string;
+  contract: ContractName;
+  active?: boolean;
+  rewardTokens?: ExtinctionRewardToken[];
+  rewardPerBlock?: number;
+  startBlock?: number;
+  endBlock?: number;
+  lockBlock?: number;
+}
+
 export type PoolStats = {
   dailyAPR: string;
   yearlyAPR: string;
