@@ -203,7 +203,7 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
 
 export const extinctionPoolDefinitions: { [contractName: string]: ExtinctionPoolInfo } = {
   AmesExtinction: {
-    name: 'AMES Extinction Pool 1',
+    name: 'AMES Peg Pool 1',
     contract: 'AmesExtinction',
     depositTokenName: 'AMES',
   },

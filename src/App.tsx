@@ -85,7 +85,7 @@ const App: React.FC = () => {
             <Route path="/share-swap">
               <ShareSwapper />
             </Route>
-            <Route path="/extinction">
+            <Route path="/campaign">
               <Extinction />
             </Route>
             {/* <Route path="/quarry">

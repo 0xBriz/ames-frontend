@@ -12,6 +12,7 @@ import {
   BShareSwapperStat,
   PoolTimes,
   ExtinctionPoolInfo,
+  ExtinctionRewardToken,
 } from './types';
 import { BigNumber, Contract, ethers, EventFilter } from 'ethers';
 import { decimalToBalance } from './ether-utils';
@@ -1383,27 +1384,79 @@ export class BombFinance {
   }
 
   // Extinction
-  async getExtinctionPool(contractAddress: string) {
-    const contract = this.contracts[contractAddress];
+  async getExtinctionPool(contractName: string) {
+    const contract = this.contracts[contractName];
 
-    const [rewardPerBlock, startBlock, endBlock, lockBlock, currentBlock] = await Promise.all([
-      contract.rewardPerBlock(),
+    const [startBlock, endBlock, lockBlock, currentBlock, rewardTokens, totalDepositTokenAmount] = await Promise.all([
       contract.startBlock(),
       contract.endBlock(),
       contract.lockBlock(),
       this.provider.getBlockNumber(),
+      this.getExtinctionPoolTokens(contractName),
+      contract.totalDepositTokenAmount(),
     ]);
 
+    const blockRemaining = lockBlock.toNumber() - currentBlock;
+
     return {
-      rewardPerBlock: Number(formatEther(rewardPerBlock)),
       startBlock: startBlock.toNumber(),
       endBlock: endBlock.toNumber(),
       lockBlock: lockBlock.toNumber(),
-      blockRemaining: lockBlock.toNumber() - currentBlock,
+      blockRemaining,
+      active: blockRemaining > 0,
+      rewardTokens: rewardTokens.rewardTokens,
+      hasRewardsToClaim: rewardTokens.hasRewardsToClaim,
+      totalDepositTokenAmount: formatEther(totalDepositTokenAmount),
+      APR: 0,
+      userInfo: await this.getUserExtinctionPoolInfo(contractName),
+      depositToken: this.BOMB,
     };
   }
 
-  async getExtinctionPoolInfo() {
-    return this.contracts.AmesExtinction.poolInfo();
+  async getExtinctionPoolTokens(contractName: string): Promise<{
+    rewardTokens: ExtinctionRewardToken[];
+    hasRewardsToClaim: boolean;
+  }> {
+    const contract = this.contracts[contractName];
+    const tokens: string[] = await contract.getRewardTokens();
+    const rewardTokens: ExtinctionRewardToken[] = [];
+
+    const addressTokenMap: { [key: string]: string } = {
+      '0xFa4b16b0f63F5A6D0651592620D585D308F749A4': 'ASHARE',
+      '0xcE18FbBAd490D4Ff9a9475235CFC519513Cfb19a': 'AALTO',
+    };
+
+    let hasRewardsToClaim = false;
+    for (const address of tokens) {
+      const [pendingForToken, rewardPerBlock] = await Promise.all([
+        contract.userRewardDebtForTokens(this.myAccount, address),
+        contract.tokenRewardsPerBlock(address),
+      ]);
+      rewardTokens.push({
+        address,
+        rewardPerBlock: formatEther(rewardPerBlock),
+        name: addressTokenMap[address],
+        userPendingAmount: formatEther(pendingForToken),
+      });
+
+      if (pendingForToken.gt(0)) {
+        hasRewardsToClaim = true;
+      }
+    }
+
+    return { rewardTokens, hasRewardsToClaim };
+  }
+
+  async getUserExtinctionPoolInfo(contractName: string) {
+    const contract = this.contracts[contractName];
+    const amountDeposited = await contract.userDeposits(this.myAccount);
+    return {
+      amountDeposited: formatEther(amountDeposited),
+    };
+  }
+
+  async depositExtinctionPool(poolName: ContractName, amount: BigNumber) {
+    const contract = this.contracts[poolName];
+    return contract.deposit(amount);
   }
 }

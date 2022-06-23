@@ -13,7 +13,7 @@ const TITLE = 'ames.defi | Extinction';
 const Extinction: React.FC = () => {
   const { account } = useWallet();
   const { path } = useRouteMatch();
-  const extinctionPools = useExtinctionPools();
+  const extinctionPools = useExtinctionPools(account);
 
   console.log(extinctionPools);
 
@@ -34,21 +34,17 @@ const Extinction: React.FC = () => {
                     align="center"
                     variant="h3"
                   >
-                    Buurrnnn Bitch
+                    AMES Peg Campaign
                   </Typography>
                   <Typography
                     style={{ textTransform: 'none', fontWeight: 'bold', marginTop: '10px' }}
                     color="textPrimary"
                     align="center"
                   >
-                    ⚠️ By entering these pools, you understand and agree that 100% of your deposited AMES will be burned
-                    to earn the reward tokens over the remaining duration of the pool.
+                    100% of deposits will be entered into the Cavern Crawl for Protocol Owned Liquidity.
                   </Typography>
 
                   <Grid container spacing={3} style={{ marginTop: '20px' }}>
-                    {/* <Grid item xs={12}>
-                
-                    </Grid> */}
                     {extinctionPools?.length &&
                       extinctionPools.map((pool, i) => <ExtinctionPoolCard key={i} pool={pool} />)}
                   </Grid>
