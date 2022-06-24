@@ -1459,4 +1459,9 @@ export class BombFinance {
     const contract = this.contracts[poolName];
     return contract.deposit(amount);
   }
+
+  async claimExtinctionPool(poolName: ContractName) {
+    const contract = this.contracts[poolName];
+    return contract.deposit(0); // zero value triggers claim. There is not a "claim" function
+  }
 }

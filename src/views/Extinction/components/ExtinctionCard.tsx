@@ -6,12 +6,16 @@ import useModal from '../../../hooks/useModal';
 import DepositModal from '../../Bank/components/DepositModal';
 import useExtinctionDeposit from '../../../hooks/useExtinctionDeposit';
 import useTokenBalance from '../../../hooks/useTokenBalance';
+import useApprove from '../../../hooks/useApprove';
+import useBombFinance from '../../../hooks/useBombFinance';
 
 const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) => {
+  const bombFinance = useBombFinance();
+  const [approveStatus, approve] = useApprove(pool.depositToken, bombFinance.contracts[pool.contract].address);
   const tokenBalance = useTokenBalance(pool.depositToken);
   const { onDeposit } = useExtinctionDeposit(pool);
 
-  console.log(tokenBalance);
+  // claimExtinctionPool()
 
   const [onPresentDeposit, onDismissDeposit] = useModal(
     <DepositModal
@@ -59,7 +63,7 @@ const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) =>
 
               <Grid container spacing={1} style={{ marginTop: '20px' }}>
                 <Grid item xs={12}>
-                  <Typography color="textSecondary">Deposit {pool.depositTokenName.toUpperCase()} Earn </Typography>
+                  <Typography style={labels}>Deposit {pool.depositTokenName.toUpperCase()} Earn: </Typography>
                 </Grid>
                 {pool.rewardTokens?.map((token, i) => {
                   return (

@@ -11,10 +11,6 @@ const useExtinctionDeposit = (pool: ExtinctionPoolInfo) => {
   const handleDeposit = useCallback(
     (amount: string) => {
       const amountBn = BigNumber.from(amount);
-      //   handleTransactionReceipt(
-      //     bombFinance.stake(pool.contract, pool.poolId, amountBn),
-      //     `Stake ${amount} ${pool.depositTokenName} to ${pool.contract}`,
-      //   );
       handleTransactionReceipt(
         bombFinance.depositExtinctionPool(pool.contract, amountBn),
         `Deposit ${amount} ${pool.depositTokenName} to pool`,
