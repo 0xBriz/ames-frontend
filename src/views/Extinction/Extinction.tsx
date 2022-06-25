@@ -65,6 +65,22 @@ const Extinction: React.FC = () => {
                     </Grid>
                   </Grid>
 
+                  {extinctionPools?.length && (
+                    <Grid container justifyContent="center" style={{ marginTop: '20px' }}>
+                      <Grid item>
+                        <Typography
+                          style={{ textTransform: 'none', fontWeight: 'bold' }}
+                          color="textPrimary"
+                          align="center"
+                          variant="h6"
+                        >
+                          Total Deposits: {extinctionPools[0].totalDepositTokenAmount}/
+                          {extinctionPools[0].maxDepositAmount} AMES
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  )}
+
                   <Grid container justifyContent="space-evenly" style={{ marginTop: '20px' }}>
                     <Grid item>
                       {extinctionPools?.length &&

@@ -49,6 +49,7 @@ export interface ExtinctionPoolInfo {
   rewardTokens?: ExtinctionRewardToken[];
   userInfo?: ExtinctionUserInfo;
   hasRewardsToClaim?: boolean;
+  canDeposit?: boolean;
 }
 
 export type PoolStats = {

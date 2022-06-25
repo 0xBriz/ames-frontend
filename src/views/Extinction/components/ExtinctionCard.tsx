@@ -96,24 +96,15 @@ const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) =>
                 </Grid>
               </Grid>
 
-              <Grid container justifyContent="space-between" style={{ marginTop: '20px' }}>
-                <Grid item xs={6}>
-                  <Typography style={labels}>Total Deposits:</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography align="right">
-                    {' '}
-                    {pool.totalDepositTokenAmount}/{pool.maxDepositAmount} AMES
-                  </Typography>
-                </Grid>
-              </Grid>
-
               <Grid container justifyContent="center" alignItems="center" style={{ marginTop: '20px' }}>
                 {approveStatus !== ApprovalState.APPROVED ? (
                   <Button
                     fullWidth={true}
                     disabled={
-                      !pool.active || approveStatus === ApprovalState.PENDING || approveStatus === ApprovalState.UNKNOWN
+                      !pool.active ||
+                      !pool.canDeposit ||
+                      approveStatus === ApprovalState.PENDING ||
+                      approveStatus === ApprovalState.UNKNOWN
                     }
                     onClick={approve}
                     className={

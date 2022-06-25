@@ -1410,6 +1410,7 @@ export class BombFinance {
       userInfo: await this.getUserExtinctionPoolInfo(contractName),
       depositToken: this.BOMB,
       maxDepositAmount: max,
+      canDeposit: maxDepositAmount.eq(totalDepositTokenAmount),
     };
   }
 
@@ -1430,6 +1431,7 @@ export class BombFinance {
     const rewardTokens: ExtinctionRewardToken[] = [];
     tokens.forEach((token: any, i) => {
       const rewardAmount: BigNumber = userPendingRewards.rewardAmounts[i];
+      console.log(rewardAmount);
       rewardTokens.push({
         address: token.tokenAddress,
         rewardPerBlock: formatEther(token.rewardPerBlock),
