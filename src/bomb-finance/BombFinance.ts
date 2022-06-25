@@ -1404,8 +1404,7 @@ export class BombFinance {
       lockBlock: lockBlock.toNumber(),
       blockRemaining,
       active: blockRemaining > 0,
-      rewardTokens: rewardTokens.rewardTokens,
-      hasRewardsToClaim: rewardTokens.hasRewardsToClaim,
+      rewardTokens,
       totalDepositTokenAmount: formatEther(totalDepositTokenAmount),
       APR: 0,
       userInfo: await this.getUserExtinctionPoolInfo(contractName),
@@ -1413,43 +1412,36 @@ export class BombFinance {
     };
   }
 
-  async getExtinctionPoolTokens(contractName: string): Promise<{
-    rewardTokens: ExtinctionRewardToken[];
-    hasRewardsToClaim: boolean;
-  }> {
+  private _extinctionTokenMap: { [key: string]: string } = {
+    '0xFa4b16b0f63F5A6D0651592620D585D308F749A4': 'ASHARE',
+    '0xcE18FbBAd490D4Ff9a9475235CFC519513Cfb19a': 'AALTO',
+    '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56': 'BUSD',
+  };
+
+  async getExtinctionPoolTokens(contractName: string): Promise<ExtinctionRewardToken[]> {
     const contract = this.contracts[contractName];
-    const tokens: string[] = await contract.getRewardTokens();
+
+    const [tokens, userPendingRewards]: [any[], any] = await Promise.all([
+      contract.getRewardTokens(),
+      contract.pendingRewards(this.myAccount),
+    ]);
+
     const rewardTokens: ExtinctionRewardToken[] = [];
-
-    const addressTokenMap: { [key: string]: string } = {
-      '0xFa4b16b0f63F5A6D0651592620D585D308F749A4': 'ASHARE',
-      '0xcE18FbBAd490D4Ff9a9475235CFC519513Cfb19a': 'AALTO',
-    };
-
-    let hasRewardsToClaim = false;
-    for (const address of tokens) {
-      const [pendingForToken, rewardPerBlock] = await Promise.all([
-        contract.userRewardDebtForTokens(this.myAccount, address),
-        contract.tokenRewardsPerBlock(address),
-      ]);
+    tokens.forEach((token: any, i) => {
       rewardTokens.push({
-        address,
-        rewardPerBlock: formatEther(rewardPerBlock),
-        name: addressTokenMap[address],
-        userPendingAmount: formatEther(pendingForToken),
+        address: token.tokenAddress,
+        rewardPerBlock: formatEther(token.rewardPerBlock),
+        name: this._extinctionTokenMap[token.tokenAddress],
+        userPendingAmount: formatEther(userPendingRewards.rewardAmounts[i]),
       });
+    });
 
-      if (pendingForToken.gt(0)) {
-        hasRewardsToClaim = true;
-      }
-    }
-
-    return { rewardTokens, hasRewardsToClaim };
+    return rewardTokens;
   }
 
   async getUserExtinctionPoolInfo(contractName: string) {
     const contract = this.contracts[contractName];
-    const amountDeposited = await contract.userDeposits(this.myAccount);
+    const amountDeposited = await contract.userInfo(this.myAccount);
     return {
       amountDeposited: formatEther(amountDeposited),
     };

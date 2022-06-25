@@ -35,57 +35,55 @@ const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) =>
   };
 
   return (
-    <Grid item xs={12} md={4} lg={4}>
+    <Grid item>
       {pool && (
         <Card variant="outlined">
           <CardContent>
-            <Box style={{ position: 'relative' }}>
-              <Box
+            <Box style={{ width: '376px' }}>
+              <Grid container justifyContent="center" style={{ marginTop: '20px' }}>
+                <Grid item>
+                  <TokenSymbol symbol={pool.depositTokenName} />
+                </Grid>
+              </Grid>
+
+              <Typography
+                align="center"
                 style={{
-                  position: 'absolute',
-                  right: '0px',
-                  top: '-5px',
-                  height: '48px',
-                  width: '48px',
-                  borderRadius: '40px',
-                  backgroundColor: '#363746',
-                  alignItems: 'center',
-                  display: 'flex',
-                  justifyContent: 'center',
+                  fontWeight: 700,
+                  fontSize: '32px',
+                  lineHeight: '38px',
+                  marginTop: '10px',
                 }}
               >
-                <TokenSymbol size={32} symbol={pool.depositTokenName} />
-              </Box>
-
-              <Typography variant="h5" component="h2">
                 {pool.depositTokenName}
               </Typography>
 
-              <Grid container spacing={1} style={{ marginTop: '20px' }}>
-                <Grid item xs={12}>
-                  <Typography style={labels}>Deposit {pool.depositTokenName.toUpperCase()} Earn: </Typography>
-                </Grid>
+              <Grid container justifyContent="center" spacing={3} style={{ marginTop: '20px' }}>
                 {pool.rewardTokens?.map((token, i) => {
                   return (
-                    <Grid item xs={2} key={i}>
-                      <TokenSymbol size={32} symbol={token.name} />
+                    <Grid
+                      item
+                      xs={1}
+                      key={i}
+                      style={{
+                        marginLeft: '5px',
+                      }}
+                    >
+                      <TokenSymbol size={28} symbol={token.name} />
                     </Grid>
                   );
                 })}
-              </Grid>
-
-              <Grid container justifyContent="center" alignItems="center" style={{ marginTop: '20px' }}>
-                <Button className="shinyButtonSecondary" disabled={!pool.active} onClick={onPresentDeposit}>
-                  Deposit
-                </Button>
+                <Grid item>
+                  <Typography style={labels}>Reward Pool</Typography>
+                </Grid>
               </Grid>
 
               <Grid container justifyContent="space-between" style={{ marginTop: '20px' }}>
                 <Grid item xs={6}>
-                  <Typography style={labels}>APR:</Typography>
+                  <Typography style={labels}>Duration:</Typography>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography align="right"> {pool.APR}</Typography>
+                  <Typography align="right"> 7 days</Typography>
                 </Grid>
               </Grid>
               <Grid container justifyContent="space-between" style={{ marginTop: '10px' }}>
@@ -93,59 +91,23 @@ const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) =>
                   <Typography style={labels}>Your Deposits:</Typography>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography align="right"> {pool.APR}</Typography>
-                </Grid>
-              </Grid>
-              <Grid container justifyContent="space-between" style={{ marginTop: '10px' }}>
-                <Grid item xs={6}>
-                  <Typography style={labels}>Start Block:</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography align="right"> {pool.startBlock}</Typography>
-                </Grid>
-              </Grid>
-              <Grid container justifyContent="space-between" style={{ marginTop: '10px' }}>
-                <Grid item xs={6}>
-                  <Typography style={labels}>End Block:</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography align="right"> {pool.endBlock}</Typography>
+                  <Typography align="right"> {pool.userInfo?.amountDeposited}</Typography>
                 </Grid>
               </Grid>
 
-              {/* <Grid container justifyContent="space-between" style={{ marginTop: '10px' }}>
-                <Grid item xs={6}>
-                  <Typography style={labels}>Total AMES Desposited:</Typography>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography align="right"> {pool.totalDepositTokenAmount}</Typography>
-                </Grid>
-              </Grid> */}
+              <Grid container justifyContent="center" alignItems="center" style={{ marginTop: '20px' }}>
+                <Button
+                  className="shinyButtonSecondary"
+                  disabled={!pool.active}
+                  onClick={onPresentDeposit}
+                  fullWidth={true}
+                >
+                  Deposit
+                </Button>
+              </Grid>
 
-              <Grid container style={{ marginTop: '20px' }}>
-                <Grid item xs={12}>
-                  <Typography style={labels} align="center">
-                    Your Rewards
-                  </Typography>
-                </Grid>
-                {pool.rewardTokens?.map((token, i) => {
-                  return (
-                    <Grid container justifyContent="space-between" key={i} style={{ marginTop: '10px' }}>
-                      <Grid item xs={6}>
-                        <TokenSymbol size={32} symbol={token.name} />
-                      </Grid>
-                      <Grid item xs={6}>
-                        <Typography align="right"> {token.userPendingAmount}</Typography>
-                      </Grid>
-                    </Grid>
-                  );
-                })}
-
-                <Grid container justifyContent="flex-end" alignItems="flex-end" style={{ marginTop: '20px' }}>
-                  <Button className="shinyButtonSecondary" disabled={!pool.hasRewardsToClaim}>
-                    Claim
-                  </Button>
-                </Grid>
+              <Grid container justifyContent="center" alignItems="center" style={{ marginTop: '20px' }}>
+                <Typography style={labels}>⚠️ Deposited AMES cannot be withdrawn.</Typography>
               </Grid>
             </Box>
           </CardContent>

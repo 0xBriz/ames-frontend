@@ -2,8 +2,9 @@ import { useCallback, useEffect, useState } from 'react';
 import { ExtinctionPoolInfo } from '../bomb-finance/types';
 import useBombFinance from './useBombFinance';
 
-const useExtinctionPools = (account: string) => {
+const useExtinctionPools = () => {
   const bombFinance = useBombFinance();
+  const isUnlocked = bombFinance?.isUnlocked;
   const [extinctionPool, setExtinctionPool] = useState<ExtinctionPoolInfo[]>(null);
 
   const fetchPools = useCallback(async () => {
@@ -11,10 +12,10 @@ const useExtinctionPools = (account: string) => {
   }, [bombFinance]);
 
   useEffect(() => {
-    if (bombFinance && account) {
+    if (isUnlocked) {
       fetchPools().catch((err) => console.error(`Failed to fetch extinction pools: ${err.stack}`));
     }
-  }, [bombFinance, fetchPools, account]);
+  }, [bombFinance, fetchPools, isUnlocked]);
 
   return extinctionPool;
 };

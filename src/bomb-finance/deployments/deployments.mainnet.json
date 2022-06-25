@@ -10010,19 +10010,6 @@
         "anonymous": false,
         "inputs": [
           {
-            "indexed": false,
-            "internalType": "uint256",
-            "name": "amount",
-            "type": "uint256"
-          }
-        ],
-        "name": "Burn",
-        "type": "event"
-      },
-      {
-        "anonymous": false,
-        "inputs": [
-          {
             "indexed": true,
             "internalType": "address",
             "name": "user",
@@ -10115,6 +10102,76 @@
         "type": "event"
       },
       {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "name": "TokenRescued",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "token",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "name": "TokenWithdraw",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "oldAddress",
+            "type": "address"
+          },
+          {
+            "indexed": false,
+            "internalType": "address",
+            "name": "newAddress",
+            "type": "address"
+          }
+        ],
+        "name": "TreasuryUpdated",
+        "type": "event"
+      },
+      {
+        "anonymous": false,
+        "inputs": [
+          {
+            "indexed": false,
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
+        ],
+        "name": "WithdrawTreasury",
+        "type": "event"
+      },
+      {
         "inputs": [
           {
             "internalType": "address",
@@ -10123,19 +10180,6 @@
           }
         ],
         "name": "accTokenRewardPerShare",
-        "outputs": [
-          {
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "burnAllocation",
         "outputs": [
           {
             "internalType": "uint256",
@@ -10187,19 +10231,24 @@
       },
       {
         "inputs": [],
-        "name": "finalizePool",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "inputs": [],
         "name": "getRewardTokens",
         "outputs": [
           {
-            "internalType": "contract IERC20Upgradeable[]",
+            "components": [
+              {
+                "internalType": "address",
+                "name": "tokenAddress",
+                "type": "address"
+              },
+              {
+                "internalType": "uint256",
+                "name": "rewardPerBlock",
+                "type": "uint256"
+              }
+            ],
+            "internalType": "struct ExtinctionPool.RewardToken[]",
             "name": "tokens",
-            "type": "address[]"
+            "type": "tuple[]"
           }
         ],
         "stateMutability": "view",
@@ -10236,6 +10285,11 @@
             "internalType": "uint256[]",
             "name": "_rewardsPerBlock",
             "type": "uint256[]"
+          },
+          {
+            "internalType": "address",
+            "name": "_treasuryAddress",
+            "type": "address"
           }
         ],
         "name": "initialize",
@@ -10271,7 +10325,7 @@
       },
       {
         "inputs": [],
-        "name": "maxUserDeposit",
+        "name": "maxDepositAmount",
         "outputs": [
           {
             "internalType": "uint256",
@@ -10329,17 +10383,53 @@
       {
         "inputs": [
           {
+            "internalType": "address",
+            "name": "_token",
+            "type": "address"
+          },
+          {
+            "internalType": "address",
+            "name": "_to",
+            "type": "address"
+          }
+        ],
+        "name": "resuceToken",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "rewardTokenCount",
+        "outputs": [
+          {
             "internalType": "uint256",
             "name": "",
             "type": "uint256"
           }
         ],
-        "name": "rewardTokens",
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "name": "rewardTokensMapping",
         "outputs": [
           {
-            "internalType": "contract IERC20Upgradeable",
-            "name": "",
+            "internalType": "address",
+            "name": "tokenAddress",
             "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "rewardPerBlock",
+            "type": "uint256"
           }
         ],
         "stateMutability": "view",
@@ -10353,7 +10443,7 @@
             "type": "uint256"
           }
         ],
-        "name": "setMaxUserDeposit",
+        "name": "setDepositCap",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -10362,11 +10452,24 @@
         "inputs": [
           {
             "internalType": "uint256",
-            "name": "_allocation",
+            "name": "_newLockBlock",
             "type": "uint256"
           }
         ],
-        "name": "setTreasuryAllocation",
+        "name": "setLockBlock",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_treasuryAddress",
+            "type": "address"
+          }
+        ],
+        "name": "setTreasuryAddress",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -10374,25 +10477,6 @@
       {
         "inputs": [],
         "name": "startBlock",
-        "outputs": [
-          {
-            "internalType": "uint256",
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [
-          {
-            "internalType": "address",
-            "name": "",
-            "type": "address"
-          }
-        ],
-        "name": "tokenRewardsPerBlock",
         "outputs": [
           {
             "internalType": "uint256",
@@ -10431,6 +10515,19 @@
       },
       {
         "inputs": [],
+        "name": "treasuryAddress",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
         "name": "treasuryAllocation",
         "outputs": [
           {
@@ -10440,6 +10537,13 @@
           }
         ],
         "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "treasuryWithdraw",
+        "outputs": [],
+        "stateMutability": "nonpayable",
         "type": "function"
       },
       {
@@ -10457,11 +10561,11 @@
             "type": "address"
           }
         ],
-        "name": "userDeposits",
+        "name": "userInfo",
         "outputs": [
           {
             "internalType": "uint256",
-            "name": "",
+            "name": "amountDeposited",
             "type": "uint256"
           }
         ],
@@ -10490,6 +10594,29 @@
           }
         ],
         "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_tokenIndex",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "_to",
+            "type": "address"
+          }
+        ],
+        "name": "withdrawlToken",
+        "outputs": [],
+        "stateMutability": "nonpayable",
         "type": "function"
       }
     ]

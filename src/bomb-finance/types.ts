@@ -26,10 +26,12 @@ export interface ExtinctionRewardToken {
   rewardPerBlock?: string;
   name?: string;
   userPendingAmount?: string;
+  userPendingValue?: string;
 }
 
 export interface ExtinctionUserInfo {
   amountDeposited: string;
+  pendingRewards?: ExtinctionRewardToken[];
 }
 
 export interface ExtinctionPoolInfo {

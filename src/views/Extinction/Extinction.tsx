@@ -1,21 +1,20 @@
 import React from 'react';
 import { useWallet } from 'use-wallet';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
-import { Box, Container, Typography, Grid } from '@material-ui/core';
+import { Box, Container, Typography, Grid, Card, CardContent } from '@material-ui/core';
 import UnlockWallet from '../../components/UnlockWallet';
 import Page from '../../components/Page';
 import { Helmet } from 'react-helmet';
 import useExtinctionPools from '../../hooks/useExtinctionPools';
 import ExtinctionPoolCard from './components/ExtinctionCard';
+import ExtinctionRewardCard from './components/ExtinctionRewardCard';
 
 const TITLE = 'ames.defi | Extinction';
 
 const Extinction: React.FC = () => {
   const { account } = useWallet();
   const { path } = useRouteMatch();
-  const extinctionPools = useExtinctionPools(account);
-
-  console.log(extinctionPools);
+  const extinctionPools = useExtinctionPools();
 
   return (
     <Switch>
@@ -44,9 +43,37 @@ const Extinction: React.FC = () => {
                     100% of deposits will be entered into the Cavern Crawl for Protocol Owned Liquidity.
                   </Typography>
 
-                  <Grid container spacing={3} style={{ marginTop: '20px' }}>
-                    {extinctionPools?.length &&
-                      extinctionPools.map((pool, i) => <ExtinctionPoolCard key={i} pool={pool} />)}
+                  <Grid container justifyContent="center" style={{ marginTop: '20px' }}>
+                    <Grid item>
+                      <Card variant="outlined">
+                        <CardContent>
+                          <Typography style={{ fontWeight: 'bold' }} color="textPrimary" align="center">
+                            Days H M S
+                          </Typography>
+
+                          <Typography
+                            align="center"
+                            style={{
+                              color: 'rgb(130, 130, 130)',
+                              marginTop: '10px',
+                            }}
+                          >
+                            Until deposits close
+                          </Typography>
+                        </CardContent>
+                      </Card>
+                    </Grid>
+                  </Grid>
+
+                  <Grid container justifyContent="space-evenly" style={{ marginTop: '20px' }}>
+                    <Grid item>
+                      {extinctionPools?.length &&
+                        extinctionPools.map((pool, i) => <ExtinctionPoolCard key={i} pool={pool} />)}
+                    </Grid>
+
+                    <Grid item>
+                      {extinctionPools?.length && <ExtinctionRewardCard rewards={extinctionPools[0].rewardTokens} />}
+                    </Grid>
                   </Grid>
                 </div>
               </Box>
