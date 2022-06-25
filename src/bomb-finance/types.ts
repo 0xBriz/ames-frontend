@@ -44,6 +44,7 @@ export interface ExtinctionPoolInfo {
   endBlock?: number;
   lockBlock?: number;
   totalDepositTokenAmount?: string;
+  maxDepositAmount?: string;
   APR?: number;
   rewardTokens?: ExtinctionRewardToken[];
   userInfo?: ExtinctionUserInfo;

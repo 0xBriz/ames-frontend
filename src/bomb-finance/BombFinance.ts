@@ -23,7 +23,7 @@ import { getDefaultProvider } from '../utils/provider';
 import IUniswapV2PairABI from './IUniswapV2Pair.abi.json';
 import config, { bankDefinitions, extinctionPoolDefinitions } from '../config';
 import moment from 'moment';
-import { formatEther, parseUnits } from 'ethers/lib/utils';
+import { commify, formatEther, parseUnits } from 'ethers/lib/utils';
 import { BNB_TICKER, SPOOKY_ROUTER_ADDR, BOMB_TICKER } from '../utils/constants';
 /**
  * An API module of Bomb Money contracts.
@@ -1370,8 +1370,6 @@ export class BombFinance {
   async loadExtinctionPools(): Promise<ExtinctionPoolInfo[]> {
     const pools: ExtinctionPoolInfo[] = [];
 
-    // const pools = await Promise.all(Object.values(extinctionPoolDefinitions).map(()))
-
     for (const poolInfo of Object.values(extinctionPoolDefinitions)) {
       const data = await this.getExtinctionPool(poolInfo.contract);
       pools.push({
@@ -1387,17 +1385,19 @@ export class BombFinance {
   async getExtinctionPool(contractName: string) {
     const contract = this.contracts[contractName];
 
-    const [startBlock, endBlock, lockBlock, currentBlock, rewardTokens, totalDepositTokenAmount] = await Promise.all([
-      contract.startBlock(),
-      contract.endBlock(),
-      contract.lockBlock(),
-      this.provider.getBlockNumber(),
-      this.getExtinctionPoolTokens(contractName),
-      contract.totalDepositTokenAmount(),
-    ]);
+    const [startBlock, endBlock, lockBlock, currentBlock, rewardTokens, totalDepositTokenAmount, maxDepositAmount] =
+      await Promise.all([
+        contract.startBlock(),
+        contract.endBlock(),
+        contract.lockBlock(),
+        this.provider.getBlockNumber(),
+        this.getExtinctionPoolTokens(contractName),
+        contract.totalDepositTokenAmount(),
+        contract.maxDepositAmount(),
+      ]);
 
     const blockRemaining = lockBlock.toNumber() - currentBlock;
-
+    const max = commify(formatEther(maxDepositAmount));
     return {
       startBlock: startBlock.toNumber(),
       endBlock: endBlock.toNumber(),
@@ -1405,10 +1405,11 @@ export class BombFinance {
       blockRemaining,
       active: blockRemaining > 0,
       rewardTokens,
-      totalDepositTokenAmount: formatEther(totalDepositTokenAmount),
+      totalDepositTokenAmount: totalDepositTokenAmount.toNumber(),
       APR: 0,
       userInfo: await this.getUserExtinctionPoolInfo(contractName),
       depositToken: this.BOMB,
+      maxDepositAmount: max,
     };
   }
 
@@ -1428,11 +1429,12 @@ export class BombFinance {
 
     const rewardTokens: ExtinctionRewardToken[] = [];
     tokens.forEach((token: any, i) => {
+      const rewardAmount: BigNumber = userPendingRewards.rewardAmounts[i];
       rewardTokens.push({
         address: token.tokenAddress,
         rewardPerBlock: formatEther(token.rewardPerBlock),
         name: this._extinctionTokenMap[token.tokenAddress],
-        userPendingAmount: formatEther(userPendingRewards.rewardAmounts[i]),
+        userPendingAmount: formatEther(rewardAmount),
       });
     });
 
@@ -1443,7 +1445,7 @@ export class BombFinance {
     const contract = this.contracts[contractName];
     const amountDeposited = await contract.userInfo(this.myAccount);
     return {
-      amountDeposited: formatEther(amountDeposited),
+      amountDeposited: amountDeposited.toNumber(),
     };
   }
 

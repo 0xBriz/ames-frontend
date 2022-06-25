@@ -6,7 +6,7 @@ import useModal from '../../../hooks/useModal';
 import DepositModal from '../../Bank/components/DepositModal';
 import useExtinctionDeposit from '../../../hooks/useExtinctionDeposit';
 import useTokenBalance from '../../../hooks/useTokenBalance';
-import useApprove from '../../../hooks/useApprove';
+import useApprove, { ApprovalState } from '../../../hooks/useApprove';
 import useBombFinance from '../../../hooks/useBombFinance';
 
 const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) => {
@@ -86,6 +86,7 @@ const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) =>
                   <Typography align="right"> 7 days</Typography>
                 </Grid>
               </Grid>
+
               <Grid container justifyContent="space-between" style={{ marginTop: '10px' }}>
                 <Grid item xs={6}>
                   <Typography style={labels}>Your Deposits:</Typography>
@@ -95,15 +96,45 @@ const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) =>
                 </Grid>
               </Grid>
 
+              <Grid container justifyContent="space-between" style={{ marginTop: '20px' }}>
+                <Grid item xs={6}>
+                  <Typography style={labels}>Total Deposits:</Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <Typography align="right">
+                    {' '}
+                    {pool.totalDepositTokenAmount}/{pool.maxDepositAmount} AMES
+                  </Typography>
+                </Grid>
+              </Grid>
+
               <Grid container justifyContent="center" alignItems="center" style={{ marginTop: '20px' }}>
-                <Button
-                  className="shinyButtonSecondary"
-                  disabled={!pool.active}
-                  onClick={onPresentDeposit}
-                  fullWidth={true}
-                >
-                  Deposit
-                </Button>
+                {approveStatus !== ApprovalState.APPROVED ? (
+                  <Button
+                    fullWidth={true}
+                    disabled={
+                      !pool.active || approveStatus === ApprovalState.PENDING || approveStatus === ApprovalState.UNKNOWN
+                    }
+                    onClick={approve}
+                    className={
+                      approveStatus === ApprovalState.PENDING || approveStatus === ApprovalState.UNKNOWN
+                        ? 'shinyButtonDisabled'
+                        : 'shinyButton'
+                    }
+                    style={{ marginTop: '20px' }}
+                  >
+                    {`Approve`}
+                  </Button>
+                ) : (
+                  <Button
+                    className="shinyButtonSecondary"
+                    disabled={!pool.active}
+                    onClick={onPresentDeposit}
+                    fullWidth={true}
+                  >
+                    Deposit
+                  </Button>
+                )}
               </Grid>
 
               <Grid container justifyContent="center" alignItems="center" style={{ marginTop: '20px' }}>
