@@ -41,8 +41,11 @@ export interface ExtinctionPoolInfo {
   contract: ContractName;
   active?: boolean;
   startBlock?: number;
+  starTimestamp?: number;
   endBlock?: number;
+  blocksUntilEnd?: number;
   lockBlock?: number;
+  blockUntilLock?: number;
   totalDepositTokenAmount?: string;
   maxDepositAmount?: string;
   APR?: number;

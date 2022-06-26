@@ -1396,16 +1396,18 @@ export class BombFinance {
         contract.maxDepositAmount(),
       ]);
 
-    const blockRemaining = lockBlock.toNumber() - currentBlock;
-    const canDeposit = totalDepositTokenAmount.lt(maxDepositAmount) && blockRemaining > 0;
+    const blockUntilLock = lockBlock.toNumber() - currentBlock;
+    const canDeposit = totalDepositTokenAmount.lt(maxDepositAmount) && blockUntilLock > 0;
     const max = commify(formatEther(maxDepositAmount));
+    const blocksUntilEnd = endBlock.toNumber() - currentBlock;
+    const start = await this.provider.getBlock(startBlock.toNumber());
 
     return {
       startBlock: startBlock.toNumber(),
       endBlock: endBlock.toNumber(),
       lockBlock: lockBlock.toNumber(),
-      blockRemaining,
-      active: blockRemaining > 0,
+      blockUntilLock,
+      active: endBlock.toNumber() - currentBlock > 0,
       rewardTokens,
       totalDepositTokenAmount: totalDepositTokenAmount.toNumber(),
       APR: 0,
@@ -1413,6 +1415,8 @@ export class BombFinance {
       depositToken: this.BOMB,
       maxDepositAmount: max,
       canDeposit,
+      blocksUntilEnd,
+      starTimestamp: start.timestamp,
     };
   }
 

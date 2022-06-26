@@ -8,6 +8,7 @@ import { Helmet } from 'react-helmet';
 import useExtinctionPools from '../../hooks/useExtinctionPools';
 import ExtinctionPoolCard from './components/ExtinctionCard';
 import ExtinctionRewardCard from './components/ExtinctionRewardCard';
+import ExtinctionTimer from './components/ExtinctionTimer';
 
 const TITLE = 'ames.defi | Extinction';
 
@@ -43,27 +44,7 @@ const Extinction: React.FC = () => {
                     100% of deposits will be entered into the Cavern Crawl for Protocol Owned Liquidity.
                   </Typography>
 
-                  <Grid container justifyContent="center" style={{ marginTop: '20px' }}>
-                    <Grid item>
-                      <Card variant="outlined">
-                        <CardContent>
-                          <Typography style={{ fontWeight: 'bold' }} color="textPrimary" align="center">
-                            Days H M S
-                          </Typography>
-
-                          <Typography
-                            align="center"
-                            style={{
-                              color: 'rgb(130, 130, 130)',
-                              marginTop: '10px',
-                            }}
-                          >
-                            Until deposits close and rewards start
-                          </Typography>
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                  </Grid>
+                  <ExtinctionTimer pool={extinctionPools?.length ? extinctionPools[0] : null} />
 
                   {extinctionPools?.length && (
                     <Grid container justifyContent="center" style={{ marginTop: '20px' }}>
