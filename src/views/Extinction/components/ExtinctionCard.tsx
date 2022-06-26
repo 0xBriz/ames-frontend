@@ -114,16 +114,16 @@ const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) =>
                     }
                     style={{ marginTop: '20px' }}
                   >
-                    {`Approve`}
+                    {pool.canDeposit ? 'Approve' : 'Deposits Locked'}
                   </Button>
                 ) : (
                   <Button
                     className="shinyButtonSecondary"
-                    disabled={!pool.active}
+                    disabled={!pool.active || !pool.canDeposit}
                     onClick={onPresentDeposit}
                     fullWidth={true}
                   >
-                    Deposit
+                    {pool.canDeposit ? 'Deposit' : 'Deposits Locked'}
                   </Button>
                 )}
               </Grid>

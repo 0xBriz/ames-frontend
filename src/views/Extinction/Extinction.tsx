@@ -58,7 +58,7 @@ const Extinction: React.FC = () => {
                               marginTop: '10px',
                             }}
                           >
-                            Until deposits close
+                            Until deposits close and rewards start
                           </Typography>
                         </CardContent>
                       </Card>
@@ -88,7 +88,12 @@ const Extinction: React.FC = () => {
                     </Grid>
 
                     <Grid item>
-                      {extinctionPools?.length && <ExtinctionRewardCard rewards={extinctionPools[0].rewardTokens} />}
+                      {extinctionPools?.length && (
+                        <ExtinctionRewardCard
+                          rewards={extinctionPools[0].rewardTokens}
+                          poolName={extinctionPools[0].contract}
+                        />
+                      )}
                     </Grid>
                   </Grid>
                 </div>

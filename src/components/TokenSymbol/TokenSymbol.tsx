@@ -25,6 +25,7 @@ import btcLogo from '../../assets/img/BCTB-icon.png';
 import AaltoLogo from '../../assets/img/logomark-square.svg';
 import ABUSD from '../../assets/img/ames-busd@2x.png';
 import ASBUSD from '../../assets/img/ashare-busd@2x.png';
+import busdLogo from '../../assets/img/busd.png';
 
 const logosBySymbol: { [title: string]: string } = {
   //Real tokens
@@ -53,6 +54,7 @@ const logosBySymbol: { [title: string]: string } = {
   SBTC: btcLogo,
   BTCB: btcLogo,
   BTC: btcLogo,
+  BUSD: busdLogo,
   SVL: bnbLogo,
   AALTO: AaltoLogo,
   '1QSHARE': tShareLogo,

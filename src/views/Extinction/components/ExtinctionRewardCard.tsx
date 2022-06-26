@@ -1,15 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Button, Card, CardContent, Typography, Grid } from '@material-ui/core';
 import TokenSymbol from '../../../components/TokenSymbol';
-import { ExtinctionRewardToken } from '../../../bomb-finance/types';
+import { ContractName, ExtinctionRewardToken } from '../../../bomb-finance/types';
 import useBombFinance from '../../../hooks/useBombFinance';
 import useBombStats from '../../../hooks/useBombStats';
+import useExtinctionClaimRewards from '../../../hooks/useExtinctionClaimRewards';
 
-const ExtinctionRewardCard: React.FC<{ rewards: ExtinctionRewardToken[] }> = ({ rewards }) => {
+const ExtinctionRewardCard: React.FC<{ rewards: ExtinctionRewardToken[]; poolName: ContractName }> = ({
+  rewards,
+  poolName,
+}) => {
   const bombFinance = useBombFinance();
   const bombStats = useBombStats();
+  const [hasRewards, setHasRewards] = useState(false);
+  const { doClaim } = useExtinctionClaimRewards(poolName);
 
-  // claimExtinctionPool()
+  const checkRewards = () => {
+    let hasClaim = false;
+    rewards.forEach((rw) => (hasClaim = Number(rw.userPendingAmount) > 0));
+    setHasRewards(hasClaim);
+  };
+
+  const handleClaim = () => {
+    if (hasRewards) {
+      doClaim();
+    }
+  };
+
+  useEffect(() => {
+    if (rewards) {
+      checkRewards();
+    }
+  }, [rewards]);
 
   const labels = {
     fontWeight: 700,
@@ -58,7 +80,12 @@ const ExtinctionRewardCard: React.FC<{ rewards: ExtinctionRewardToken[] }> = ({ 
                 })}
 
                 <Grid container style={{ marginTop: '20px' }}>
-                  <Button className="shinyButtonSecondary" fullWidth={true}>
+                  <Button
+                    className="shinyButtonSecondary"
+                    fullWidth={true}
+                    disabled={!hasRewards}
+                    onClick={handleClaim}
+                  >
                     Claim
                   </Button>
                 </Grid>

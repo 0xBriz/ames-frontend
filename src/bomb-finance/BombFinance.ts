@@ -1397,7 +1397,9 @@ export class BombFinance {
       ]);
 
     const blockRemaining = lockBlock.toNumber() - currentBlock;
+    const canDeposit = totalDepositTokenAmount.lt(maxDepositAmount) && blockRemaining > 0;
     const max = commify(formatEther(maxDepositAmount));
+
     return {
       startBlock: startBlock.toNumber(),
       endBlock: endBlock.toNumber(),
@@ -1410,7 +1412,7 @@ export class BombFinance {
       userInfo: await this.getUserExtinctionPoolInfo(contractName),
       depositToken: this.BOMB,
       maxDepositAmount: max,
-      canDeposit: maxDepositAmount.eq(totalDepositTokenAmount),
+      canDeposit,
     };
   }
 
