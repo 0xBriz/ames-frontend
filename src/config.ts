@@ -81,7 +81,7 @@ const configurations: { [env: string]: Configuration } = {
     chainId: 31337,
     networkName: 'Hardhat Local Node',
     ftmscanUrl: '',
-    defaultProvider: 'http://167.99.117.123:8545',
+    defaultProvider: 'http://localhost:8545',
     deployments: require('./bomb-finance/deployments/deployments.mainnet.json'),
     externalTokens: {
       WONE: ['0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18], // this is WBNB
@@ -208,5 +208,4 @@ export const extinctionPoolDefinitions: { [contractName: string]: ExtinctionPool
   },
 };
 
-// export default configurations[process.env.NODE_ENV || 'development'];
-export default configurations['hardhat'];
+export default configurations[process.env.NODE_ENV || 'development'];
