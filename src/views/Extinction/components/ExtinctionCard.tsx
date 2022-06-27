@@ -131,7 +131,7 @@ const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) =>
                     }
                     style={{ marginTop: '20px' }}
                   >
-                    {pool.canDeposit ? 'Approve' : 'Deposits Locked'}
+                    Approve
                   </Button>
                 ) : (
                   <Button
