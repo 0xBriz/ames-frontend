@@ -15,7 +15,7 @@ const TITLE = 'ames.defi | Extinction';
 const Extinction: React.FC = () => {
   const { account } = useWallet();
   const { path } = useRouteMatch();
-  const extinctionPools = useExtinctionPools();
+  const { extinctionPools } = useExtinctionPools();
 
   return (
     <Switch>
@@ -55,7 +55,8 @@ const Extinction: React.FC = () => {
                           align="center"
                           variant="h6"
                         >
-                          Total Deposits: {extinctionPools[0].totalDepositTokenAmount}/ 10169 AMES
+                          Total Deposits: {extinctionPools[0].totalDepositTokenAmount}/{' '}
+                          {extinctionPools[0].maxDepositAmount} AMES
                         </Typography>
                       </Grid>
                     </Grid>

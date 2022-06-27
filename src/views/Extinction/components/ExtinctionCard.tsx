@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Button, Card, CardContent, Typography, Grid } from '@material-ui/core';
 import TokenSymbol from '../../../components/TokenSymbol';
 import { ExtinctionPoolInfo } from '../../../bomb-finance/types';
@@ -9,6 +9,7 @@ import useTokenBalance from '../../../hooks/useTokenBalance';
 import useApprove, { ApprovalState } from '../../../hooks/useApprove';
 import useBombFinance from '../../../hooks/useBombFinance';
 import useExtinctionRewardValues from '../../../hooks/useExtinctionRewardValues';
+import useExtinctionPools from '../../../hooks/useExtinctionPools';
 
 const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) => {
   const bombFinance = useBombFinance();
@@ -29,6 +30,13 @@ const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) =>
       tokenName={pool.depositTokenName}
     />,
   );
+
+  // useEffect(() => {
+  //   console.log(approveStatus);
+  //   if (approveStatus === ApprovalState.APPROVED) {
+  //     setCanDeposit(true)
+  //   }
+  // }, [approveStatus]);
 
   const labels = {
     fontWeight: 700,
