@@ -80,7 +80,12 @@ const ExtinctionRewardCard: React.FC<{ rewards: ExtinctionRewardToken[]; poolNam
                 })}
 
                 <Grid container style={{ marginTop: '20px' }}>
-                  <Button className="shinyButtonSecondary" fullWidth={true} disabled={true} onClick={handleClaim}>
+                  <Button
+                    className="shinyButtonSecondary"
+                    fullWidth={true}
+                    disabled={!hasRewards}
+                    onClick={handleClaim}
+                  >
                     Claim
                   </Button>
                 </Grid>
