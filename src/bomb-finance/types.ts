@@ -1,3 +1,4 @@
+import { BigNumber } from 'ethers';
 import ERC20 from './ERC20';
 
 export type ContractName = string;
@@ -28,6 +29,7 @@ export interface ExtinctionRewardToken {
   name?: string;
   userPendingAmount?: string;
   userPendingValue?: string;
+  userPendingValueBN?: BigNumber;
   injectedAmount?: number;
   totalValue?: string;
 }

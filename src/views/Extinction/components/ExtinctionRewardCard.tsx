@@ -17,7 +17,7 @@ const ExtinctionRewardCard: React.FC<{ rewards: ExtinctionRewardToken[]; poolNam
 
   const checkRewards = () => {
     let hasClaim = false;
-    rewards.forEach((rw) => (hasClaim = Number(rw.userPendingAmount) > 0));
+    rewards.forEach((rw) => (hasClaim = rw.userPendingValueBN.gt(0)));
     setHasRewards(hasClaim);
   };
 

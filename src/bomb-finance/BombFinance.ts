@@ -1461,6 +1461,7 @@ export class BombFinance {
         rewardPerBlock: formatEther(token.rewardPerBlock),
         name: extinctionTokenMap[token.tokenAddress].name,
         userPendingAmount: getDisplayBalance(rewardAmount),
+        userPendingValueBN: rewardAmount,
         injectedAmount: extinctionTokenMap[token.tokenAddress].injection,
       });
     });
