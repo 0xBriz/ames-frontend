@@ -1455,12 +1455,13 @@ export class BombFinance {
     const rewardTokens: ExtinctionRewardToken[] = [];
     tokens.forEach((token: any, i) => {
       const rewardAmount: BigNumber = userPendingRewards.rewardAmounts[i];
+
       rewardTokens.push({
         address: token.tokenAddress,
         pairAddress: extinctionTokenMap[token.tokenAddress].pair,
         rewardPerBlock: formatEther(token.rewardPerBlock),
         name: extinctionTokenMap[token.tokenAddress].name,
-        userPendingAmount: formatEther(rewardAmount),
+        userPendingAmount: getDisplayBalance(rewardAmount),
         injectedAmount: extinctionTokenMap[token.tokenAddress].injection,
       });
     });
