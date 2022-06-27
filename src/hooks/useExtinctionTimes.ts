@@ -21,7 +21,7 @@ const useExtinctionTime = (pool: ExtinctionPoolInfo) => {
     const setTime = () => {
       // start block timestamp + 7 days gives end time
       const startTime = moment(pool.starTimestamp * 1000);
-      const endTimeMoment = startTime.add(10, 'days');
+      const endTimeMoment = startTime.add(7, 'days');
       const endTimeDiff = moment.duration(endTimeMoment.diff(Date.now()));
 
       if (endTimeDiff.hours() <= 0 && endTimeDiff.minutes() <= 0 && endTimeDiff.seconds() <= 5) {
