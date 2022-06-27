@@ -23,10 +23,13 @@ export interface Bank extends BankInfo {
 
 export interface ExtinctionRewardToken {
   address: string;
+  pairAddress?: string;
   rewardPerBlock?: string;
   name?: string;
   userPendingAmount?: string;
   userPendingValue?: string;
+  injectedAmount?: number;
+  totalValue?: string;
 }
 
 export interface ExtinctionUserInfo {

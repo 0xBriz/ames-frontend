@@ -51,7 +51,7 @@ const ExtinctionRewardCard: React.FC<{ rewards: ExtinctionRewardToken[]; poolNam
                 </Grid>
                 <Grid item xs={12}>
                   <Typography style={labels} align="center">
-                    $
+                    $0.00
                   </Typography>
                 </Grid>
                 {rewards?.map((token, i) => {
@@ -73,7 +73,7 @@ const ExtinctionRewardCard: React.FC<{ rewards: ExtinctionRewardToken[]; poolNam
                       </Grid>
                       <Grid item xs={9}>
                         <Typography align="right"> {token.userPendingAmount}</Typography>
-                        <Typography align="right"> ${token.userPendingValue}</Typography>
+                        <Typography align="right"> ${token.userPendingValue || 0.0}</Typography>
                       </Grid>
                     </Grid>
                   );

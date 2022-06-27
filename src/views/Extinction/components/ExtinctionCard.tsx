@@ -8,14 +8,14 @@ import useExtinctionDeposit from '../../../hooks/useExtinctionDeposit';
 import useTokenBalance from '../../../hooks/useTokenBalance';
 import useApprove, { ApprovalState } from '../../../hooks/useApprove';
 import useBombFinance from '../../../hooks/useBombFinance';
+import useExtinctionRewardValues from '../../../hooks/useExtinctionRewardValues';
 
 const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) => {
   const bombFinance = useBombFinance();
   const [approveStatus, approve] = useApprove(pool.depositToken, bombFinance.contracts[pool.contract].address);
   const tokenBalance = useTokenBalance(pool.depositToken);
   const { onDeposit } = useExtinctionDeposit(pool);
-
-  // claimExtinctionPool()
+  const rewardValues = useExtinctionRewardValues(pool.rewardTokens);
 
   const [onPresentDeposit, onDismissDeposit] = useModal(
     <DepositModal
@@ -58,27 +58,44 @@ const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) =>
                 {pool.depositTokenName}
               </Typography>
 
-              <Grid container justifyContent="center" spacing={3} style={{ marginTop: '20px' }}>
-                {pool.rewardTokens?.map((token, i) => {
-                  return (
-                    <Grid
-                      item
-                      xs={1}
-                      key={i}
-                      style={{
-                        marginLeft: '5px',
-                      }}
-                    >
-                      <TokenSymbol size={28} symbol={token.name} />
-                    </Grid>
-                  );
-                })}
-                <Grid item>
-                  <Typography style={labels}>Reward Pool</Typography>
+              <Typography style={labels} align="center">
+                Reward Pool
+              </Typography>
+
+              <Grid container direction="column" spacing={3} style={{ marginTop: '20px' }}>
+                <Grid item xs={12}>
+                  {pool.rewardTokens?.map((token, i) => {
+                    return (
+                      <Grid container spacing={3} justifyContent="space-between" key={i} style={{ marginTop: '10px' }}>
+                        <Grid
+                          item
+                          style={{
+                            marginLeft: '5px',
+                          }}
+                        >
+                          <TokenSymbol size={48} symbol={token.name} />
+                        </Grid>
+                        <Grid>
+                          <Typography
+                            style={{
+                              ...labels,
+                              paddingTop: '20px',
+                              marginRight: '5px',
+                            }}
+                          >
+                            <div>
+                              <Typography align="right">{token.injectedAmount}</Typography>
+                            </div>
+                            ${rewardValues[i]}
+                          </Typography>
+                        </Grid>
+                      </Grid>
+                    );
+                  })}
                 </Grid>
               </Grid>
 
-              <Grid container justifyContent="space-between" style={{ marginTop: '20px' }}>
+              <Grid container justifyContent="space-between" style={{ marginTop: '30px' }}>
                 <Grid item xs={6}>
                   <Typography style={labels}>Duration:</Typography>
                 </Grid>
