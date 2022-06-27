@@ -55,8 +55,7 @@ const Extinction: React.FC = () => {
                           align="center"
                           variant="h6"
                         >
-                          Total Deposits: {extinctionPools[0].totalDepositTokenAmount}/
-                          {extinctionPools[0].maxDepositAmount} AMES
+                          Total Deposits: {extinctionPools[0].totalDepositTokenAmount}/ 10,169 AMES
                         </Typography>
                       </Grid>
                     </Grid>
