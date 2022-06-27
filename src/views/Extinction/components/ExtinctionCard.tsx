@@ -100,7 +100,7 @@ const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) =>
                   <Typography style={labels}>Duration:</Typography>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography align="right"> 7 days</Typography>
+                  <Typography align="right"> 10 days</Typography>
                 </Grid>
               </Grid>
 

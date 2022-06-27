@@ -1433,17 +1433,17 @@ export class BombFinance {
       '0xFa4b16b0f63F5A6D0651592620D585D308F749A4': {
         name: 'ASHARE',
         pair: '0x91da56569559b0629f076dE73C05696e34Ee05c1',
-        injection: 130,
+        injection: 160,
       },
       '0xcE18FbBAd490D4Ff9a9475235CFC519513Cfb19a': {
         name: 'AALTO',
         pair: '0x4Fea7445F515B215F4284F33CB6bE610d5df0C33',
-        injection: 320,
+        injection: 350,
       },
       '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56': {
         name: 'BUSD',
         pair: '0x7EFaEf62fDdCCa950418312c6C91Aef321375A00',
-        injection: 2100,
+        injection: 2000,
       },
     };
 
