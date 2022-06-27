@@ -8,7 +8,7 @@ const ExtinctionTimer: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) => {
 
   return (
     <Grid container justifyContent="space-evenly" style={{ marginTop: '20px' }}>
-      <Grid item>
+      <Grid item style={{ marginTop: '10px' }}>
         <Card variant="outlined">
           <CardContent>
             {lockTime && (
@@ -30,7 +30,7 @@ const ExtinctionTimer: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) => {
         </Card>
       </Grid>
 
-      <Grid item>
+      <Grid item style={{ marginTop: '10px' }}>
         <Card variant="outlined">
           <CardContent>
             {poolEndTime && (

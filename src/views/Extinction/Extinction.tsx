@@ -63,12 +63,12 @@ const Extinction: React.FC = () => {
                   )}
 
                   <Grid container justifyContent="space-evenly" style={{ marginTop: '20px' }}>
-                    <Grid item>
+                    <Grid item style={{ marginTop: '10px' }}>
                       {extinctionPools?.length &&
                         extinctionPools.map((pool, i) => <ExtinctionPoolCard key={i} pool={pool} />)}
                     </Grid>
 
-                    <Grid item>
+                    <Grid item style={{ marginTop: '10px' }}>
                       {extinctionPools?.length && (
                         <ExtinctionRewardCard
                           rewards={extinctionPools[0].rewardTokens}
