@@ -13,7 +13,7 @@ const ExtinctionTimer: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) => {
           <CardContent>
             {lockTime && (
               <Typography style={{ fontWeight: 'bold' }} color="textPrimary" align="center">
-                {lockTime.days}D {lockTime.hours}H {lockTime.minutes}M {lockTime.seconds}S{' '}
+                0D 0H 0M 0S{' '}
               </Typography>
             )}
 
