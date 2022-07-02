@@ -9,7 +9,7 @@ import useStatsForPool from '../../hooks/useStatsForPool';
 const GrapeCard = ({}) => {
   const [banks] = useBanks();
 
-  const statsOnPool = useStatsForPool(banks[2]);
+  const statsOnPool = useStatsForPool(banks.find((bank) => bank.contract === 'AmesNode'));
   return (
     <Grid item xs={12} md={4} lg={4}>
       <Card variant="outlined">
