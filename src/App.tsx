@@ -37,7 +37,7 @@ const NoMatch = () => (
 
 const RedirectToDocs = () => {
   useEffect(() => {
-    window.location.assign('https://ames-defi.notion.site/ames-defi/Ames-defi-Docs-315580f66bd74715a04888947f6e5f72');
+    window.location.assign('https://aalto-defi.notion.site/Ames-defi-Docs-7b7320e304c3475786487c60ca31d4d9');
   }, []);
 
   return <></>;
