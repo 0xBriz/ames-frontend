@@ -60,6 +60,28 @@ export interface ExtinctionPoolInfo {
   canDeposit?: boolean;
 }
 
+export interface PegPool {
+  depositsEnabled: boolean;
+  totalDesposits: string;
+  depositToken: ERC20;
+  depositTokenName: string;
+  userInfo?: PegPoolUserInfo;
+}
+
+export interface PegPoolToken {
+  name: string;
+  token: ERC20;
+  pairAddress: string;
+  amount?: string;
+  image?: string;
+  pendingValue?: string;
+  pendingValueBN?: BigNumber;
+}
+
+export interface PegPoolUserInfo {
+  amountDeposited: string;
+}
+
 export type PoolStats = {
   dailyAPR: string;
   yearlyAPR: string;

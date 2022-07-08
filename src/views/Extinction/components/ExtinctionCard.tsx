@@ -9,7 +9,6 @@ import useTokenBalance from '../../../hooks/useTokenBalance';
 import useApprove, { ApprovalState } from '../../../hooks/useApprove';
 import useBombFinance from '../../../hooks/useBombFinance';
 import useExtinctionRewardValues from '../../../hooks/useExtinctionRewardValues';
-import useExtinctionPools from '../../../hooks/useExtinctionPools';
 
 const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) => {
   const bombFinance = useBombFinance();

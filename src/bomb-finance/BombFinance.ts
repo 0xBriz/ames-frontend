@@ -13,6 +13,8 @@ import {
   PoolTimes,
   ExtinctionPoolInfo,
   ExtinctionRewardToken,
+  PegPool,
+  PegPoolToken,
 } from './types';
 import { BigNumber, Contract, ethers, EventFilter } from 'ethers';
 import { decimalToBalance } from './ether-utils';
@@ -48,6 +50,7 @@ export class BombFinance {
   UST: ERC20;
   XBOMB: ERC20;
   AALTO: ERC20;
+  BUSD: ERC20;
 
   constructor(cfg: Configuration) {
     const { deployments, externalTokens } = cfg;
@@ -66,6 +69,7 @@ export class BombFinance {
     this.BSHARE = new ERC20(deployments.AShare.address, provider, 'ASHARE');
     this.BBOND = new ERC20(deployments.ABond.address, provider, 'ABOND');
     this.QSHARE = new ERC20('0x36d53ed6380313f3823eed2f44dddb6d1d52f656', provider, '1QSHARE');
+    this.BUSD = new ERC20('0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', provider, 'BUSD', 18);
     this.AALTO = this.externalTokens['AALTO'];
     this.BNB = this.externalTokens['WONE'];
     this.BTC = this.externalTokens['BTCB'];
@@ -1485,5 +1489,73 @@ export class BombFinance {
   async claimExtinctionPool(poolName: ContractName) {
     const contract = this.contracts[poolName];
     return contract.deposit(0); // zero value triggers claim. There is not a "claim" function
+  }
+
+  // Peg Pool
+
+  async getPegPool(): Promise<PegPool> {
+    const contract = this.contracts.PegPool;
+    const [depositsEnabled, totalDepositTokenAmount] = await Promise.all([
+      contract.depositsEnabled(),
+      contract.totalDepositTokenAmount(),
+    ]);
+
+    return {
+      depositsEnabled,
+      totalDesposits: formatEther(totalDepositTokenAmount),
+      depositTokenName: 'BUSD',
+      depositToken: this.BUSD,
+    };
+  }
+
+  async getPegPoolTokens(): Promise<PegPoolToken[]> {
+    const tokens = await this.contracts.PegPool.getRewardTokens();
+    console.log(tokens);
+
+    const tokenMap: {
+      [key: string]: {
+        name: string;
+        pair: string;
+        injection: number;
+      };
+    } = {
+      '0xFa4b16b0f63F5A6D0651592620D585D308F749A4': {
+        name: 'ASHARE',
+        pair: '0x91da56569559b0629f076dE73C05696e34Ee05c1',
+        injection: 0,
+      },
+      '0xcE18FbBAd490D4Ff9a9475235CFC519513Cfb19a': {
+        name: 'AALTO',
+        pair: '0x4Fea7445F515B215F4284F33CB6bE610d5df0C33',
+        injection: 0,
+      },
+      '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56': {
+        name: 'BUSD',
+        pair: '0x7EFaEf62fDdCCa950418312c6C91Aef321375A00',
+        injection: 0,
+      },
+    };
+
+    const rewards: PegPoolToken[] = [];
+    for (const token of tokens) {
+      const info = tokenMap[token.tokenAddress];
+      rewards.push({
+        token: new ERC20(token.tokenAddress, this.provider, info.name),
+        name: info.name,
+        pairAddress: info.pair,
+      });
+    }
+
+    return rewards;
+  }
+
+  async depositPegPool(amount: BigNumber) {
+    const contract = this.contracts.PegPool;
+    return contract.deposit(amount);
+  }
+
+  async claimPegPool() {
+    const contract = this.contracts.PegPool;
+    return contract.claim();
   }
 }

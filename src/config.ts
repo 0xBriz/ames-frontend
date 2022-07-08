@@ -4,17 +4,17 @@ import { ExtinctionPoolInfo } from './bomb-finance/types';
 
 const configurations: { [env: string]: Configuration } = {
   development: {
-    chainId: 56,
-    networkName: 'BSC Mainnet',
-    ftmscanUrl: 'https://bscscan.com',
-    defaultProvider: 'https://bsc-dataseed.binance.org/',
+    chainId: 31337,
+    networkName: 'Hardhat Local Node',
+    ftmscanUrl: '',
+    defaultProvider: 'http://localhost:8545',
     deployments: require('./bomb-finance/deployments/deployments.mainnet.json'),
     externalTokens: {
       WONE: ['0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18], // this is WBNB
       WBNB: ['0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18],
       FUSDT: ['0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', 18], // This is actually BUSD on mainnet not fusdt
       BTCB: ['0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', 18], // This is actually UST on mainnet not fusdt
-      UST: ['0x23396cF899Ca06c4472205fC903bDB4de249D6fC', 18], // This is actually UST on mainnet not fusdt
+      UST: ['0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', 18], // This is actually UST on mainnet not fusdt
       QUARTZ: ['0x7ebc713a888cea488c20bb9ac1999ee758e21ff0', 18], // This is actually UST on mainnet not fusdt
       AMES: ['0xb9E05B4C168B56F73940980aE6EF366354357009', 18], // This is actually UST on mainnet not fusdt
       ASHARE: ['0xFa4b16b0f63F5A6D0651592620D585D308F749A4', 18], // This is actually UST on mainnet not fusdt
@@ -208,4 +208,4 @@ export const extinctionPoolDefinitions: { [contractName: string]: ExtinctionPool
   },
 };
 
-export default configurations[process.env.NODE_ENV || 'development'];
+export default configurations[process.env.NODE_ENV || 'hardhat'];
