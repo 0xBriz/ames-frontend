@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, Grid, Card, CardContent } from '@material-ui/core';
+import { Box, Button, Grid, Card, CardContent, Typography } from '@material-ui/core';
 import useModal from '../../../hooks/useModal';
 import DepositModal from '../../Bank/components/DepositModal';
 import useTokenBalance from '../../../hooks/useTokenBalance';
@@ -28,12 +28,24 @@ const PegPoolInfo: React.FC<{ pegPool: PegPool; rewardTokens: PegPoolToken[] }> 
     />,
   );
 
+  const labels = {
+    fontWeight: 700,
+  };
+
   return (
     <Grid container justifyContent="space-evenly">
       <Grid item>
         <Card variant="outlined">
           <CardContent>
             <Box style={{ width: '376px' }}>
+              <Grid container justifyContent="space-between" style={{ marginTop: '10px' }}>
+                <Grid item xs={6}>
+                  <Typography style={labels}>Your Deposits:</Typography>
+                </Grid>
+                <Grid item xs={6}>
+                  <Typography align="right"> {pegPool.userInfo?.amountDeposited}</Typography>
+                </Grid>
+              </Grid>
               <Grid container justifyContent="center" alignItems="center" style={{ marginTop: '20px' }}>
                 {approveStatus !== ApprovalState.APPROVED ? (
                   <Button

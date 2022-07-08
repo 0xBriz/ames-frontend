@@ -79,8 +79,14 @@ export interface PegPoolToken {
   currentPrice?: string;
 }
 
+export interface PegPoolDeposit {
+  twap: string;
+  amountCredited: string;
+}
+
 export interface PegPoolUserInfo {
   amountDeposited: string;
+  depositHistory: PegPoolDeposit[];
 }
 
 export type PoolStats = {

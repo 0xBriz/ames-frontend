@@ -15,6 +15,8 @@ import {
   ExtinctionRewardToken,
   PegPool,
   PegPoolToken,
+  PegPoolUserInfo,
+  PegPoolDeposit,
 } from './types';
 import { BigNumber, Contract, ethers, EventFilter } from 'ethers';
 import { decimalToBalance } from './ether-utils';
@@ -1495,9 +1497,10 @@ export class BombFinance {
 
   async getPegPool(): Promise<PegPool> {
     const contract = this.contracts.PegPool;
-    const [depositsEnabled, totalDepositTokenAmount] = await Promise.all([
+    const [depositsEnabled, totalDepositTokenAmount, userInfo] = await Promise.all([
       contract.depositsEnabled(),
       contract.totalDepositTokenAmount(),
+      this.getPegPoolUserInfo(),
     ]);
 
     return {
@@ -1505,6 +1508,24 @@ export class BombFinance {
       totalDesposits: formatEther(totalDepositTokenAmount),
       depositTokenName: 'BUSD',
       depositToken: this.BUSD,
+      userInfo,
+    };
+  }
+
+  async getPegPoolUserInfo(): Promise<PegPoolUserInfo> {
+    const [totalDepositAmount, deposits] = await Promise.all([
+      this.contracts.PegPool.userInfo(this.myAccount),
+      this.contracts.PegPool.getUserDeposits(this.myAccount),
+    ]);
+
+    return {
+      amountDeposited: formatEther(totalDepositAmount),
+      depositHistory: deposits.map((dp: PegPoolDeposit) => {
+        return {
+          twap: formatEther(dp.twap),
+          amountCredited: formatEther(dp.amountCredited),
+        };
+      }),
     };
   }
 

@@ -28,10 +28,6 @@ const PegPoolRewards: React.FC<{ rewardTokens: PegPoolToken[] }> = ({ rewardToke
     }
   }, [rewardTokens]);
 
-  const labels = {
-    fontWeight: 700,
-  };
-
   return (
     <Card variant="outlined">
       <CardContent>
