@@ -37,29 +37,42 @@ const PegPoolRewards: React.FC<{ rewardTokens: PegPoolToken[] }> = ({ rewardToke
       <CardContent>
         <Box style={{ width: '376px' }}>
           <Grid container justifyContent="center" alignItems="center" style={{ marginTop: '20px' }}>
-            <Grid container style={{ marginTop: '20px' }}>
-              Rewards
-            </Grid>
+            <Grid container>Rewards</Grid>
             {rewardTokens?.map((token, i) => {
               return (
-                <Grid container justifyContent="space-between" key={i} style={{ marginTop: '10px' }}>
+                <Grid
+                  container
+                  justifyContent="space-between"
+                  alignItems="center"
+                  key={i}
+                  style={{ marginTop: '10px' }}
+                >
                   <Grid item xs={1}>
-                    <TokenSymbol size={32} symbol={token.name} />
+                    <TokenSymbol size={36} symbol={token.name} />
                   </Grid>
                   <Grid item xs={1}>
                     <Typography
                       style={{
                         fontWeight: 700,
                         paddingTop: '5px',
+                        display: 'block',
                       }}
                     >
                       {' '}
                       {token.name}
                     </Typography>
+                    <Typography
+                      style={{
+                        fontSize: '14px',
+                        color: 'rgb(130, 130, 130)',
+                      }}
+                    >
+                      {token.currentPrice}
+                    </Typography>
                   </Grid>
                   <Grid item xs={9}>
-                    <Typography align="right"> {token.amount || '0.0'}</Typography>
-                    <Typography align="right"> ${token.pendingValue || '0.0'}</Typography>
+                    <Typography align="right"> {token.amount}</Typography>
+                    <Typography align="right"> ${token.pendingValue}</Typography>
                   </Grid>
                 </Grid>
               );

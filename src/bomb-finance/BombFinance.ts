@@ -1508,10 +1508,7 @@ export class BombFinance {
     };
   }
 
-  async getPegPoolTokens(): Promise<PegPoolToken[]> {
-    const tokens = await this.contracts.PegPool.getRewardTokens();
-    console.log(tokens);
-
+  async getPegPoolPendingRewards(): Promise<PegPoolToken[]> {
     const tokenMap: {
       [key: string]: {
         name: string;
@@ -1536,13 +1533,19 @@ export class BombFinance {
       },
     };
 
+    const tokens = await this.contracts.PegPool.pendingRewards(this.myAccount);
+    const addresses = tokens[0];
+    const amounts = tokens[1];
     const rewards: PegPoolToken[] = [];
-    for (const token of tokens) {
-      const info = tokenMap[token.tokenAddress];
+
+    for (let i = 0; i < addresses.length; i++) {
+      const info = tokenMap[addresses[i]];
       rewards.push({
-        token: new ERC20(token.tokenAddress, this.provider, info.name),
+        token: new ERC20(addresses[i], this.provider, info.name),
         name: info.name,
         pairAddress: info.pair,
+        amount: formatEther(amounts[i]),
+        pendingValueBN: amounts[i],
       });
     }
 
@@ -1550,8 +1553,7 @@ export class BombFinance {
   }
 
   async depositPegPool(amount: BigNumber) {
-    const contract = this.contracts.PegPool;
-    return contract.deposit(amount);
+    return this.contracts.PegPool.deposit(amount);
   }
 
   async claimPegPool() {

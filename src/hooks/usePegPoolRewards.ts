@@ -10,12 +10,15 @@ const usePegPoolRewards = () => {
 
   useEffect(() => {
     const getTokens = async () => {
-      const tokens = await bombFinance.getPegPoolTokens();
-      //   const totalValues: string[] = [];
-      //   for (const token of tokens) {
-      //     const priceInfo = await getDexPriceFromPair('bsc', token.pairAddress);
-      //     //totalValues.push((priceInfo.priceNum * token.injectedAmount).toFixed(2));
-      //   }
+      const tokens = await bombFinance.getPegPoolPendingRewards();
+
+      console.log(tokens);
+
+      for (const token of tokens) {
+        const priceInfo = await getDexPriceFromPair('bsc', token.pairAddress);
+        token.currentPrice = priceInfo.priceUI;
+        token.pendingValue = (priceInfo.priceNum * Number(token.amount)).toFixed(2);
+      }
 
       setRewardTokens(tokens);
     };
