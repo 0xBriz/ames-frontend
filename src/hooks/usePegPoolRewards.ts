@@ -12,8 +12,6 @@ const usePegPoolRewards = () => {
     const getTokens = async () => {
       const tokens = await bombFinance.getPegPoolPendingRewards();
 
-      console.log(tokens);
-
       for (const token of tokens) {
         const priceInfo = await getDexPriceFromPair('bsc', token.pairAddress);
         token.currentPrice = priceInfo.priceUI;
