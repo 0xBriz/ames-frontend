@@ -74,7 +74,7 @@ const Extinction: React.FC = () => {
                       align="center"
                       variant="h5"
                     >
-                      Total Value Locked: {pegPool.totalDesposits}
+                      Total Value Locked: ${pegPool.totalDesposits}
                     </Typography>
 
                     <div

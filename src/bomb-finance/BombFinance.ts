@@ -1559,7 +1559,7 @@ export class BombFinance {
         token: new ERC20(addresses[i], this.provider.getSigner(), info.name),
         name: info.name,
         pairAddress: info.pair,
-        amount: formatEther(amounts[i]),
+        amount: Number(formatEther(amounts[i])).toFixed(8),
         pendingValueBN: amounts[i],
       });
     }

@@ -22,7 +22,7 @@ import hshareUST from '../../assets/img/1share-ust.svg';
 
 import bnbLogo from '../../assets/img/bnb.png';
 import btcLogo from '../../assets/img/BCTB-icon.png';
-import AaltoLogo from '../../assets/img/logomark-square.svg';
+import AaltoLogo from '../../assets/img/aalto.svg';
 import ABUSD from '../../assets/img/ames-busd@2x.png';
 import ASBUSD from '../../assets/img/ashare-busd@2x.png';
 import busdLogo from '../../assets/img/busd.png';
