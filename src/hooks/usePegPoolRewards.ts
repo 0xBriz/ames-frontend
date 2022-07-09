@@ -28,7 +28,7 @@ const usePegPoolRewards = () => {
       getTokens();
       const timer = setInterval(() => {
         getTokens();
-      }, 1000 * 60);
+      }, 1000 * 10);
 
       return () => clearInterval(timer);
     }
