@@ -82,6 +82,8 @@ export interface PegPoolToken {
 
 export interface PegPoolUserInfo {
   amountDeposited: string;
+  amountDepositedBN: BigNumber;
+  isDeposited: boolean;
 }
 
 export type PoolStats = {

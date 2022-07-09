@@ -1496,8 +1496,7 @@ export class BombFinance {
 
   async getPegPool(): Promise<PegPool> {
     const contract = this.contracts.PegPool;
-    console.log(this.provider.getSigner());
-    const busd = new ERC20('0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', this.provider, 'BUSD');
+    const busd = new ERC20('0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', this.signer, 'BUSD');
     const [depositsEnabled, totalDepositTokenAmount, userInfo, approval] = await Promise.all([
       contract.depositsEnabled(),
       contract.totalDepositTokenAmount(),
@@ -1516,9 +1515,11 @@ export class BombFinance {
   }
 
   async getPegPoolUserInfo(): Promise<PegPoolUserInfo> {
-    console.log(this.myAccount);
+    const amount: BigNumber = await this.contracts.PegPool.userInfo(this.myAccount);
     return {
-      amountDeposited: formatEther(await this.contracts.PegPool.userInfo(this.myAccount)),
+      amountDeposited: formatEther(amount),
+      isDeposited: amount.gt(0),
+      amountDepositedBN: amount,
     };
   }
 
@@ -1568,6 +1569,10 @@ export class BombFinance {
 
   async depositPegPool(amount: BigNumber) {
     return this.contracts.PegPool.deposit(amount);
+  }
+
+  async withdrawPegPool(amount: BigNumber) {
+    return this.contracts.PegPool.withdraw(amount);
   }
 
   async claimPegPool() {

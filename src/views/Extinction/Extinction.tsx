@@ -18,9 +18,6 @@ const Extinction: React.FC = () => {
   const { pegPool } = usePegPool();
   const { rewardTokens, totalRewardValue } = usePegPoolRewards();
 
-  console.log(pegPool);
-  console.log(rewardTokens);
-
   return (
     <Switch>
       <Page>
