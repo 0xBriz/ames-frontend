@@ -7,7 +7,7 @@ const usePegPool = () => {
   const bombFinance = useBombFinance();
   const isUnlocked = bombFinance?.isUnlocked;
   const [pegPool, setPegPool] = useState<PegPool>(null);
-  const { slowRefresh } = useRefresh();
+  const { fastRefresh } = useRefresh();
 
   const fetchPool = useCallback(async () => {
     setPegPool(await bombFinance.getPegPool());
@@ -21,7 +21,7 @@ const usePegPool = () => {
     if (isUnlocked) {
       refreshPool().catch((err) => console.error(`Failed to fetch peg pool: ${err.stack}`));
     }
-  }, [bombFinance, fetchPool, isUnlocked, slowRefresh]);
+  }, [bombFinance, fetchPool, isUnlocked, fastRefresh]);
 
   return { pegPool, refreshPool };
 };

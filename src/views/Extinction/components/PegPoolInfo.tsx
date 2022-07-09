@@ -104,7 +104,7 @@ const PegPoolInfo: React.FC<{ pegPool: PegPool; rewardTokens: PegPoolToken[]; to
                 </Typography>
 
                 <Button
-                  className="shinyButtonSecondary"
+                  className={pegPool.userInfo?.isDeposited ? 'shinyButtonSecondary' : 'shinyButtonDisabled'}
                   fullWidth={true}
                   disabled={!pegPool.userInfo?.isDeposited}
                   onClick={onPresentWithdraw}

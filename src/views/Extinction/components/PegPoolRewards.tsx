@@ -90,7 +90,12 @@ const PegPoolRewards: React.FC<{ rewardTokens: PegPoolToken[]; totalRewardValue:
               );
             })}
             <Grid container style={{ marginTop: '20px' }}>
-              <Button className="shinyButtonSecondary" fullWidth={true} disabled={!hasRewards} onClick={handleClaim}>
+              <Button
+                className={hasRewards ? 'shinyButtonSecondary' : 'shinyButtonDisabled'}
+                fullWidth={true}
+                disabled={!hasRewards}
+                onClick={handleClaim}
+              >
                 Claim
               </Button>
             </Grid>
