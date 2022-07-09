@@ -1506,7 +1506,7 @@ export class BombFinance {
 
     return {
       depositsEnabled,
-      totalDesposits: formatEther(totalDepositTokenAmount),
+      totalDesposits: Number(formatEther(totalDepositTokenAmount)).toFixed(2),
       depositTokenName: 'BUSD',
       depositToken: busd,
       userInfo,
@@ -1555,8 +1555,6 @@ export class BombFinance {
     const addresses = tokens[0];
     const amounts = tokens[1];
     const rewards: PegPoolToken[] = [];
-
-    console.log(tks);
 
     for (let i = 0; i < addresses.length; i++) {
       const info = tokenMap[addresses[i]];
