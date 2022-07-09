@@ -8,6 +8,7 @@ import { Helmet } from 'react-helmet';
 import PegPoolInfo from './components/PegPoolInfo';
 import usePegPool from '../../hooks/usePegPool';
 import usePegPoolRewards from '../../hooks/usePegPoolRewards';
+import TokenSymbol from '../../components/TokenSymbol';
 
 const TITLE = 'ames.defi | Peg Pool';
 
@@ -15,7 +16,10 @@ const Extinction: React.FC = () => {
   const { account } = useWallet();
   const { path } = useRouteMatch();
   const { pegPool } = usePegPool();
-  const { rewardTokens } = usePegPoolRewards();
+  const { rewardTokens, totalRewardValue } = usePegPoolRewards();
+
+  console.log(pegPool);
+  console.log(rewardTokens);
 
   return (
     <Switch>
@@ -28,23 +32,52 @@ const Extinction: React.FC = () => {
             <Container maxWidth="lg">
               {pegPool && rewardTokens && (
                 <Box mt={5}>
+                  <Grid container justifyContent="center" alignItems="center">
+                    <Grid item>
+                      <TokenSymbol size={96} symbol={'BUSD'} />
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    container
+                    justifyContent="center"
+                    spacing={2}
+                    style={{
+                      marginTop: '15px',
+                    }}
+                  >
+                    <Grid item>
+                      <TokenSymbol size={48} symbol={'ASHARE'} />
+                    </Grid>
+                    <Grid item>
+                      <TokenSymbol size={48} symbol={'AALTO'} />
+                    </Grid>
+                    <Grid item>
+                      <Typography style={{ fontSize: '18px', lineHeight: '22px', paddingTop: '15px' }}>
+                        Innovative Reward Pool
+                      </Typography>
+                    </Grid>
+                  </Grid>
                   <div>
                     <Typography
-                      style={{ textTransform: 'none', fontWeight: 'bold' }}
+                      style={{ textTransform: 'none', fontWeight: 'bold', marginTop: '20px' }}
                       color="textPrimary"
                       align="center"
                       variant="h3"
                     >
-                      AMES Peg Pool
+                      Peg Campaign Pool
+                    </Typography>
+
+                    <Typography style={{ marginTop: '15px' }} align="center">
+                      Deposit BUSD - Get ASHARE and AALTO rewards
                     </Typography>
 
                     <Typography
-                      style={{ textTransform: 'none', fontWeight: 'bold' }}
+                      style={{ textTransform: 'none', fontWeight: 'bold', marginTop: '20px' }}
                       color="textPrimary"
                       align="center"
                       variant="h5"
                     >
-                      Total Deposits: {pegPool.totalDesposits}
+                      Total Value Locked: {pegPool.totalDesposits}
                     </Typography>
 
                     <div
@@ -52,7 +85,7 @@ const Extinction: React.FC = () => {
                         marginTop: '35px',
                       }}
                     >
-                      <PegPoolInfo pegPool={pegPool} rewardTokens={rewardTokens} />
+                      <PegPoolInfo pegPool={pegPool} rewardTokens={rewardTokens} totalRewardValue={totalRewardValue} />
                     </div>
                   </div>
                 </Box>

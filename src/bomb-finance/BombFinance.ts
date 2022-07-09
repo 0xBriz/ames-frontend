@@ -16,7 +16,6 @@ import {
   PegPool,
   PegPoolToken,
   PegPoolUserInfo,
-  PegPoolDeposit,
 } from './types';
 import { BigNumber, Contract, ethers, EventFilter } from 'ethers';
 import { decimalToBalance } from './ether-utils';
@@ -1497,35 +1496,29 @@ export class BombFinance {
 
   async getPegPool(): Promise<PegPool> {
     const contract = this.contracts.PegPool;
-    const [depositsEnabled, totalDepositTokenAmount, userInfo] = await Promise.all([
+    console.log(this.provider.getSigner());
+    const busd = new ERC20('0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', this.provider, 'BUSD');
+    const [depositsEnabled, totalDepositTokenAmount, userInfo, approval] = await Promise.all([
       contract.depositsEnabled(),
       contract.totalDepositTokenAmount(),
       this.getPegPoolUserInfo(),
+      busd.allowance(this.myAccount, contract.address),
     ]);
 
     return {
       depositsEnabled,
       totalDesposits: formatEther(totalDepositTokenAmount),
       depositTokenName: 'BUSD',
-      depositToken: this.BUSD,
+      depositToken: busd,
       userInfo,
+      approved: approval.gt(0),
     };
   }
 
   async getPegPoolUserInfo(): Promise<PegPoolUserInfo> {
-    const [totalDepositAmount, deposits] = await Promise.all([
-      this.contracts.PegPool.userInfo(this.myAccount),
-      this.contracts.PegPool.getUserDeposits(this.myAccount),
-    ]);
-
+    console.log(this.myAccount);
     return {
-      amountDeposited: formatEther(totalDepositAmount),
-      depositHistory: deposits.map((dp: PegPoolDeposit) => {
-        return {
-          twap: formatEther(dp.twap),
-          amountCredited: formatEther(dp.amountCredited),
-        };
-      }),
+      amountDeposited: formatEther(await this.contracts.PegPool.userInfo(this.myAccount)),
     };
   }
 
@@ -1562,7 +1555,7 @@ export class BombFinance {
     for (let i = 0; i < addresses.length; i++) {
       const info = tokenMap[addresses[i]];
       rewards.push({
-        token: new ERC20(addresses[i], this.provider, info.name),
+        token: new ERC20(addresses[i], this.provider.getSigner(), info.name),
         name: info.name,
         pairAddress: info.pair,
         amount: formatEther(amounts[i]),
@@ -1578,7 +1571,6 @@ export class BombFinance {
   }
 
   async claimPegPool() {
-    const contract = this.contracts.PegPool;
-    return contract.claim();
+    return this.contracts.PegPool.claim();
   }
 }

@@ -2,16 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Box, Button, Card, CardContent, Typography, Grid } from '@material-ui/core';
 import TokenSymbol from '../../../components/TokenSymbol';
 import { ContractName, ExtinctionRewardToken } from '../../../bomb-finance/types';
-import useBombFinance from '../../../hooks/useBombFinance';
-import useBombStats from '../../../hooks/useBombStats';
 import useExtinctionClaimRewards from '../../../hooks/useExtinctionClaimRewards';
 
 const ExtinctionRewardCard: React.FC<{ rewards: ExtinctionRewardToken[]; poolName: ContractName }> = ({
   rewards,
   poolName,
 }) => {
-  const bombFinance = useBombFinance();
-  const bombStats = useBombStats();
   const [hasRewards, setHasRewards] = useState(false);
   const { doClaim } = useExtinctionClaimRewards(poolName);
 

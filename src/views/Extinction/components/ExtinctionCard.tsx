@@ -30,13 +30,6 @@ const ExtinctionPoolCard: React.FC<{ pool: ExtinctionPoolInfo }> = ({ pool }) =>
     />,
   );
 
-  // useEffect(() => {
-  //   console.log(approveStatus);
-  //   if (approveStatus === ApprovalState.APPROVED) {
-  //     setCanDeposit(true)
-  //   }
-  // }, [approveStatus]);
-
   const labels = {
     fontWeight: 700,
   };

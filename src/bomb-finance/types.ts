@@ -66,6 +66,7 @@ export interface PegPool {
   depositToken: ERC20;
   depositTokenName: string;
   userInfo?: PegPoolUserInfo;
+  approved: boolean;
 }
 
 export interface PegPoolToken {
@@ -79,14 +80,8 @@ export interface PegPoolToken {
   currentPrice?: string;
 }
 
-export interface PegPoolDeposit {
-  twap: string;
-  amountCredited: string;
-}
-
 export interface PegPoolUserInfo {
   amountDeposited: string;
-  depositHistory: PegPoolDeposit[];
 }
 
 export type PoolStats = {

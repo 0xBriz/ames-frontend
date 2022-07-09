@@ -4,7 +4,10 @@ import { PegPoolToken } from '../../../bomb-finance/types';
 import TokenSymbol from '../../../components/TokenSymbol';
 import usePegPoolRewardsClaim from '../../../hooks/usePegPoolRewardsClaim';
 
-const PegPoolRewards: React.FC<{ rewardTokens: PegPoolToken[] }> = ({ rewardTokens }) => {
+const PegPoolRewards: React.FC<{ rewardTokens: PegPoolToken[]; totalRewardValue: string }> = ({
+  rewardTokens,
+  totalRewardValue,
+}) => {
   const [hasRewards, setHasRewards] = useState(false);
   const { doClaim } = usePegPoolRewardsClaim();
 
@@ -28,12 +31,25 @@ const PegPoolRewards: React.FC<{ rewardTokens: PegPoolToken[] }> = ({ rewardToke
     }
   }, [rewardTokens]);
 
+  const labels = {
+    fontWeight: 700,
+  };
+
   return (
     <Card variant="outlined">
       <CardContent>
         <Box style={{ width: '376px' }}>
           <Grid container justifyContent="center" alignItems="center" style={{ marginTop: '20px' }}>
-            <Grid container>Rewards</Grid>
+            <Grid item xs={12}>
+              <Typography style={labels} align="center">
+                Your Total Rewards
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography style={labels} align="center">
+                ${totalRewardValue}
+              </Typography>
+            </Grid>
             {rewardTokens?.map((token, i) => {
               return (
                 <Grid

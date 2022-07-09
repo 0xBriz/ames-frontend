@@ -1,41 +1,41 @@
-import {TransactionResponse} from '@ethersproject/providers';
-import {useCallback, useMemo} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {useWallet} from 'use-wallet';
+import { TransactionResponse } from '@ethersproject/providers';
+import { useCallback, useMemo } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useWallet } from 'use-wallet';
 
-import {AppDispatch, AppState} from '../index';
-import {addTransaction, clearAllTransactions} from './actions';
-import {TransactionDetails} from './reducer';
+import { AppDispatch, AppState } from '../index';
+import { addTransaction, clearAllTransactions } from './actions';
+import { TransactionDetails } from './reducer';
 
 // helper that can take a ethers library transaction response and add it to the list of transactions
 export function useTransactionAdder(): (
   response: TransactionResponse,
-  customData?: {summary?: string; approval?: {tokenAddress: string; spender: string}},
+  customData?: { summary?: string; approval?: { tokenAddress: string; spender: string } },
 ) => void {
-  const {chainId, account} = useWallet();
+  const { chainId, account } = useWallet();
   const dispatch = useDispatch<AppDispatch>();
 
   return useCallback(
     (
       response: TransactionResponse,
-      {summary, approval}: {summary?: string; approval?: {tokenAddress: string; spender: string}} = {},
+      { summary, approval }: { summary?: string; approval?: { tokenAddress: string; spender: string } } = {},
     ) => {
       if (!account) return;
       if (!chainId) return;
 
-      const {hash} = response;
+      const { hash } = response;
       if (!hash) {
         throw Error('No transaction hash found.');
       }
-      dispatch(addTransaction({hash, from: account, chainId, approval, summary}));
+      dispatch(addTransaction({ hash, from: account, chainId, approval, summary }));
     },
     [dispatch, chainId, account],
   );
 }
 
 // returns all the transactions for the current chain
-export function useAllTransactions(): {[txHash: string]: TransactionDetails} {
-  const {chainId} = useWallet();
+export function useAllTransactions(): { [txHash: string]: TransactionDetails } {
+  const { chainId } = useWallet();
   const state = useSelector<AppState, AppState['transactions']>((state) => state.transactions);
 
   return chainId ? state[chainId] ?? {} : {};
@@ -79,10 +79,10 @@ export function useHasPendingApproval(tokenAddress: string | undefined, spender:
   );
 }
 
-export function useClearAllTransactions(): {clearAllTransactions: () => void} {
-  const {chainId} = useWallet();
+export function useClearAllTransactions(): { clearAllTransactions: () => void } {
+  const { chainId } = useWallet();
   const dispatch = useDispatch<AppDispatch>();
   return {
-    clearAllTransactions: useCallback(() => dispatch(clearAllTransactions({chainId})), [dispatch, chainId]),
+    clearAllTransactions: useCallback(() => dispatch(clearAllTransactions({ chainId })), [dispatch, chainId]),
   };
 }
