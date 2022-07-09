@@ -140,7 +140,7 @@ const Nav = () => {
               </Link>
               <a
                 color="textPrimary"
-                href="https://ames-defi.notion.site/ames-defi/Ames-defi-Docs-315580f66bd74715a04888947f6e5f72"
+                href="https://aalto-defi.notion.site/Ames-defi-Docs-7b7320e304c3475786487c60ca31d4d9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={'navLink ' + classes.link}
@@ -239,7 +239,7 @@ const Nav = () => {
                   <ListItem button>
                     <a
                       style={{ color: 'black', textDecoration: 'none' }}
-                      href="https://ames-defi.notion.site/ames-defi/Ames-defi-Docs-315580f66bd74715a04888947f6e5f72"
+                      href="https://aalto-defi.notion.site/Ames-defi-Docs-7b7320e304c3475786487c60ca31d4d9"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
