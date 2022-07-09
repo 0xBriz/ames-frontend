@@ -1548,10 +1548,15 @@ export class BombFinance {
       },
     };
 
-    const tokens = await this.contracts.PegPool.pendingRewards(this.myAccount);
+    const [tks, tokens] = await Promise.all([
+      this.contracts.PegPool.getRewardTokens(),
+      this.contracts.PegPool.pendingRewards(this.myAccount),
+    ]);
     const addresses = tokens[0];
     const amounts = tokens[1];
     const rewards: PegPoolToken[] = [];
+
+    console.log(tks);
 
     for (let i = 0; i < addresses.length; i++) {
       const info = tokenMap[addresses[i]];
@@ -1561,6 +1566,7 @@ export class BombFinance {
         pairAddress: info.pair,
         amount: Number(formatEther(amounts[i])).toFixed(8),
         pendingValueBN: amounts[i],
+        rewardPerBlock: Number(formatEther(tks[i].rewardPerBlock)),
       });
     }
 

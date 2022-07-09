@@ -78,6 +78,8 @@ export interface PegPoolToken {
   pendingValue?: string;
   pendingValueBN?: BigNumber;
   currentPrice?: string;
+  currentPriceNum?: number;
+  rewardPerBlock: number;
 }
 
 export interface PegPoolUserInfo {

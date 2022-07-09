@@ -14,11 +14,12 @@ import { Skeleton } from '@material-ui/lab';
 import usePegPoolWithdraw from '../../../hooks/usePegPoolWithdraw';
 import WithdrawModal from '../../Bank/components/WithdrawModal';
 
-const PegPoolInfo: React.FC<{ pegPool: PegPool; rewardTokens: PegPoolToken[]; totalRewardValue: string }> = ({
-  pegPool,
-  rewardTokens,
-  totalRewardValue,
-}) => {
+const PegPoolInfo: React.FC<{
+  pegPool: PegPool;
+  rewardTokens: PegPoolToken[];
+  totalRewardValue: string;
+  apr: { daily: string; yearly: string };
+}> = ({ pegPool, rewardTokens, totalRewardValue, apr }) => {
   const tokenBalance = useTokenBalance(pegPool.depositToken);
   const { onDeposit } = usePegPoolDeposit(pegPool);
   const { onWithdraw } = usePegPoolWithdraw(pegPool);
@@ -118,7 +119,7 @@ const PegPoolInfo: React.FC<{ pegPool: PegPool; rewardTokens: PegPoolToken[]; to
       </Grid>
 
       <Grid item>
-        {rewardTokens && <PegPoolRewards rewardTokens={rewardTokens} totalRewardValue={totalRewardValue} />}
+        {rewardTokens && <PegPoolRewards rewardTokens={rewardTokens} totalRewardValue={totalRewardValue} apr={apr} />}
       </Grid>
     </Grid>
   );

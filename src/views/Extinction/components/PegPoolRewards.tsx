@@ -4,10 +4,11 @@ import { PegPoolToken } from '../../../bomb-finance/types';
 import TokenSymbol from '../../../components/TokenSymbol';
 import usePegPoolRewardsClaim from '../../../hooks/usePegPoolRewardsClaim';
 
-const PegPoolRewards: React.FC<{ rewardTokens: PegPoolToken[]; totalRewardValue: string }> = ({
-  rewardTokens,
-  totalRewardValue,
-}) => {
+const PegPoolRewards: React.FC<{
+  rewardTokens: PegPoolToken[];
+  totalRewardValue: string;
+  apr: { daily: string; yearly: string };
+}> = ({ rewardTokens, totalRewardValue, apr }) => {
   const [hasRewards, setHasRewards] = useState(false);
   const { doClaim } = usePegPoolRewardsClaim();
 
@@ -39,7 +40,7 @@ const PegPoolRewards: React.FC<{ rewardTokens: PegPoolToken[]; totalRewardValue:
     <Card variant="outlined">
       <CardContent>
         <Box style={{ width: '376px' }}>
-          <Grid container justifyContent="center" alignItems="center" style={{ marginTop: '20px' }}>
+          <Grid container>
             <Grid item xs={12}>
               <Typography style={labels} align="center">
                 Your Total Rewards
@@ -50,6 +51,30 @@ const PegPoolRewards: React.FC<{ rewardTokens: PegPoolToken[]; totalRewardValue:
                 ${totalRewardValue}
               </Typography>
             </Grid>
+          </Grid>
+          <Grid
+            container
+            justifyContent="space-between"
+            style={{
+              fontWeight: 500,
+              marginTop: '15px',
+            }}
+          >
+            Daily APR:
+            <Grid item>{apr.daily}%</Grid>
+          </Grid>
+          <Grid
+            container
+            justifyContent="space-between"
+            style={{
+              fontWeight: 500,
+              marginTop: '5px',
+            }}
+          >
+            Yearly APR:
+            <Grid item>{apr.yearly}%</Grid>
+          </Grid>
+          <Grid container justifyContent="center" alignItems="center" style={{ marginTop: '20px' }}>
             {rewardTokens?.map((token, i) => {
               return (
                 <Grid

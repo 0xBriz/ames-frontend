@@ -16,7 +16,7 @@ const Extinction: React.FC = () => {
   const { account } = useWallet();
   const { path } = useRouteMatch();
   const { pegPool } = usePegPool();
-  const { rewardTokens, totalRewardValue } = usePegPoolRewards();
+  const { rewardTokens, totalRewardValue, apr } = usePegPoolRewards(pegPool);
 
   return (
     <Switch>
@@ -50,7 +50,7 @@ const Extinction: React.FC = () => {
                     </Grid>
                     <Grid item>
                       <Typography style={{ fontSize: '18px', lineHeight: '22px', paddingTop: '15px' }}>
-                        Innovative Reward Pool
+                        Dual Reward Pool
                       </Typography>
                     </Grid>
                   </Grid>
@@ -82,7 +82,12 @@ const Extinction: React.FC = () => {
                         marginTop: '35px',
                       }}
                     >
-                      <PegPoolInfo pegPool={pegPool} rewardTokens={rewardTokens} totalRewardValue={totalRewardValue} />
+                      <PegPoolInfo
+                        pegPool={pegPool}
+                        rewardTokens={rewardTokens}
+                        totalRewardValue={totalRewardValue}
+                        apr={apr}
+                      />
                     </div>
                   </div>
                 </Box>
