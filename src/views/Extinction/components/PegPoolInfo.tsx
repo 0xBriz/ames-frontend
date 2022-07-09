@@ -76,7 +76,7 @@ const PegPoolInfo: React.FC<{ pegPool: PegPool; rewardTokens: PegPoolToken[]; to
                   <Typography align="right"> {pegPool.userInfo?.amountDeposited}</Typography>
                 </Grid>
               </Grid>
-              <Grid container justifyContent="center" alignItems="center" style={{ marginTop: '20px' }}>
+              {/* <Grid container justifyContent="center" alignItems="center" style={{ marginTop: '20px' }}>
                 {approveStatus != ApprovalState.APPROVED ? (
                   <Button
                     className="shinyButtonSecondary"
@@ -96,7 +96,7 @@ const PegPoolInfo: React.FC<{ pegPool: PegPool; rewardTokens: PegPoolToken[]; to
                     {pegPool.depositsEnabled ? 'Deposit' : 'Above Peg'}
                   </Button>
                 )}
-              </Grid>
+              </Grid> */}
 
               <Grid container justifyContent="center" style={{ marginTop: '20px' }}>
                 <Typography>

@@ -10,8 +10,8 @@ const usePegPoolRewardsClaim = () => {
 
   const handleReward = useCallback(() => {
     handleTransactionReceipt(
-      bombFinance.claimPegPool().then((tx) => {
-        refreshPool();
+      bombFinance.claimPegPool().then(async (tx) => {
+        await refreshPool();
         return tx;
       }),
       ` Claim rewards from Peg Pool `,
