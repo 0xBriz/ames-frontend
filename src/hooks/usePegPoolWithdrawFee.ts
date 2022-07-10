@@ -10,7 +10,7 @@ const usePegPoolWithdrawFee = () => {
 
   useEffect(() => {
     const updateFee = async () => {
-      const twap: BigNumber = await bombFinance.contracts.PegPool.getTWAP();
+      const twap: BigNumber = await bombFinance.contracts.PegPool.getUpdatedTWAP();
       const twapNum = Number(formatEther(twap));
 
       if (twapNum >= 1) {
