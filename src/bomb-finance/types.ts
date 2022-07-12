@@ -80,6 +80,7 @@ export interface PegPoolToken {
   currentPrice?: string;
   currentPriceNum?: number;
   rewardPerBlock: number;
+  canCompound: boolean;
 }
 
 export interface PegPoolUserInfo {

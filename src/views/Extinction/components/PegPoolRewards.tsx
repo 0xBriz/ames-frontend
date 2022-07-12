@@ -16,9 +16,7 @@ const PegPoolRewards: React.FC<{
 
   const checkRewards = () => {
     let hasClaim = false;
-
     rewardTokens.forEach((rw) => (hasClaim = rw.pendingValueBN?.gt(0)));
-
     setHasRewards(hasClaim);
   };
 
@@ -117,17 +115,19 @@ const PegPoolRewards: React.FC<{
                     <Typography align="right"> {token.amount}</Typography>
                     <Typography align="right"> ${token.pendingValue}</Typography>
                   </Grid>
-                  <Grid container justifyContent="flex-end" style={{ marginTop: '5px' }}>
-                    <Grid item>
-                      <Button
-                        className={hasRewards ? 'shinyButtonSecondary' : 'shinyButtonDisabled'}
-                        disabled={!hasRewards}
-                        onClick={() => handleCompound(token.token.address)}
-                      >
-                        Compound
-                      </Button>
+                  {token.canCompound && (
+                    <Grid container justifyContent="flex-end" style={{ marginTop: '5px' }}>
+                      <Grid item>
+                        <Button
+                          className={hasRewards ? 'shinyButtonSecondary' : 'shinyButtonDisabled'}
+                          disabled={!hasRewards}
+                          onClick={() => handleCompound(token.token.address)}
+                        >
+                          Compound
+                        </Button>
+                      </Grid>
                     </Grid>
-                  </Grid>
+                  )}
                 </Grid>
               );
             })}

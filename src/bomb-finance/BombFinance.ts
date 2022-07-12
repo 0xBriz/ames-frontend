@@ -1565,6 +1565,7 @@ export class BombFinance {
         amount: Number(formatEther(amounts[i])).toFixed(8),
         pendingValueBN: amounts[i],
         rewardPerBlock: Number(formatEther(tks[i].rewardPerBlock)),
+        canCompound: info.name != 'AALTO',
       });
     }
 
