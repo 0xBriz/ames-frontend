@@ -28,6 +28,10 @@ const PegPoolRewards: React.FC<{
     }
   };
 
+  const handleCompound = (token: string) => {
+    onCompound(token);
+  };
+
   useEffect(() => {
     if (rewardTokens?.length) {
       checkRewards();
@@ -84,7 +88,7 @@ const PegPoolRewards: React.FC<{
                   justifyContent="space-between"
                   alignItems="center"
                   key={i}
-                  style={{ marginTop: '10px' }}
+                  style={{ marginTop: '35px' }}
                 >
                   <Grid item xs={1}>
                     <TokenSymbol size={36} symbol={token.name} />
@@ -113,6 +117,17 @@ const PegPoolRewards: React.FC<{
                     <Typography align="right"> {token.amount}</Typography>
                     <Typography align="right"> ${token.pendingValue}</Typography>
                   </Grid>
+                  <Grid container justifyContent="flex-end" style={{ marginTop: '5px' }}>
+                    <Grid item>
+                      <Button
+                        className={hasRewards ? 'shinyButtonSecondary' : 'shinyButtonDisabled'}
+                        disabled={!hasRewards}
+                        onClick={() => handleCompound(token.token.address)}
+                      >
+                        Compound
+                      </Button>
+                    </Grid>
+                  </Grid>
                 </Grid>
               );
             })}
@@ -123,18 +138,7 @@ const PegPoolRewards: React.FC<{
                 disabled={!hasRewards}
                 onClick={handleClaim}
               >
-                Claim
-              </Button>
-            </Grid>
-
-            <Grid container style={{ marginTop: '20px' }}>
-              <Button
-                className={hasRewards ? 'shinyButtonSecondary' : 'shinyButtonDisabled'}
-                fullWidth={true}
-                disabled={!hasRewards}
-                onClick={onCompound}
-              >
-                Compound
+                Claim All
               </Button>
             </Grid>
           </Grid>

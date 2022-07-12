@@ -1517,7 +1517,7 @@ export class BombFinance {
   async getPegPoolUserInfo(): Promise<PegPoolUserInfo> {
     const amount: BigNumber = await this.contracts.PegPool.userInfo(this.myAccount);
     return {
-      amountDeposited: formatEther(amount),
+      amountDeposited: getDisplayBalance(amount),
       isDeposited: amount.gt(0),
       amountDepositedBN: amount,
     };
@@ -1577,6 +1577,10 @@ export class BombFinance {
 
   async compoundRewardsPegPool() {
     return this.contracts.PegPool.compound();
+  }
+
+  async compoundTokenPegPool(token: string) {
+    return this.contracts.PegPool.compoundToken(token);
   }
 
   async withdrawPegPool(amount: BigNumber) {

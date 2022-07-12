@@ -1,4 +1,5 @@
 import { ethers } from 'ethers';
+import { formatEther } from 'ethers/lib/utils';
 import { useEffect, useState } from 'react';
 import { PegPool, PegPoolToken } from '../bomb-finance/types';
 import { getDexPriceFromPair } from '../utils/dexscreener';
@@ -62,6 +63,7 @@ const usePegPoolRewards = (pegPool: PegPool) => {
       }
 
       console.log(getDisplayBalance(estimatedCompound));
+      console.log(formatEther(estimatedCompound));
       setCompoundValue(getDisplayBalance(estimatedCompound));
       getAPR(tokens);
       setTotalRewardValue(totalValue.toFixed(2));
