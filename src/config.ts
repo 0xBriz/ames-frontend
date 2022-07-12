@@ -4,10 +4,10 @@ import { ExtinctionPoolInfo } from './bomb-finance/types';
 
 const configurations: { [env: string]: Configuration } = {
   development: {
-    chainId: 56,
-    networkName: 'BSC Mainnet',
-    ftmscanUrl: 'https://bscscan.com',
-    defaultProvider: 'https://bsc-dataseed.binance.org/',
+    chainId: 31337,
+    networkName: 'Hardhat Local Node',
+    ftmscanUrl: '',
+    defaultProvider: 'http://localhost:8545',
     deployments: require('./bomb-finance/deployments/deployments.mainnet.json'),
     externalTokens: {
       WONE: ['0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c', 18], // this is WBNB

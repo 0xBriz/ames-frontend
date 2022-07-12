@@ -2,6 +2,7 @@ import { ethers } from 'ethers';
 import { useEffect, useState } from 'react';
 import { PegPool, PegPoolToken } from '../bomb-finance/types';
 import { getDexPriceFromPair } from '../utils/dexscreener';
+import { getDisplayBalance } from '../utils/formatBalance';
 import useBombFinance from './useBombFinance';
 
 const usePegPoolRewards = (pegPool: PegPool) => {
@@ -9,6 +10,8 @@ const usePegPoolRewards = (pegPool: PegPool) => {
   const isUnlocked = bombFinance?.isUnlocked;
   const [rewardTokens, setRewardTokens] = useState<PegPoolToken[]>([]);
   const [totalRewardValue, setTotalRewardValue] = useState<string>(null);
+  const [compoundValue, setCompoundValue] = useState(null);
+
   const [apr, setApr] = useState<{
     daily: string;
     yearly: string;
@@ -33,18 +36,21 @@ const usePegPoolRewards = (pegPool: PegPool) => {
         totalDollarValuePerYear += amountPerYear;
       });
 
-      // console.log('totalDollarValuePerDay: ' + totalDollarValuePerDay);
-      // console.log('totalDollarValuePerYear: ' + totalDollarValuePerYear);
-      // console.log(totalDollarValuePerDay / Number(pegPool.totalDesposits));
-      // console.log(totalDollarValuePerYear / Number(pegPool.totalDesposits));
+      const daily = (totalDollarValuePerDay / Number(pegPool.totalDesposits)) * 100;
+      const yearly = (totalDollarValuePerYear / Number(pegPool.totalDesposits)) * 100;
+
       setApr({
-        daily: ethers.utils.commify(((totalDollarValuePerDay / Number(pegPool.totalDesposits)) * 100).toFixed(2)),
-        yearly: ethers.utils.commify(((totalDollarValuePerYear / Number(pegPool.totalDesposits)) * 100).toFixed(2)),
+        daily: ethers.utils.commify(Number.isFinite(daily) ? daily.toFixed(2) : '0'),
+        yearly: ethers.utils.commify(Number.isFinite(yearly) ? yearly.toFixed(2) : '0'),
       });
     };
 
     const getTokens = async () => {
-      const tokens = await bombFinance.getPegPoolPendingRewards();
+      const [estimatedCompound, tokens] = await Promise.all([
+        bombFinance.contracts.PegPool.estimateCompound(bombFinance.myAccount),
+        bombFinance.getPegPoolPendingRewards(),
+      ]);
+
       let totalValue = 0;
       for (const token of tokens) {
         const priceInfo = await getDexPriceFromPair('bsc', token.pairAddress);
@@ -55,23 +61,28 @@ const usePegPoolRewards = (pegPool: PegPool) => {
         totalValue += pendingValue;
       }
 
+      console.log(getDisplayBalance(estimatedCompound));
+      setCompoundValue(getDisplayBalance(estimatedCompound));
       getAPR(tokens);
-
       setTotalRewardValue(totalValue.toFixed(2));
       setRewardTokens(tokens);
     };
 
+    const loadData = async () => {
+      await Promise.all([getTokens()]);
+    };
+
     if (isUnlocked && pegPool) {
-      getTokens();
+      loadData();
       const timer = setInterval(() => {
-        getTokens();
-      }, 1000 * 60);
+        loadData();
+      }, 1000 * 15000);
 
       return () => clearInterval(timer);
     }
   }, [isUnlocked, pegPool]);
 
-  return { rewardTokens, totalRewardValue, apr };
+  return { rewardTokens, totalRewardValue, apr, compoundValue };
 };
 
 export default usePegPoolRewards;

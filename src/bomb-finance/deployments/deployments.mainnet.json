@@ -10622,7 +10622,7 @@
     ]
   },
   "PegPool": {
-    "address": "0x8Fa7614E67075c10e57822868Ce4C1795CdEA0F8",
+    "address": "0xfb42D2844AC890DcF597F033C53a768ccaA0E2af",
     "abi": [
       {
         "inputs": [],
@@ -10944,6 +10944,13 @@
       },
       {
         "inputs": [],
+        "name": "compound",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [],
         "name": "decimals",
         "outputs": [
           {
@@ -11026,6 +11033,49 @@
             "internalType": "bool",
             "name": "",
             "type": "bool"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_user",
+            "type": "address"
+          }
+        ],
+        "name": "estimateCompound",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "busdOut",
+            "type": "uint256"
+          }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "uint256",
+            "name": "_tokensRewardPerBlock",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_totalDeposits",
+            "type": "uint256"
+          }
+        ],
+        "name": "getAccumulatedReward",
+        "outputs": [
+          {
+            "internalType": "uint256",
+            "name": "tokenRewardAmount",
+            "type": "uint256"
           }
         ],
         "stateMutability": "view",
@@ -11302,10 +11352,57 @@
         "type": "function"
       },
       {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_token",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "_amount",
+            "type": "uint256"
+          },
+          {
+            "internalType": "address",
+            "name": "_to",
+            "type": "address"
+          }
+        ],
+        "name": "pullStuckToken",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
         "inputs": [],
         "name": "renounceOwnership",
         "outputs": [],
         "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          },
+          {
+            "internalType": "uint256",
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "name": "rewardCompoundPaths",
+        "outputs": [
+          {
+            "internalType": "address",
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "stateMutability": "view",
         "type": "function"
       },
       {
@@ -11392,12 +11489,17 @@
       {
         "inputs": [
           {
-            "internalType": "uint256",
-            "name": "_blockNumber",
-            "type": "uint256"
+            "internalType": "address",
+            "name": "_token",
+            "type": "address"
+          },
+          {
+            "internalType": "address[]",
+            "name": "_swapPath",
+            "type": "address[]"
           }
         ],
-        "name": "setRewardBlock",
+        "name": "setRewardCompoundPathForToken",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -11690,6 +11792,24 @@
       {
         "inputs": [],
         "name": "unstashRewards",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          {
+            "internalType": "address",
+            "name": "_who",
+            "type": "address"
+          },
+          {
+            "internalType": "bool",
+            "name": "_is",
+            "type": "bool"
+          }
+        ],
+        "name": "updateBlacklist",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"

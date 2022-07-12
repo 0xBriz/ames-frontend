@@ -2,6 +2,7 @@ import { Box, Button, Card, CardContent, Typography, Grid } from '@material-ui/c
 import React, { useEffect, useState } from 'react';
 import { PegPoolToken } from '../../../bomb-finance/types';
 import TokenSymbol from '../../../components/TokenSymbol';
+import usePegPoolCompound from '../../../hooks/usePegPoolCompound';
 import usePegPoolRewardsClaim from '../../../hooks/usePegPoolRewardsClaim';
 
 const PegPoolRewards: React.FC<{
@@ -11,6 +12,7 @@ const PegPoolRewards: React.FC<{
 }> = ({ rewardTokens, totalRewardValue, apr }) => {
   const [hasRewards, setHasRewards] = useState(false);
   const { doClaim } = usePegPoolRewardsClaim();
+  const { onCompound } = usePegPoolCompound();
 
   const checkRewards = () => {
     let hasClaim = false;
@@ -122,6 +124,17 @@ const PegPoolRewards: React.FC<{
                 onClick={handleClaim}
               >
                 Claim
+              </Button>
+            </Grid>
+
+            <Grid container style={{ marginTop: '20px' }}>
+              <Button
+                className={hasRewards ? 'shinyButtonSecondary' : 'shinyButtonDisabled'}
+                fullWidth={true}
+                disabled={!hasRewards}
+                onClick={onCompound}
+              >
+                Compound
               </Button>
             </Grid>
           </Grid>

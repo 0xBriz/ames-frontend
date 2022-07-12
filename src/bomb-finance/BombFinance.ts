@@ -1575,6 +1575,10 @@ export class BombFinance {
     return this.contracts.PegPool.deposit(amount);
   }
 
+  async compoundRewardsPegPool() {
+    return this.contracts.PegPool.compound();
+  }
+
   async withdrawPegPool(amount: BigNumber) {
     return this.contracts.PegPool.withdraw(amount);
   }

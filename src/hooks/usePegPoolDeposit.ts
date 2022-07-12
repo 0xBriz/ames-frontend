@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import useBombFinance from './useBombFinance';
 import useHandleTransactionReceipt from './useHandleTransactionReceipt';
-import { parseUnits } from 'ethers/lib/utils';
+import { formatEther, parseUnits } from 'ethers/lib/utils';
 import { PegPool } from '../bomb-finance/types';
 import usePegPool from './usePegPool';
 
@@ -18,7 +18,7 @@ const usePegPoolDeposit = (pool: PegPool) => {
           refreshPool();
           return tx;
         }),
-        `Deposit ${amount} ${pool.depositTokenName} to pool`,
+        `Deposit ${Number(amount).toFixed(2)} ${pool.depositTokenName} to pool`,
       );
     },
     [pool, bombFinance, handleTransactionReceipt],
