@@ -133,7 +133,6 @@ const PegPoolRewards: React.FC<{
                             cursor: 'pointer',
                           }}
                           data-tip="*Compound deposit result subject to DEX fees/slippage"
-                          data-delay-hide="5000"
                         >
                           !
                         </span>
