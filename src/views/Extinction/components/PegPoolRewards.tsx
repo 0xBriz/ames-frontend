@@ -1,4 +1,5 @@
 import { Box, Button, Card, CardContent, Typography, Grid } from '@material-ui/core';
+import ReactTooltip from 'react-tooltip';
 import React, { useEffect, useState } from 'react';
 import { PegPoolToken } from '../../../bomb-finance/types';
 import TokenSymbol from '../../../components/TokenSymbol';
@@ -118,6 +119,28 @@ const PegPoolRewards: React.FC<{
                   {token.canCompound && (
                     <Grid container justifyContent="flex-end" style={{ marginTop: '5px' }}>
                       <Grid item>
+                        <span
+                          style={{
+                            display: 'inline-block',
+                            margin: '4px',
+                            border: '1px solid black',
+                            borderRadius: '50%',
+                            height: '15px',
+                            width: '15px',
+                            background: 'lightgray',
+                            textAlign: 'center',
+                            fontSize: '12px',
+                            cursor: 'pointer',
+                          }}
+                          data-tip="*Compound deposit result subject to DEX fees/slippage"
+                          data-delay-hide="5000"
+                        >
+                          !
+                        </span>
+
+                        <ReactTooltip />
+                      </Grid>
+                      <Grid item>
                         <Button
                           className={hasRewards ? 'shinyButtonSecondary' : 'shinyButtonDisabled'}
                           disabled={!hasRewards}
@@ -131,7 +154,7 @@ const PegPoolRewards: React.FC<{
                 </Grid>
               );
             })}
-            <Grid container style={{ marginTop: '20px' }}>
+            <Grid container style={{ marginTop: '30px' }}>
               <Button
                 className={hasRewards ? 'shinyButtonSecondary' : 'shinyButtonDisabled'}
                 fullWidth={true}
