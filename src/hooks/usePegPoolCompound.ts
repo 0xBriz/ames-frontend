@@ -8,20 +8,17 @@ const usePegPoolCompound = () => {
   const handleTransactionReceipt = useHandleTransactionReceipt();
   const { refreshPool } = usePegPool();
 
-  const handleCompound = useCallback(
-    async (token: string) => {
-      handleTransactionReceipt(
-        bombFinance.compoundTokenPegPool(token).then(async (tx) => {
-          await refreshPool();
-          return tx;
-        }),
-        `Rewards compounded`,
-      );
-    },
-    [bombFinance, handleTransactionReceipt, refreshPool],
-  );
+  const handleCompound = useCallback(async () => {
+    handleTransactionReceipt(
+      bombFinance.compoundTokenPegPool().then(async (tx) => {
+        await refreshPool();
+        return tx;
+      }),
+      `Rewards compounded`,
+    );
+  }, [bombFinance, handleTransactionReceipt, refreshPool]);
 
-  return { onCompound: (token: string) => handleCompound(token) };
+  return { onCompound: () => handleCompound() };
 };
 
 export default usePegPoolCompound;

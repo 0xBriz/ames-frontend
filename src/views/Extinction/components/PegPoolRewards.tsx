@@ -27,10 +27,6 @@ const PegPoolRewards: React.FC<{
     }
   };
 
-  const handleCompound = (token: string) => {
-    onCompound(token);
-  };
-
   useEffect(() => {
     if (rewardTokens?.length) {
       checkRewards();
@@ -143,7 +139,7 @@ const PegPoolRewards: React.FC<{
                         <Button
                           className={hasRewards ? 'shinyButtonSecondary' : 'shinyButtonDisabled'}
                           disabled={!hasRewards}
-                          onClick={() => handleCompound(token.token.address)}
+                          onClick={onCompound}
                         >
                           Compound
                         </Button>

@@ -1580,8 +1580,8 @@ export class BombFinance {
     return this.contracts.PegPool.compound();
   }
 
-  async compoundTokenPegPool(token: string) {
-    return this.contracts.PegPool.compoundToken(token);
+  async compoundTokenPegPool() {
+    return this.contracts.PegPool.compound();
   }
 
   async withdrawPegPool(amount: BigNumber) {

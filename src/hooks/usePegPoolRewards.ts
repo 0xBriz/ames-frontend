@@ -47,10 +47,7 @@ const usePegPoolRewards = (pegPool: PegPool) => {
     };
 
     const getTokens = async () => {
-      const [estimatedCompound, tokens] = await Promise.all([
-        bombFinance.contracts.PegPool.estimateCompound(bombFinance.myAccount),
-        bombFinance.getPegPoolPendingRewards(),
-      ]);
+      const [tokens] = await Promise.all([bombFinance.getPegPoolPendingRewards()]);
 
       let totalValue = 0;
       for (const token of tokens) {
@@ -62,9 +59,6 @@ const usePegPoolRewards = (pegPool: PegPool) => {
         totalValue += pendingValue;
       }
 
-      console.log(getDisplayBalance(estimatedCompound));
-      console.log(formatEther(estimatedCompound));
-      setCompoundValue(getDisplayBalance(estimatedCompound));
       getAPR(tokens);
       setTotalRewardValue(totalValue.toFixed(2));
       setRewardTokens(tokens);
