@@ -139,7 +139,7 @@ const PegPoolRewards: React.FC<{
 
                         <ReactTooltip />
                       </Grid>
-                      <Grid item>
+                      {/* <Grid item>
                         <Button
                           className={hasRewards ? 'shinyButtonSecondary' : 'shinyButtonDisabled'}
                           disabled={!hasRewards}
@@ -147,7 +147,7 @@ const PegPoolRewards: React.FC<{
                         >
                           Compound
                         </Button>
-                      </Grid>
+                      </Grid> */}
                     </Grid>
                   )}
                 </Grid>
