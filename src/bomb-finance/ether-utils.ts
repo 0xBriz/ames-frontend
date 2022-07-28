@@ -1,7 +1,7 @@
 import Web3 from 'web3';
-import {defaultEthereumConfig, EthereumConfig} from './config';
-import {formatUnits, parseUnits} from 'ethers/lib/utils';
-import {BigNumber} from 'ethers';
+import { defaultEthereumConfig, EthereumConfig } from './config';
+import { formatUnits, parseUnits, formatEther } from 'ethers/lib/utils';
+import { BigNumber } from 'ethers';
 
 export function web3ProviderFrom(endpoint: string, config?: EthereumConfig): any {
   const ethConfig = Object.assign(defaultEthereumConfig, config || {});
@@ -19,4 +19,8 @@ export function balanceToDecimal(s: string): string {
 
 export function decimalToBalance(d: string | number, decimals = 18): BigNumber {
   return parseUnits(String(d), decimals);
+}
+
+export function roundDecimals(value: number, decimalPlaces: number): number {
+  return Number(Math.round(+(value + 'e' + decimalPlaces)) + 'e-' + decimalPlaces);
 }

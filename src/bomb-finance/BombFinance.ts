@@ -18,7 +18,7 @@ import {
   PegPoolUserInfo,
 } from './types';
 import { BigNumber, Contract, ethers, EventFilter } from 'ethers';
-import { decimalToBalance } from './ether-utils';
+import { decimalToBalance, roundDecimals } from './ether-utils';
 import { TransactionResponse } from '@ethersproject/providers';
 import ERC20 from './ERC20';
 import { getFullDisplayBalance, getDisplayBalance, getBalance } from '../utils/formatBalance';
@@ -28,6 +28,12 @@ import config, { bankDefinitions, extinctionPoolDefinitions } from '../config';
 import moment from 'moment';
 import { commify, formatEther, parseUnits } from 'ethers/lib/utils';
 import { BNB_TICKER, SPOOKY_ROUTER_ADDR, BOMB_TICKER } from '../utils/constants';
+
+const ONE_SECOND = 1000;
+const ONE_YEAR = 1000 * 60 * 60 * 24 * 365;
+const SECONDS_IN_YEAR = ONE_YEAR / ONE_SECOND;
+const BSC_BLOCK_TIME_SECONDS = 3;
+
 /**
  * An API module of Bomb Money contracts.
  * All contract-interacting domain logic should be defined in here.
@@ -353,19 +359,23 @@ export class BombFinance {
         bank.contract,
         poolContract,
         bank.depositTokenName,
+        bank.poolId,
       );
 
-      const tokenPerHour = tokenPerSecond.mul(60).mul(60);
+      const rewardTokensPerBlock = tokenPerSecond.mul(3);
+
       const totalRewardPricePerYear =
-        Number(stat.priceInDollars) * Number(getDisplayBalance(tokenPerHour.mul(24).mul(365)));
-      const totalRewardPricePerDay = Number(stat.priceInDollars) * Number(getDisplayBalance(tokenPerHour.mul(24)));
+        Number(stat.priceInDollars) *
+        Number(getDisplayBalance(rewardTokensPerBlock.mul(SECONDS_IN_YEAR / BSC_BLOCK_TIME_SECONDS)));
+
       const totalStakingTokenInPool =
         Number(depositTokenPrice) * Number(getDisplayBalance(stakeInPool, depositToken.decimal));
-      const dailyAPR = (totalRewardPricePerDay / totalStakingTokenInPool) * 100;
       const yearlyAPR = (totalRewardPricePerYear / totalStakingTokenInPool) * 100;
+      const dailyAPR = roundDecimals(yearlyAPR / 365, 2);
+
       return {
-        dailyAPR: dailyAPR.toFixed(2).toString(),
-        yearlyAPR: yearlyAPR.toFixed(2).toString(),
+        dailyAPR: dailyAPR.toString(),
+        yearlyAPR: roundDecimals(yearlyAPR, 2).toString(),
         TVL: TVL.toFixed(2).toString(),
       };
     }
@@ -383,6 +393,7 @@ export class BombFinance {
     contractName: string,
     poolContract: Contract,
     depositTokenName: string,
+    poolId: number,
   ) {
     if (earnTokenName === 'QUARTZ') {
       if (!contractName.endsWith('BombRewardPool')) {
@@ -407,6 +418,8 @@ export class BombFinance {
       return await poolContract.epochBombPerSecond(0);
     }
     const rewardPerSecond = await poolContract.tSharePerSecond();
+    const poolInfo = await poolContract.poolInfo(poolId);
+    const allocPoint = BigNumber.from(poolInfo.allocPoint).toNumber();
 
     if (depositTokenName === 'AMES-UST-LP') {
       return rewardPerSecond.mul(0).div(59500);
@@ -417,11 +430,11 @@ export class BombFinance {
     } else if (depositTokenName === 'ASHARE-UST-LP') {
       return rewardPerSecond.mul(0).div(59500);
     } else if (depositTokenName === 'ASHARE-BUSD-LP') {
-      return rewardPerSecond.mul(14875).div(59500);
+      return rewardPerSecond.mul(allocPoint).div(59500);
     } else if (depositTokenName === 'AMES-BUSD-LP') {
-      return rewardPerSecond.mul(14875).div(59500);
+      return rewardPerSecond.mul(allocPoint).div(59500);
     } else if (depositTokenName === 'AMES') {
-      return rewardPerSecond.mul(29750).div(59500);
+      return rewardPerSecond.mul(allocPoint).div(59500);
     } else {
       return rewardPerSecond.mul(0).div(59500);
     }
