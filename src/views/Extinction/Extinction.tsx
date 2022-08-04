@@ -72,7 +72,7 @@ const Extinction: React.FC = () => {
                       !!! There is a scaling withdrawal fee based on TWAP. !!!
                     </Typography>
                     <Typography style={{ marginTop: '5px', fontWeight: 'bold' }} align="center">
-                      The further away from 1.01 TWAP the larger the withdrawal fee.
+                      The further away from 1.00 TWAP the larger the withdrawal fee.
                     </Typography>
 
                     <Typography
