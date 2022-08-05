@@ -5,6 +5,7 @@ import { PegPoolToken } from '../../../bomb-finance/types';
 import TokenSymbol from '../../../components/TokenSymbol';
 import usePegPoolCompound from '../../../hooks/usePegPoolCompound';
 import usePegPoolRewardsClaim from '../../../hooks/usePegPoolRewardsClaim';
+import usePegPoolWithdrawFee from '../../../hooks/usePegPoolWithdrawFee';
 
 const PegPoolRewards: React.FC<{
   rewardTokens: PegPoolToken[];
@@ -14,6 +15,7 @@ const PegPoolRewards: React.FC<{
   const [hasRewards, setHasRewards] = useState(false);
   const { doClaim } = usePegPoolRewardsClaim();
   const { onCompound } = usePegPoolCompound();
+  const { withdrawFeePercent } = usePegPoolWithdrawFee();
 
   const checkRewards = () => {
     let hasClaim = false;
@@ -62,7 +64,7 @@ const PegPoolRewards: React.FC<{
             }}
           >
             Daily APR:
-            <Grid item>{apr.daily}%</Grid>
+            <Grid item>{withdrawFeePercent == 0 ? 0 : apr.daily}%</Grid>
           </Grid>
           <Grid
             container
@@ -73,7 +75,7 @@ const PegPoolRewards: React.FC<{
             }}
           >
             Yearly APR:
-            <Grid item>{apr.yearly}%</Grid>
+            <Grid item>{withdrawFeePercent == 0 ? 0 : apr.yearly}%</Grid>
           </Grid>
           <Grid container justifyContent="center" alignItems="center" style={{ marginTop: '20px' }}>
             {rewardTokens?.map((token, i) => {
