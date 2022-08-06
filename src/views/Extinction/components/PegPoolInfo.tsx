@@ -113,7 +113,12 @@ const PegPoolInfo: React.FC<{
                 >
                   Withdraw
                 </Button>
-                <Typography>
+                <Typography
+                      style={{
+                        fontSize: '14px',
+                        color: 'rgb(130, 130, 130)',
+                      }}
+                    >
                 You will receive AMES-BUSD when you withdraw
                 </Typography>
               </Grid>
