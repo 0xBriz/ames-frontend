@@ -114,7 +114,7 @@ const PegPoolInfo: React.FC<{
                   Withdraw
                 </Button>
                 <Typography>
-                You will receive AMES-BUSD when you withdraw
+                You will receive AMES-BUSD LP tokens when you withdraw
                 </Typography>
               </Grid>
             </Box>
