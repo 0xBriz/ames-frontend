@@ -211,7 +211,7 @@ const Home = () => {
                 </SplitContent>
               </MarketCap>
               <BuyWrapper>
-                <StyledLink className="shinyButton" href="https://pancakeswap.finance/swap?inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56&outputCurrency=0xb9E05B4C168B56F73940980aE6EF366354357009" target="_blank">
+                <StyledLink className="shinyButton" href="https://www.aequinox.exchange/#/trade/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56/0xb9E05B4C168B56F73940980aE6EF366354357009" target="_blank">
                   Buy AMES
                 </StyledLink>
               </BuyWrapper>
@@ -271,7 +271,7 @@ const Home = () => {
                 </SplitContent>
               </MarketCap>
               <BuyWrapper>
-                <StyledLink className="shinyButton" href="https://pancakeswap.finance/swap?inputCurrency=0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56&outputCurrency=0xFa4b16b0f63F5A6D0651592620D585D308F749A4" target="_blank">
+                <StyledLink className="shinyButton" href="https://www.aequinox.exchange/#/trade/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56/0xFa4b16b0f63F5A6D0651592620D585D308F749A4" target="_blank">
                   Buy ASHARE
                 </StyledLink>
               </BuyWrapper>
