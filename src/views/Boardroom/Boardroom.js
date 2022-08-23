@@ -102,7 +102,7 @@ const Boardroom = () => {
                     <SplitContent>
                       <Box>
                         <Typography style={{ textTransform: 'none' }} variant="h6">
-                          Current Epoch Peg
+                          Last Epoch Peg
                         </Typography>
                       </Box>
                       <Box>
