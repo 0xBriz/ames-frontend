@@ -156,6 +156,9 @@ const Nav = () => {
               >
                 Autocompounder
               </a>
+              <Link color="textPrimary" to="/migrator" className={'navLink ' + classes.link}>
+                Migrator
+              </Link>
               {/* <Link color="textPrimary" to="/share-swap" className={'navLink ' + classes.link}>
                 Get Aalto
               </Link> */}

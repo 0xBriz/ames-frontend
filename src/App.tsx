@@ -28,6 +28,7 @@ const Nodes = lazy(() => import('./views/Nodes'));
 const ShareSwapper = lazy(() => import('./views/ShareSwapper'));
 const Compensation = lazy(() => import('./views/Compensation'));
 const Extinction = lazy(() => import('./views/Extinction'));
+const Migrator = lazy(() => import('./views/Migrator'));
 
 const NoMatch = () => (
   <h3 style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
@@ -87,6 +88,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/campaign">
               <Extinction />
+            </Route>
+            <Route path="/migrator">
+              <Migrator />
             </Route>
             {/* <Route path="/quarry">
               <Stake />
