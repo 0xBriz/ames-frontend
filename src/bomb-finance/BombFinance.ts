@@ -1606,31 +1606,7 @@ export class BombFinance {
   }
 
   /** migrator **/
-  /** Swapper **/
-  async migrate(amount: BigNumber): Promise<TransactionResponse> {
-    // // get total liquidity values
-    // let tToken;
-    // const tBusd = await this.BTC.balanceOf(contract.address);
-
-    // if (isShare) {
-    //   tToken = await this.BSHARE.balanceOf(contract.address);
-    // } else {
-    //   tToken = await this.BOMB.balanceOf(contract.address);
-    // }
-
-    // const accountLPBalance = await contract.balanceOf(this.myAccount);
-    // const lpTotalBalance = await contract.totalSupply();
-    // const userPercentage = Number(accountLPBalance.toString()) / Number(lpTotalBalance.toString());
-    // const minTokenOut = Number(tToken.toString()) * userPercentage;
-    // const minBUSDOut = Number(tBusd.toString()) * userPercentage;
-
-    // const safeMTO = decimalToBalance((minTokenOut - minTokenOut * 0.03) / 1000000000000000000);
-    // const safeBUSDO = decimalToBalance((minBUSDOut - minTokenOut * 0.03) / 1000000000000000000);
-
-    // console.log(safeMTO.toString(), accountLPBalance.toString(), isShare);
-
-    // const slippageTollerance = 75;
-
-    return await this.contracts.Migrator.migrate(amount);
+  async migrate(amount: BigNumber, type: number): Promise<TransactionResponse> {
+    return await this.contracts.Migrator.migrate(amount, type);
   }
 }

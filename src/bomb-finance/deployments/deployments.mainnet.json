@@ -9999,7 +9999,7 @@
     ]
   },
   "Migrator": {
-    "address": "0x66085C15b51279CCbB78867FDEC715Ad97E7786b",
+    "address": "0xac2c411Fb75555c8cAeD54B40c9B2Ded257C55D2",
     "abi": [
       {
         "inputs": [],
@@ -10012,6 +10012,11 @@
             "internalType": "uint256",
             "name": "amount",
             "type": "uint256"
+          },
+          {
+            "internalType": "enum Migrator.PoolType",
+            "name": "_poolType",
+            "type": "uint8"
           }
         ],
         "name": "migrate",

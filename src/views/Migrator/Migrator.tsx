@@ -143,14 +143,14 @@ const Migrator = () => {
   const ashareBUSD = bombFinance.externalTokens['ASHARE-BUSD-LP'];
   const lp1Balance = useTokenBalance(amesBUSD);
   const lp2Balance = useTokenBalance(ashareBUSD);
-  const [approveStatus, approve] = useApprove(amesBUSD, '0x66085C15b51279CCbB78867FDEC715Ad97E7786b');
-  const [approveStatusShare, approveShare] = useApprove(ashareBUSD, '0x4e53cd5197C9BBd5E06C2CDcFeD9612d7DDC8BDc');
+  const [approveStatus, approve] = useApprove(amesBUSD, '0xac2c411Fb75555c8cAeD54B40c9B2Ded257C55D2');
+  const [approveStatusShare, approveShare] = useApprove(ashareBUSD, '0xac2c411Fb75555c8cAeD54B40c9B2Ded257C55D2');
   const labelClasses = useLabelStyles();
   const addTransaction = useTransactionAdder();
 
   const handleSwapShare = useCallback(
-    async (amount: BigNumber) => {
-      const tx = await bombFinance.migrate(amount);
+    async (amount: BigNumber, type: number) => {
+      const tx = await bombFinance.migrate(amount, type);
       addTransaction(tx, {
         summary: `Migrated LPs successfully`,
       });
@@ -159,10 +159,10 @@ const Migrator = () => {
   );
 
   const handleMigrateLp1 = () => {
-    handleSwapShare(lp1Balance);
+    handleSwapShare(lp1Balance, 0);
   };
   const handleMigrateLp2 = () => {
-    handleSwapShare(lp2Balance);
+    handleSwapShare(lp2Balance, 1);
   };
 
   return (
