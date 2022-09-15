@@ -9999,36 +9999,20 @@
     ]
   },
   "Migrator": {
-    "address": "0x4e53cd5197C9BBd5E06C2CDcFeD9612d7DDC8BDc",
+    "address": "0x66085C15b51279CCbB78867FDEC715Ad97E7786b",
     "abi": [
       {
         "inputs": [],
-        "name": "LP0",
-        "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "LP1",
-        "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "aalto",
-        "outputs": [{ "internalType": "contract IUniswapV2Router02", "name": "", "type": "address" }],
-        "stateMutability": "view",
-        "type": "function"
+        "stateMutability": "nonpayable",
+        "type": "constructor"
       },
       {
         "inputs": [
-          { "internalType": "bool", "name": "_ASHARE", "type": "bool" },
-          { "internalType": "uint256", "name": "amount", "type": "uint256" },
-          { "internalType": "uint256", "name": "minTokenOut", "type": "uint256" },
-          { "internalType": "uint256", "name": "minBUSDOut", "type": "uint256" },
-          { "internalType": "uint256", "name": "slippageTollerance", "type": "uint256" }
+          {
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
+          }
         ],
         "name": "migrate",
         "outputs": [],
@@ -10037,22 +10021,14 @@
       },
       {
         "inputs": [],
-        "name": "pcs",
-        "outputs": [{ "internalType": "contract IUniswapV2Router02", "name": "", "type": "address" }],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "token0",
-        "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "inputs": [],
-        "name": "token1",
-        "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+        "name": "vault",
+        "outputs": [
+          {
+            "internalType": "contract IVault",
+            "name": "",
+            "type": "address"
+          }
+        ],
         "stateMutability": "view",
         "type": "function"
       }

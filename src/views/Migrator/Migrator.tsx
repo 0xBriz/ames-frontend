@@ -143,14 +143,14 @@ const Migrator = () => {
   const ashareBUSD = bombFinance.externalTokens['ASHARE-BUSD-LP'];
   const lp1Balance = useTokenBalance(amesBUSD);
   const lp2Balance = useTokenBalance(ashareBUSD);
-  const [approveStatus, approve] = useApprove(amesBUSD, '0x4e53cd5197C9BBd5E06C2CDcFeD9612d7DDC8BDc');
+  const [approveStatus, approve] = useApprove(amesBUSD, '0x66085C15b51279CCbB78867FDEC715Ad97E7786b');
   const [approveStatusShare, approveShare] = useApprove(ashareBUSD, '0x4e53cd5197C9BBd5E06C2CDcFeD9612d7DDC8BDc');
   const labelClasses = useLabelStyles();
   const addTransaction = useTransactionAdder();
 
   const handleSwapShare = useCallback(
-    async (amount: BigNumber, isShare: boolean, contract: ERC20) => {
-      const tx = await bombFinance.migrate(amount, isShare, contract);
+    async (amount: BigNumber) => {
+      const tx = await bombFinance.migrate(amount);
       addTransaction(tx, {
         summary: `Migrated LPs successfully`,
       });
@@ -159,10 +159,10 @@ const Migrator = () => {
   );
 
   const handleMigrateLp1 = () => {
-    handleSwapShare(lp1Balance, false, amesBUSD);
+    handleSwapShare(lp1Balance);
   };
   const handleMigrateLp2 = () => {
-    handleSwapShare(lp2Balance, true, ashareBUSD);
+    handleSwapShare(lp2Balance);
   };
 
   return (
@@ -191,7 +191,7 @@ const Migrator = () => {
                 variant="h6"
                 gutterBottom
               >
-                Easily migrate your liquidity from Pancakeswap to Aaltoswap
+                Easily migrate your liquidity from Pancakeswap to Aequinox
               </Typography>
               <Typography
                 style={{ textTransform: 'none', maxWidth: '900px', margin: '24px auto' }}
@@ -232,8 +232,8 @@ const Migrator = () => {
                       <StepContent>
                         <StepWrapper>
                           <Typography color="textPrimary" align="left" gutterBottom style={{ marginBottom: '16px' }}>
-                            Convert your CAKE-LP into AALTO-LP with our migrator. Ensure that your CAKE-LP is in your
-                            wallet, approve the migrator and click migrate. Total txns needed to approve: 2
+                            Convert your CAKE-LP into Aequinox-APT with our migrator. Ensure that your CAKE-LP is in
+                            your wallet, approve the migrator and click migrate. Total txns needed to approve: 2
                           </Typography>
                           <LPWrapper>
                             <TokenSymbol symbol="AMES-BUSD-LP" />
@@ -299,16 +299,28 @@ const Migrator = () => {
                     </Step>
                     <Step active>
                       <StepLabel classes={labelClasses} StepIconComponent={ColorlibStepIcon}>
-                        <strong>Deposit LP into a farm or vault</strong>
+                        <strong>STAKE AEQUINOX-APT ON AEQUINOX</strong>
                       </StepLabel>
                       <StepContent>
                         <StepWrapper>
-                          <Typography color="textPrimary" align="left" gutterBottom>
-                            Go to <StyledLink to="/farm">Farms</StyledLink> or{' '}
-                            <StyledLink to={{ pathname: `https://ames-defi.tools/vaults` }} target="_blank">
-                              Vaults
-                            </StyledLink>{' '}
-                            and deposit the newly created LPs.
+                          <Typography color="textPrimary" gutterBottom>
+                            Go to the Aequinox pool page for the corresponding APTs and stake to earn AEQ emissions.
+                            ASHARE emissions will be dedicated to the appropriate pools soon.
+                            <a
+                              href="https://www.aequinox.exchange/#/pool/0x9aa867870d5775a3c155325db0cb0b116bbf4b6a000200000000000000000002"
+                              target="__blank"
+                              style={{
+                                margin: '0px 10px',
+                              }}
+                            >
+                              AMES-BUSD pool
+                            </a>
+                            <a
+                              href=" https://www.aequinox.exchange/#/pool/0x74154c70f113c2b603aa49899371d05eeedd1e8c000200000000000000000003"
+                              target="__blank"
+                            >
+                              ASHARE-BUSD pool
+                            </a>
                           </Typography>
                         </StepWrapper>
                       </StepContent>
