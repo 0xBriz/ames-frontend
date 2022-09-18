@@ -233,8 +233,18 @@ const Migrator = () => {
                         <StepWrapper>
                           <Typography color="textPrimary" align="left" gutterBottom style={{ marginBottom: '16px' }}>
                             Convert your CAKE-LP into Aequinox-APT with our migrator. Ensure that your CAKE-LP is in
-                            your wallet, approve the migrator and click migrate. Total txns needed to approve: 2
+                            your wallet, approve the migrator and click migrate. Total txns needed to approve: 2.
                           </Typography>
+                          <Typography
+                            color="textPrimary"
+                            align="left"
+                            gutterBottom
+                            style={{ marginBottom: '16px', fontWeight: 'bold' }}
+                          >
+                            ATTENTION: Migrating large amounts of ASHARE-BUSD LPs will incur high price impact. Try
+                            moving smaller amounts at a time in order to reduce the risk of this.
+                          </Typography>
+
                           <LPWrapper>
                             <TokenSymbol symbol="AMES-BUSD-LP" />
                             <Content>
@@ -305,7 +315,14 @@ const Migrator = () => {
                         <StepWrapper>
                           <Typography color="textPrimary" gutterBottom>
                             Go to the Aequinox pool page for the corresponding APTs and stake to earn AEQ emissions.
-                            ASHARE emissions will be dedicated to the appropriate pools soon.
+                          </Typography>
+                          <Typography color="textPrimary" align="left" gutterBottom style={{ marginBottom: '16px' }}>
+                            ASHARE emissions will be dedicated to the appropriate pools on
+                            <u> Thursday, 22nd September, 00:00 UTC (start of the new epoch).</u> The Ames.Defi farms
+                            from then on will no longer yield ASHARE. Only the Single Stake AMES and the Peg Campaign
+                            Pool will continue to emit ASHARE as rewards.
+                          </Typography>
+                          <Typography color="textPrimary" gutterBottom>
                             <a
                               href="https://www.aequinox.exchange/#/pool/0x9aa867870d5775a3c155325db0cb0b116bbf4b6a000200000000000000000002"
                               target="__blank"
