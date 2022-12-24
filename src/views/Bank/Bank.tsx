@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import styled from 'styled-components';
 import { useWallet } from 'use-wallet';
-import { makeStyles } from '@material-ui/core/styles';
-import { Box, Button, Card, CardContent, Typography, Grid } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 
 import PageHeader from '../../components/PageHeader';
 import Spacer from '../../components/Spacer';
@@ -13,21 +12,9 @@ import Stake from './components/Stake';
 import useBank from '../../hooks/useBank';
 import useStatsForPool from '../../hooks/useStatsForPool';
 import usePoolTimes from '../../hooks/usePoolTimes';
-import useRedeem from '../../hooks/useRedeem';
-import { Bank as BankEntity, ContractName } from '../../bomb-finance';
-import useBombFinance from '../../hooks/useBombFinance';
+import { ContractName } from '../../bomb-finance';
 import TokenSymbol from '../../components/TokenSymbol';
-import CardIcon from '../../components/CardIcon';
 import { Alert } from '@material-ui/lab';
-
-const useStyles = makeStyles((theme) => ({
-  gridItem: {
-    height: '100%',
-    [theme.breakpoints.up('md')]: {
-      height: '90px',
-    },
-  },
-}));
 
 interface BankProps {
   bankId: ContractName;
@@ -81,11 +68,8 @@ const VaultLink = styled.a`
 
 const Bank: React.FC<BankProps> = ({ bankId }) => {
   useEffect(() => window.scrollTo(0, 0));
-  const classes = useStyles();
   const bank = useBank(bankId);
-
   const { account } = useWallet();
-  const { onRedeem } = useRedeem(bank);
   const statsOnPool = useStatsForPool(bank);
 
   const poolTimes = usePoolTimes(bank.contract);
@@ -127,7 +111,15 @@ const Bank: React.FC<BankProps> = ({ bankId }) => {
     const currentTimeStamp = new Date().getTime();
 
     if (
-      ['AMES-BUSD-LP', 'ASHARE-BUSD-LP', '1QSHARE-UST-LP', '1QSHARE', 'AMES-UST-LP', 'ASHARE-UST-LP', 'AMES-ASHARE-LP'].includes(bank.depositTokenName)
+      [
+        'AMES-BUSD-LP',
+        'ASHARE-BUSD-LP',
+        '1QSHARE-UST-LP',
+        '1QSHARE',
+        'AMES-UST-LP',
+        'ASHARE-UST-LP',
+        'AMES-ASHARE-LP',
+      ].includes(bank.depositTokenName)
     ) {
       return 'Not running';
     }
@@ -149,9 +141,16 @@ const Bank: React.FC<BankProps> = ({ bankId }) => {
         <span style={{ height: '120px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
           <TokenSymbol symbol={bank.depositToken.symbol} size={120} />
         </span>
-        <Typography style={{ fontWeight: 'bold', marginBottom: '16px' }} variant="h4">
-          {bank?.depositTokenName}
-        </Typography>
+
+        {bank.depositTokenName === 'rASHARE' ? (
+          <Typography style={{ fontWeight: 'bold', marginBottom: '16px', fontSize: '2.125rem' }}>
+            {bank?.depositTokenName}
+          </Typography>
+        ) : (
+          <Typography style={{ fontWeight: 'bold', marginBottom: '16px' }} variant="h4">
+            {bank?.depositTokenName}
+          </Typography>
+        )}
         {renderPoolKind()}
         {bank.onlyVault ? (
           <Alert
@@ -176,12 +175,15 @@ const Bank: React.FC<BankProps> = ({ bankId }) => {
             {getRunningStatus()}
           </Typography>
         </CardSectionSplit>
-        <CardSectionSplit>
-          <Typography style={{ color: '#828282' }}>Total Value Locked</Typography>
-          <Typography color="textPrimary" style={{ fontWeight: 'bold' }}>
-            ${statsOnPool?.TVL || '0.0'}
-          </Typography>
-        </CardSectionSplit>
+        {bank.depositTokenName !== 'rASHARE' && (
+          <CardSectionSplit>
+            <Typography style={{ color: '#828282' }}>Total Value Locked</Typography>
+            <Typography color="textPrimary" style={{ fontWeight: 'bold' }}>
+              ${statsOnPool?.TVL || '0.0'}
+            </Typography>
+          </CardSectionSplit>
+        )}
+
         <CardSectionSplit>
           <Typography style={{ color: '#828282' }}>APR</Typography>
           <Typography color="textPrimary" style={{ fontWeight: 'bold' }}>
@@ -208,33 +210,6 @@ const Bank: React.FC<BankProps> = ({ bankId }) => {
   );
 };
 
-const LPTokenHelpText: React.FC<{ bank: BankEntity }> = ({ bank }) => {
-  const bombFinance = useBombFinance();
-  const bombAddr = bombFinance.BOMB.address;
-  const bshareAddr = bombFinance.BSHARE.address;
-
-  let pairName: string;
-  let uniswapUrl: string;
-
-  if (bank.depositTokenName.includes('QUARTZ')) {
-    pairName = 'QUARTZ-UST pair';
-    uniswapUrl = 'https://pancakeswap.finance/add/0x224e64ec1BDce3870a6a6c777eDd450454068FEC/' + bombAddr;
-  } else {
-    pairName = 'BSHARE-BNB pair';
-    uniswapUrl = 'https://pancakeswap.finance/add/BNB/' + bshareAddr;
-  }
-
-  return (
-    <Card>
-      <CardContent>
-        <StyledLink href={uniswapUrl} target="_blank">
-          {`Provide liquidity for ${pairName} now on DefiKingdoms`}
-        </StyledLink>
-      </CardContent>
-    </Card>
-  );
-};
-
 const BankNotFound = () => {
   return (
     <Center>
@@ -242,39 +217,6 @@ const BankNotFound = () => {
     </Center>
   );
 };
-
-const StyledBank = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
-
-const StyledLink = styled.a`
-  text-decoration: underline;
-  color: inherit;
-`;
-
-const StyledCardsWrapper = styled.div`
-  display: flex;
-  width: 600px;
-  @media (max-width: 768px) {
-    width: 100%;
-    flex-flow: column nowrap;
-    align-items: center;
-  }
-`;
-
-const StyledCardWrapper = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  @media (max-width: 768px) {
-    width: 80%;
-  }
-`;
 
 const Center = styled.div`
   display: flex;

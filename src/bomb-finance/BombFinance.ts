@@ -21,12 +21,12 @@ import { BigNumber, Contract, ethers, EventFilter } from 'ethers';
 import { decimalToBalance, roundDecimals } from './ether-utils';
 import { TransactionResponse } from '@ethersproject/providers';
 import ERC20 from './ERC20';
-import { getFullDisplayBalance, getDisplayBalance, getBalance } from '../utils/formatBalance';
+import { getFullDisplayBalance, getDisplayBalance } from '../utils/formatBalance';
 import { getDefaultProvider } from '../utils/provider';
 import IUniswapV2PairABI from './IUniswapV2Pair.abi.json';
 import config, { bankDefinitions, extinctionPoolDefinitions } from '../config';
 import moment from 'moment';
-import { commify, formatEther, parseUnits } from 'ethers/lib/utils';
+import { formatEther, parseUnits } from 'ethers/lib/utils';
 import { BNB_TICKER, SPOOKY_ROUTER_ADDR, BOMB_TICKER } from '../utils/constants';
 
 const ONE_SECOND = 1000;
@@ -368,8 +368,13 @@ export class BombFinance {
         Number(stat.priceInDollars) *
         Number(getDisplayBalance(rewardTokensPerBlock.mul(SECONDS_IN_YEAR / BSC_BLOCK_TIME_SECONDS)));
 
-      const totalStakingTokenInPool =
+      let totalStakingTokenInPool =
         Number(depositTokenPrice) * Number(getDisplayBalance(stakeInPool, depositToken.decimal));
+
+      if (totalStakingTokenInPool === 0) {
+        totalStakingTokenInPool = 1;
+      }
+
       const yearlyAPR = (totalRewardPricePerYear / totalStakingTokenInPool) * 100;
       const dailyAPR = roundDecimals(yearlyAPR / 365, 2);
 
@@ -435,6 +440,8 @@ export class BombFinance {
       return rewardPerSecond.mul(allocPoint).div(59500);
     } else if (depositTokenName === 'AMES') {
       return rewardPerSecond.mul(allocPoint).div(59500);
+    } else if (depositTokenName === 'rASHARE') {
+      return rewardPerSecond.mul(allocPoint).div(59500);
     } else {
       return rewardPerSecond.mul(0).div(59500);
     }
@@ -492,7 +499,7 @@ export class BombFinance {
         tokenPrice = await this.getLPTokenPrice(token, this.BOMB, true);
       } else if (tokenName === 'BSHARE') {
         tokenPrice = await (await this.getShareStat())?.priceInDollars;
-      } else if (tokenName === 'ASHARE') {
+      } else if (tokenName === 'ASHARE' || tokenName === 'rASHARE') {
         tokenPrice = await (await this.getShareStat())?.priceInDollars;
       } else {
         tokenPrice = await this.getTokenPriceFromPancakeswap(token);

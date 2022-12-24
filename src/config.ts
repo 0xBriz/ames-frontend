@@ -34,6 +34,7 @@ const configurations: { [env: string]: Configuration } = {
       '1QUARTZ-UST-LP': ['0x5553386c5a11788b00c353507b2ac8a93ad8f8b1', 18], // This is QSHARE-UST
       '1QSHARE-UST-LP': ['0x61503f74189074e8e793cc0827eae37798c2b8f7', 18], // This is QSHARE-UST
       AALTO: ['0xce18fbbad490d4ff9a9475235cfc519513cfb19a', 18],
+      rASHARE: ['0xb2936bCc74A267B0C249c236d55e1D516D316E46', 18],
     },
     baseLaunchDate: new Date('2021-11-20 1:00:00Z'),
     bondLaunchesAt: new Date('2020-12-03T15:00:00Z'),
@@ -71,6 +72,7 @@ const configurations: { [env: string]: Configuration } = {
       '1QUARTZ-UST-LP': ['0x5553386c5a11788b00c353507b2ac8a93ad8f8b1', 18], // This is QSHARE-UST
       '1QSHARE-UST-LP': ['0x61503f74189074e8e793cc0827eae37798c2b8f7', 18], // This is QSHARE-UST
       AALTO: ['0xce18fbbad490d4ff9a9475235cfc519513cfb19a', 18],
+      rASHARE: ['0xb2936bCc74A267B0C249c236d55e1D516D316E46', 18],
     },
     baseLaunchDate: new Date('2021-11-20 1:00:00Z'),
     bondLaunchesAt: new Date('2020-12-03T15:00:00Z'),
@@ -176,6 +178,17 @@ export const bankDefinitions: { [contractName: string]: BankInfo } = {
     sort: 2,
     closedForStaking: false,
   },
+  rAshareRewardPool: {
+    name: 'Earn ASHARE by rASHARE',
+    poolId: 12,
+    sectionInUI: 2,
+    contract: 'rAshareRewardPool',
+    depositTokenName: 'rASHARE',
+    earnTokenName: 'ASHARE',
+    finished: false,
+    sort: 1,
+    closedForStaking: false,
+  },
   AmesNode: {
     name: 'Generate Ames with Nodes',
     poolId: 0,
@@ -208,4 +221,4 @@ export const extinctionPoolDefinitions: { [contractName: string]: ExtinctionPool
   },
 };
 
-export default configurations[process.env.NODE_ENV || 'hardhat'];
+export default configurations[process.env.NODE_ENV || 'development'];

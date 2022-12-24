@@ -15,7 +15,6 @@ const StyledModalTitle = styled.div`
   height: ${(props) => props.theme.topBarSize}px;
   justify-content: center;
   margin-top: ${(props) => -props.theme.spacing[4]}px;
-  text-transform: uppercase;
   color: black;
 `;
 

@@ -112,10 +112,19 @@ const Stake: React.FC<StakeProps> = ({ bank }) => {
     <StyledCardContentInner>
       <StyledCardHeader>
         <Value value={getDisplayBalance(stakedBalance, bank.depositToken.decimal)} />
+        {bank.depositTokenName !== 'rASHARE' && (
+          <Typography
+            style={{ textTransform: 'uppercase', color: 'black', fontSize: '14px' }}
+          >{`≈ $${earnedInDollars}`}</Typography>
+        )}
+
         <Typography
-          style={{ textTransform: 'uppercase', color: 'black', fontSize: '14px' }}
-        >{`≈ $${earnedInDollars}`}</Typography>
-        <Typography style={{ textTransform: 'uppercase', color: 'black', fontSize: '14px' }}>
+          style={{
+            textTransform: bank.depositTokenName !== 'rASHARE' ? 'uppercase' : 'none',
+            color: 'black',
+            fontSize: '14px',
+          }}
+        >
           <StyledLink
             href={
               bank.depositTokenName === '1QSHARE'

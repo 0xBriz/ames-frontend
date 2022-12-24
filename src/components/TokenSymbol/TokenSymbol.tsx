@@ -75,6 +75,7 @@ const logosBySymbol: { [title: string]: string } = {
   'BOMB-BTCB-APELP': bombFtmLpLogo,
   'AMES-BUSD-LP': ABUSD,
   'ASHARE-BUSD-LP': ASBUSD,
+  rASHARE: ashare,
 };
 
 type LogoProps = {
