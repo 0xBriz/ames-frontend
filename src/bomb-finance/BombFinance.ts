@@ -58,6 +58,8 @@ export class BombFinance {
   XBOMB: ERC20;
   AALTO: ERC20;
   BUSD: ERC20;
+  XAMES: ERC20;
+  AMES: ERC20;
 
   constructor(cfg: Configuration) {
     const { deployments, externalTokens } = cfg;
@@ -81,6 +83,8 @@ export class BombFinance {
     this.BNB = this.externalTokens['WONE'];
     this.BTC = this.externalTokens['BTCB'];
     this.UST = this.externalTokens['UST'];
+    this.XAMES = this.externalTokens['XAMES'];
+    this.AMES = this.externalTokens['AMES'];
 
     // Uniswap V2 Pair
     this.BOMBBTCB_LP = new Contract(externalTokens['AMES-UST-LP'][0], IUniswapV2PairABI, provider);
@@ -1284,6 +1288,17 @@ export class BombFinance {
   async stakeToBomb(amount: string): Promise<TransactionResponse> {
     const Xbomb = this.contracts.XQuartz;
     return await Xbomb.enter(decimalToBalance(amount));
+  }
+
+  async swapToXAmes(amount: string): Promise<TransactionResponse> {
+    const swapper = this.contracts.xAmesSwapper;
+    return await swapper.exchange(decimalToBalance(amount));
+  }
+
+  async getSwapperNextPrice(): Promise<BigNumber> {
+    const swapper = this.contracts.xAmesSwapper;
+    const nextPrice = await swapper.nextPrice();
+    return nextPrice;
   }
 
   /****** nodes */

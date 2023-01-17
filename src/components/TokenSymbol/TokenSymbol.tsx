@@ -34,6 +34,7 @@ const logosBySymbol: { [title: string]: string } = {
   GNODE: ames,
   QUARTZ: bombLogo,
   AMES: ames,
+  XAMES: ames,
   AMETHYST: ames,
   XQUARTZ: xquartzLogo,
   XBOMB: bombLogo,

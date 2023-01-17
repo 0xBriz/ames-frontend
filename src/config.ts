@@ -17,6 +17,7 @@ const configurations: { [env: string]: Configuration } = {
       UST: ['0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56', 18], // This is actually UST on mainnet not fusdt
       QUARTZ: ['0x7ebc713a888cea488c20bb9ac1999ee758e21ff0', 18], // This is actually UST on mainnet not fusdt
       AMES: ['0xb9E05B4C168B56F73940980aE6EF366354357009', 18], // This is actually UST on mainnet not fusdt
+      XAMES: ['0x7a5c2c519a8e0f384692280fd4cff02261557f76',18],
       ASHARE: ['0xFa4b16b0f63F5A6D0651592620D585D308F749A4', 18], // This is actually UST on mainnet not fusdt
       QSHARE: ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt
       '1QSHARE': ['0x36d53ed6380313f3823eed2f44dddb6d1d52f656', 18], // This is actually UST on mainnet not fusdt

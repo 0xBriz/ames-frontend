@@ -24,6 +24,7 @@ const Bond = lazy(() => import('./views/Bond'));
 const Docs = lazy(() => import('./views/Docs'));
 const Strategy = lazy(() => import('./views/Strategy'));
 const Stake = lazy(() => import('./views/Stake'));
+const Polisher = lazy(() => import('./views/Polisher'));
 const Nodes = lazy(() => import('./views/Nodes'));
 const ShareSwapper = lazy(() => import('./views/ShareSwapper'));
 const Compensation = lazy(() => import('./views/Compensation'));
@@ -92,9 +93,12 @@ const App: React.FC = () => {
             <Route path="/migrator">
               <Migrator />
             </Route>
-            {/* <Route path="/quarry">
+            <Route path="/quarry">
               <Stake />
-            </Route> */}
+            </Route>
+            <Route path="/Polisher">
+              <Polisher />
+            </Route>
             <Route path="*">
               <NoMatch />
             </Route>
