@@ -3,6 +3,7 @@ import React from 'react';
 //Graveyard ecosystem logos
 import bombLogo from '../../assets/img/quartz2.svg';
 import ames from '../../assets/img/ames.svg';
+import xames from '../../assets/img/xames.svg';
 import ashare from '../../assets/img/ashare.svg';
 import abond from '../../assets/img/abond.svg';
 import xquartzLogo from '../../assets/img/xquartz-token-1600-round.png';
@@ -34,7 +35,7 @@ const logosBySymbol: { [title: string]: string } = {
   GNODE: ames,
   QUARTZ: bombLogo,
   AMES: ames,
-  XAMES: ames,
+  XAMES: xames,
   AMETHYST: ames,
   XQUARTZ: xquartzLogo,
   XBOMB: bombLogo,

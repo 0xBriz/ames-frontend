@@ -35,7 +35,7 @@ const Polisher = () => {
                   variant="h3"
                   gutterBottom
                 >
-                  Stake Ames, get xAmes
+                  Polish AMES into xAMES
                 </Typography>
                 <Typography
                   style={{ textTransform: 'none', fontSize: '24px', maxWidth: '900px' }}
