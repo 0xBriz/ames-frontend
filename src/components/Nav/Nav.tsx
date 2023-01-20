@@ -12,6 +12,10 @@ import {
   List,
   ListItem,
   Divider,
+  InputLabel,
+  Select,
+  FormControl,
+  MenuItem
 } from '@material-ui/core';
 
 import ListItemLink from '../ListItemLink';
@@ -129,24 +133,7 @@ const Nav = () => {
               <Link color="textPrimary" to="/campaign" className={'navLink ' + classes.link}>
                 Peg Campaign
               </Link>
-              <Link color="textPrimary" to="/bond" className={'navLink ' + classes.link}>
-                Bond
-              </Link>
-              <Link color="textPrimary" to="/strategy" className={'navLink ' + classes.link}>
-                Strategy
-              </Link>
-              <Link color="textPrimary" to="/addresses" className={'navLink ' + classes.link}>
-                Addresses
-              </Link>
-              <a
-                color="textPrimary"
-                href="https://aalto-defi.notion.site/Ames-defi-Docs-7b7320e304c3475786487c60ca31d4d9"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={'navLink ' + classes.link}
-              >
-                Docs
-              </a>
+              
               <a
                 color="textPrimary"
                 href="https://ames-defi.tools/vaults"
@@ -159,12 +146,32 @@ const Nav = () => {
               {/* <Link color="textPrimary" to="/migrator" className={'navLink ' + classes.link}>
                 Migrator
                </Link> */}
-               
-              </Link>
+              
               <Link color="textPrimary" to="/polisher" className={'navLink ' + classes.link}>
                 Polisher 
               </Link>
-              
+              <FormControl variant="filled" style={{marginLeft:'15px'}}>
+              <InputLabel style={{color:'#000',height:'20px',margin:0, padding:0, transform:"translate(5px,2px)"}} id="demo-simple-select-autowidth-label1">More</InputLabel>
+              <Select
+                labelId="demo-simple-select-autowidth-label1"
+                disableUnderline={true}
+                label="More"
+                style={{background:'rgba(0,0,0,0)',height:'20px',width:'70px',margin:0, padding:0}}
+              >
+                <MenuItem><Link color="textPrimary" to="/bond" className={'navLink ' + classes.link}>Bond</Link></MenuItem>
+                <MenuItem><Link color="textPrimary" to="/strategy" className={'navLink ' + classes.link}>Strategy</Link></MenuItem>
+                <MenuItem><Link color="textPrimary" to="/addresses" className={'navLink ' + classes.link}>Addresses</Link></MenuItem>
+                <MenuItem><a
+                  color="textPrimary"
+                  href="https://aalto-defi.notion.site/Ames-defi-Docs-7b7320e304c3475786487c60ca31d4d9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={'navLink ' + classes.link}
+                >
+                  Docs
+                </a></MenuItem>
+              </Select>
+              </FormControl>
               {/* <Link color="textPrimary" to="/share-swap" className={'navLink ' + classes.link}>
                 Get Aalto
               </Link> */}
@@ -244,6 +251,7 @@ const Nav = () => {
                 <ListItemLink primary="Bond" to="/bond" />
                 <ListItemLink primary="Strategy" to="/strategy" />
                 <ListItemLink primary="Addresses" to="/addresses" />
+                <ListItemLink primary="Polisher" to="/polisher" />
                 <li>
                   <ListItem button>
                     <a

@@ -92,7 +92,7 @@ const App: React.FC = () => {
             </Route>
             {/* <Route path="/migrator">
               <Migrator />
-            </Route>
+            </Route>*/}
             <Route path="/quarry">
               <Stake />
             </Route>
