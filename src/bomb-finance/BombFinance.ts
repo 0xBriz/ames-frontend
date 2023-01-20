@@ -1028,7 +1028,12 @@ export class BombFinance {
       } else if (assetName === 'ABOND') {
         asset = this.BBOND;
         assetUrl = 'https://raw.githubusercontent.com/ames-defi/brand-assets/main/token/abond-token-1600-round.png';
+      } else if (assetName === 'xAMES') {
+        asset = this.XAMES;
+        assetUrl =
+          'https://github.com/vertekfi/token-list/blob/d56200c260552ddb1acab4599c034a791a89fb31/images/xames-token-1600-round.png';
       }
+
       await ethereum.request({
         method: 'wallet_watchAsset',
         params: {

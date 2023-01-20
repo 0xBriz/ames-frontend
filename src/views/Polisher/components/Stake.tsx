@@ -32,23 +32,20 @@ import useTokenBalance from '../../../hooks/useTokenBalance';
 
 const Stake: React.FC = () => {
   const bombFinance = useBombFinance();
-  const [approveStatus, approve] = useApprove(bombFinance.AMES, bombFinance.contracts["xAmesSwapper"].address);
+  const [approveStatus, approve] = useApprove(bombFinance.AMES, bombFinance.contracts['xAmesSwapper'].address);
 
   const nextPrice = useSwapperNextPrice();
   const ratio = useMemo(
-    () =>
-      nextPrice
-        ? nextPrice.eq(BigNumber.from(0))?"1.00": nextPrice.toString()
-        : "--",
+    () => (nextPrice ? (nextPrice.eq(BigNumber.from(0)) ? '1.00' : nextPrice.toString()) : '--'),
     [nextPrice],
   );
   const amesBal = useTokenBalance(bombFinance.AMES);
 
-  const xbombBalance = 300000
+  const xbombBalance = 300000;
   const xbombRate = 658;
   const stakedTokenPriceInDollars = Number(useStakedTokenPriceInDollars('BOMB', bombFinance.BOMB)) * xbombRate;
 
-  const tokenPriceInDollars = BigNumber.from("270");
+  const tokenPriceInDollars = BigNumber.from('270');
 
   const { onStake } = useSwapToXAmes();
 
@@ -76,7 +73,7 @@ const Stake: React.FC = () => {
               </CardIcon>
               <Button
                 onClick={() => {
-                  bombFinance.watchAssetInMetamask('xAmes');
+                  bombFinance.watchAssetInMetamask('xAMES');
                 }}
                 style={{ position: 'absolute', top: '10px', right: '10px' }}
               >
