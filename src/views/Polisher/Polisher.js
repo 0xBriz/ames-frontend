@@ -7,9 +7,12 @@ import { Box, Card, CardContent, Typography, Grid } from '@material-ui/core';
 import { roundAndFormatNumber } from '../../0x';
 import UnlockWallet from '../../components/UnlockWallet';
 import Page from '../../components/Page';
+import Value from '../../components/Value';
 import useXbombBalance from '../../hooks/useXbombBalance';
 import useXbombAPR from '../../hooks/useXbombAPR';
 import useStakedTotalBombBalance from '../../hooks/useTotalStakedBombBalance';
+import useSwapperSoldAmount from '../../hooks/useSwapperSoldAmount';
+import { getDisplayBalance } from '../../utils/formatBalance';
 import { Helmet } from 'react-helmet'
 
 const TITLE = 'ames.defi | Ames - xAmes'
@@ -17,6 +20,7 @@ const TITLE = 'ames.defi | Ames - xAmes'
 const Polisher = () => {
   const { path } = useRouteMatch();
   const { account } = useWallet();
+  const totalMint = useSwapperSoldAmount();
 
   return (
     <Switch>
@@ -46,6 +50,19 @@ const Polisher = () => {
                 >
                   xAmes is only minted when Ames is deposited into the contract.  
                 </Typography>
+                <div style={{display:'flex'}}>
+                  <Typography 
+                    style={{ textTransform: 'none', fontSize: '28px', maxWidth: '900px', margin: 'auto' }}
+                    color="textPrimary"
+                    align="center"
+                    variant="h3"
+                    gutterBottom
+                  >
+                      Total xAMES minted: 
+                  </Typography>
+                  {' '}
+                  <Value value={getDisplayBalance(totalMint)} />
+                </div>
               </Box>
             </Route>
             <Box mb={6}>

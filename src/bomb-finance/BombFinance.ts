@@ -1305,6 +1305,11 @@ export class BombFinance {
     const nextPrice = await swapper.nextPrice();
     return nextPrice;
   }
+  async getSwapperSoldAmount(): Promise<BigNumber> {
+    const swapper = this.contracts.xAmesSwapper;
+    const nextPrice = await swapper.soldAmount();
+    return nextPrice;
+  }
 
   /****** nodes */
   async compound(poolName: ContractName, poolId: Number, sectionInUI: Number): Promise<TransactionResponse> {

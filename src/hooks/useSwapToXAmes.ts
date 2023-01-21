@@ -8,7 +8,7 @@ const useSwapToXAmes = () => {
 
   const handleStake = useCallback(
     (amount: string) => {
-      handleTransactionReceipt(bombFinance.swapToXAmes(amount), `Stake ${amount} Ames for xAmes`);
+      handleTransactionReceipt(bombFinance.swapToXAmes(amount), `Polished ${amount} Ames for xAmes`);
     },
     [bombFinance, handleTransactionReceipt],
   );
