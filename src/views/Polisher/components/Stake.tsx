@@ -38,17 +38,11 @@ const Stake: React.FC = () => {
   const ratio = useMemo(
     () =>
       nextPrice
-        ? nextPrice.eq(BigNumber.from(0))?"1.00": nextPrice.toString()
-        : "--",
+        ? nextPrice.eq(BigNumber.from(0))?"1:1": (Number(nextPrice)/100).toFixed(2)+":1"
+        : "--:--",
     [nextPrice],
   );
   const amesBal = useTokenBalance(bombFinance.AMES);
-
-  const xbombBalance = 300000
-  const xbombRate = 658;
-  const stakedTokenPriceInDollars = Number(useStakedTokenPriceInDollars('BOMB', bombFinance.BOMB)) * xbombRate;
-
-  const tokenPriceInDollars = BigNumber.from("270");
 
   const { onStake } = useSwapToXAmes();
 
