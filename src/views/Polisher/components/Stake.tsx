@@ -32,7 +32,7 @@ import useTokenBalance from '../../../hooks/useTokenBalance';
 
 const Stake: React.FC = () => {
   const bombFinance = useBombFinance();
-  const [approveStatus, approve] = useApprove(bombFinance.AMES, bombFinance.contracts["xAmesSwapper"].address);
+  const [approveStatus, approve] = useApprove(bombFinance.AMES, bombFinance.contracts['xAmesSwapper'].address);
 
   const nextPrice = useSwapperNextPrice();
   const ratio = useMemo(
@@ -70,7 +70,7 @@ const Stake: React.FC = () => {
               </CardIcon>
               <Button
                 onClick={() => {
-                  bombFinance.watchAssetInMetamask('xAmes');
+                  bombFinance.watchAssetInMetamask('xAMES');
                 }}
                 style={{ position: 'absolute', top: '10px', right: '10px' }}
               >
