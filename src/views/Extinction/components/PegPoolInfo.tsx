@@ -77,7 +77,7 @@ const PegPoolInfo: React.FC<{
                   <Typography align="right"> {pegPool.userInfo?.amountDeposited}</Typography>
                 </Grid>
               </Grid>
-              <Grid container justifyContent="center" alignItems="center" style={{ marginTop: '20px' }}>
+              {/* <Grid container justifyContent="center" alignItems="center" style={{ marginTop: '20px' }}>
                 {approveStatus != ApprovalState.APPROVED ? (
                   <Button
                     className="shinyButtonSecondary"
@@ -97,13 +97,13 @@ const PegPoolInfo: React.FC<{
                     {pegPool.depositsEnabled ? 'Deposit' : 'Above Peg'}
                   </Button>
                 )}
-              </Grid>
+              </Grid> */}
 
               <Grid container justifyContent="center" style={{ marginTop: '20px' }}>
-                <Typography>
+                {/* <Typography>
                   Current TWAP withdraw fee ={' '}
                   {withdrawFeePercent || withdrawFeePercent == 0 ? withdrawFeePercent : <Skeleton />}%
-                </Typography>
+                </Typography> */}
 
                 <Button
                   className={pegPool.userInfo?.isDeposited ? 'shinyButtonSecondary' : 'shinyButtonDisabled'}
@@ -113,8 +113,13 @@ const PegPoolInfo: React.FC<{
                 >
                   Withdraw
                 </Button>
-                <Typography>
-                You will receive AMES-BUSD LP tokens when you withdraw
+                <Typography
+                  style={{
+                    marginTop: 5,
+                    fontSize: '16px',
+                  }}
+                >
+                  When you withdraw you will receive 50% of your deposit in BUSD and 50% in xAMES.
                 </Typography>
               </Grid>
             </Box>
