@@ -158,7 +158,7 @@ const Bank: React.FC<BankProps> = ({ bankId }) => {
             variant="filled"
             severity="info"
           >
-            <VaultLink href="https://www.ames-defi.tools/vaults">
+            <VaultLink href="https://quartz-tools-ui.vercel.app/vaults">
               Vault only
               <OpenInNewIcon
                 style={{ fontSize: '12px', display: 'inline-block', position: 'relative', top: '-7px' }}

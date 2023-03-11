@@ -136,7 +136,7 @@ const Nav = () => {
               
               <a
                 color="textPrimary"
-                href="https://ames-defi.tools/vaults"
+                href="https://quartz-tools-ui.vercel.app/vaults"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={'navLink ' + classes.link}
@@ -268,7 +268,7 @@ const Nav = () => {
                   <ListItem button>
                     <a
                       style={{ color: 'black', textDecoration: 'none' }}
-                      href="https://ames-defi.tools/vaults"
+                      href="https://quartz-tools-ui.vercel.app/vaults"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
