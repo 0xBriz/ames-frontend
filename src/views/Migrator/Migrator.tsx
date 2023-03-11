@@ -217,7 +217,7 @@ const Migrator = () => {
                         <StepWrapper>
                           <Typography color="textPrimary" align="left" gutterBottom>
                             Go to <StyledLink to="/farm">Farms</StyledLink> or{' '}
-                            <StyledLink to={{ pathname: `https://ames-defi.tools/vaults` }} target="_blank">
+                            <StyledLink to={{ pathname: `https://quartz-tools-ui.vercel.app/vaults` }} target="_blank">
                               Vaults
                             </StyledLink>{' '}
                             and widthdraw the LPs you want to migrate.
